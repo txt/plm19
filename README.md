@@ -20,3 +20,35 @@ its all about the trees
 - or comptuation = tree rewrite (lambdas)
 - or comptuation = tree matching (logic)
        
+rules:
+- write condition and action as seperte items
+- where its are rules
+
+```
+class rule():
+  def __init__(i):
+     i.priority=1
+  def when(i, *l,**kw): return True
+  def act(i,  *l,**kw): return True
+
+class fred(rule):
+   def when(i,x):
+     for one in x:
+      if one == 1:
+        yield one
+   def act(i,y):
+      print(y)
+
+class rules:
+  def __init__(i,lst=[]):
+    i._rules=lst
+  def run(i,*l,**kw):
+    for rule in i._rules:
+      for out in rule.when(*l,**kw):
+        tmp += [(rule.priority, out,rule.act)]
+    sorted(tmp)
+    for (_,out,act) in tmp:
+      act(out,*l,**kw)
+```   
+ 
+       
