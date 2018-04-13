@@ -51,4 +51,8 @@ class rules:
       act(out,*l,**kw)
 ```   
  
+ Examples on internal DSLs
+ 
+ - web site generation
+ 
        
