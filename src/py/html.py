@@ -20,6 +20,7 @@ def dnl(tag,txt,kl=None, ) :
 # sidenav
 # top nav
 # news
+# all the following should be sub-classed
 
 def page(t,x  )      : return dnl( "html", [ head(t), 
                                              body(
