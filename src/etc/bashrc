@@ -1,0 +1,36 @@
+# /* vim: set filetype=sh : */
+
+here() { cd $1; echo "$PWD"; }
+
+Here=$(pwd)
+
+if [ -z "$me" ]; then
+  PS1=":$PS1"
+  PROMPT=":$PROMPT"
+  me=plm18
+fi
+
+ed() { # ed FILE   : Edit a file with my vim bindings.
+  vim -u $Here/src/etc/vimrc $1
+}
+
+hi() { # hi        : Update files from git.
+  git pull
+}
+
+bye() { # bye       : Push files back to git.
+  git status
+  git commit -am "update" 
+  git push
+}
+
+help() {  cat <<-EOF
+  
+	ell [OPTIONS]
+  
+	OPTIONS:
+  
+	EOF
+  grep '()' $me | grep -v help | grep -v grep | 
+  sed 's/^.*# //' 
+}
