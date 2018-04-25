@@ -19,7 +19,22 @@ its all about the trees
 - then ress trees trees trees trees (c, lex, yacc)
 - or comptuation = tree rewrite (lambdas)
 - or comptuation = tree matching (logic)
-       
+
+list of properties for my ideal language
+
+- succinct
+- declarative
+- is error seeking
+
+use the yaml1.py code. needs a safe parser for ands ors nots add in class reference. see
+
+- http://pyparsing.wikispaces.com/file/view/simpleBool.py/451074414/simpleBool.py
+- http://pyparsing.wikispaces.com/file/view/eval_arith.py/68273277/eval_arith.py
+- http://www.ptmcg.com/geo/python/confs/pyCon2006_pres2.html
+       - http://www.ptmcg.com/geo/python/confs/adventureEngine.py.txt
+       - http://www.ptmcg.com/geo/python/confs/pyparsing_adventure.pdf
+- or, to keep it simple: https://stackoverflow.com/a/24721686/4234106
+
 rules:
 - write condition and action as seperte items
 - where its are rules
