@@ -20,6 +20,8 @@ its all about the trees
 - or comptuation = tree rewrite (lambdas)
 - or comptuation = tree matching (logic)
 
+create a class called compiled with thhe filled in string as an inst var and a __call__ method that runs the passed in lambda. so swe can acces sthe string and do lint checks if we want
+
 list of properties for my ideal language
 
 - succinct
