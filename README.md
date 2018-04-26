@@ -35,6 +35,13 @@ use the yaml1.py code. needs a safe parser for ands ors nots add in class refere
        - http://www.ptmcg.com/geo/python/confs/pyparsing_adventure.pdf
 - or, to keep it simple: https://stackoverflow.com/a/24721686/4234106
 
+or use yaml indents to denote and/ors/nots. and have an "include" command to grab yaml from other files.
+
+- a key concent here will be the payload you carry around
+- good place to introduce environments. and local subevironments you can enter, then exit and forget
+- block structure variable scpre
+
+
 rules:
 - write condition and action as seperte items
 - where its are rules
