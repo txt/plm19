@@ -19,7 +19,32 @@ its all about the trees
 - then ress trees trees trees trees (c, lex, yacc)
 - or comptuation = tree rewrite (lambdas)
 - or comptuation = tree matching (logic)
-       
+
+create a class called compiled with thhe filled in string as an inst var and a __call__ method that runs the passed in lambda. so swe can acces sthe string and do lint checks if we want
+
+list of properties for my ideal language
+
+- succinct
+- declarative
+- is error seeking
+
+use the yaml1.py code. needs a safe parser for ands ors nots add in class reference. see
+
+- http://pyparsing.wikispaces.com/file/view/simpleBool.py/451074414/simpleBool.py
+- http://pyparsing.wikispaces.com/file/view/eval_arith.py/68273277/eval_arith.py
+- http://www.ptmcg.com/geo/python/confs/pyCon2006_pres2.html
+       - http://www.ptmcg.com/geo/python/confs/adventureEngine.py.txt
+       - http://www.ptmcg.com/geo/python/confs/pyparsing_adventure.pdf
+- or, to keep it simple: https://stackoverflow.com/a/24721686/4234106
+
+or use yaml indents to denote and/ors/nots. and have an "include" command to grab yaml from other files.
+add a stripper to get rid of bad characters
+
+- a key concent here will be the payload you carry around
+- good place to introduce environments. and local subevironments you can enter, then exit and forget
+- block structure variable scpre
+
+
 rules:
 - write condition and action as seperte items
 - where its are rules
