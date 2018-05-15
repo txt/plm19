@@ -9,6 +9,11 @@ proj
      - use other abstractions (and there are many)
      - use better. succinct shorthands. checks at load time
 
+intro abstarction:
+
+- the "o" object
+- then go to frames, slots, ifneeded if changed etc
+
 todo
 
 - week1: python exercises rom data ming from sctach
