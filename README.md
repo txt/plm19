@@ -13,6 +13,7 @@ intro abstarction:
 
 - the "o" object
 - then go to frames, slots, ifneeded if changed etc
+- polymorphism eg (sandbox/py/cocomo)
 
 todo
 
