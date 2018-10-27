@@ -1,5 +1,20 @@
 # plm19
 
+proj
+
+1. OO abstractions 
+     - use (inheritance, polymorphsim, design patterns)
+     - use better. succinct shorthands. checks at load time
+2. other abstractions
+     - use other abstractions (and there are many)
+     - use better. succinct shorthands. checks at load time
+
+intro abstarction:
+
+- the "o" object
+- then go to frames, slots, ifneeded if changed etc
+- polymorphism eg (sandbox/py/cocomo)
+
 todo
 
 - week1: python exercises rom data ming from sctach
