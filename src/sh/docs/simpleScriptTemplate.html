@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>simpleScriptTemplate.sh</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>simpleScriptTemplate.sh</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h6></h6>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span>              <span class="c1"># Sets version variable</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>HISTORY:</p>
+<ul>
+<li>DATE - v1.0.0  - First Creation</li>
+</ul>
+<h6></h6>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function</span> mainScript<span class="o">()</span> <span class="o">{</span>
+ <span class="nb">echo</span> -n
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <h2>SOMETHING</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>something else
+asdaddsa</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function</span> trapCleanup<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&quot;&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Delete temp files, if any</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;</span><span class="si">${</span><span class="nv">tmpDir</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    rm -r <span class="s2">&quot;</span><span class="si">${</span><span class="nv">tmpDir</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">fi</span>
+  die <span class="s2">&quot;Exit trapped. In function: &#39;</span><span class="si">${</span><span class="nv">FUNCNAME</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&#39;&quot;</span>
+<span class="o">}</span>
+
+<span class="k">function</span> safeExit<span class="o">()</span> <span class="o">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Delete temp files, if any</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;</span><span class="si">${</span><span class="nv">tmpDir</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+    rm -r <span class="s2">&quot;</span><span class="si">${</span><span class="nv">tmpDir</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">fi</span>
+  <span class="nb">trap</span> - INT TERM EXIT
+  <span class="nb">exit</span>
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <h2>Set Base Variables</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">scriptName</span><span class="o">=</span><span class="k">$(</span>basename <span class="s2">&quot;</span><span class="nv">$0</span><span class="s2">&quot;</span><span class="k">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Set Flags</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">quiet</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">printLog</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">verbose</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">force</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">strict</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">debug</span><span class="o">=</span><span class="nb">false</span>
+<span class="nv">args</span><span class="o">=()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Set Colors</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">bold</span><span class="o">=</span><span class="k">$(</span>tput bold<span class="k">)</span>
+<span class="nv">reset</span><span class="o">=</span><span class="k">$(</span>tput sgr0<span class="k">)</span>
+<span class="nv">purple</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">171</span><span class="k">)</span>
+<span class="nv">red</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">1</span><span class="k">)</span>
+<span class="nv">green</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">76</span><span class="k">)</span>
+<span class="nv">tan</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">3</span><span class="k">)</span>
+<span class="nv">blue</span><span class="o">=</span><span class="k">$(</span>tput setaf <span class="m">38</span><span class="k">)</span>
+<span class="nv">underline</span><span class="o">=</span><span class="k">$(</span>tput sgr <span class="m">0</span> <span class="m">1</span><span class="k">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Set Temp Directory</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">tmpDir</span><span class="o">=</span><span class="s2">&quot;/tmp/</span><span class="si">${</span><span class="nv">scriptName</span><span class="si">}</span><span class="s2">.</span><span class="nv">$RANDOM</span><span class="s2">.</span><span class="nv">$RANDOM</span><span class="s2">.</span><span class="nv">$RANDOM</span><span class="s2">.</span><span class="nv">$$</span><span class="s2">&quot;</span>
+<span class="o">(</span><span class="nb">umask</span> <span class="m">077</span> <span class="o">&amp;&amp;</span> mkdir <span class="s2">&quot;</span><span class="si">${</span><span class="nv">tmpDir</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">)</span> <span class="o">||</span> <span class="o">{</span>
+  die <span class="s2">&quot;Could not create temporary directory! Exiting.&quot;</span>
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <h2>Logging</h2>
+<p>Log is only used when the '-l' flag is set.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">logFile</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/Logs/</span><span class="si">${</span><span class="nv">scriptBasename</span><span class="si">}</span><span class="s2">.log&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <h2>Options and Usage</h2>
+<hr />
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>usage<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="si">${</span><span class="nv">scriptName</span><span class="si">}</span><span class="s2"> [OPTION]... [FILE]...</span>
+
+<span class="s2">This is a script template.  Edit this description to print help to users.</span>
+
+<span class="s2"> </span><span class="si">${</span><span class="nv">bold</span><span class="si">}</span><span class="s2">Options:</span><span class="si">${</span><span class="nv">reset</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">  -u, --username    Username for script</span>
+<span class="s2">  -p, --password    User password</span>
+<span class="s2">  --force           Skip all user interaction.  Implied &#39;Yes&#39; to all actions.</span>
+<span class="s2">  -q, --quiet       Quiet (no output)</span>
+<span class="s2">  -l, --log         Print log to file</span>
+<span class="s2">  -s, --strict      Exit script with null variables.  i.e &#39;set -o nounset&#39;</span>
+<span class="s2">  -v, --verbose     Output more information. (Items echoed to &#39;verbose&#39;)</span>
+<span class="s2">  -d, --debug       Runs script in BASH debug mode (set -x)</span>
+<span class="s2">  -h, --help        Display this help and exit</span>
+<span class="s2">      --version     Output version information and exit</span>
+<span class="s2">&quot;</span>
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Iterate over options breaking -ab into -a -b when needed and --foo=bar into
+--foo bar</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">optstring</span><span class="o">=</span>h
+<span class="nb">unset</span> options
+<span class="k">while</span> <span class="o">((</span><span class="nv">$#</span><span class="o">))</span><span class="p">;</span> <span class="k">do</span>
+  <span class="k">case</span> <span class="nv">$1</span> in</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>If option is of type -ab</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    -<span class="o">[</span>!-<span class="o">]</span>?*<span class="o">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>Loop over each character starting with the second</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>      <span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">1</span><span class="p">;</span> i &lt; <span class="si">${#</span><span class="nv">1</span><span class="si">}</span><span class="p">;</span> i++<span class="o">))</span><span class="p">;</span> <span class="k">do</span>
+        <span class="nv">c</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">i</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>Add current char to options</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="nv">options</span><span class="o">+=(</span><span class="s2">&quot;-</span><span class="nv">$c</span><span class="s2">&quot;</span><span class="o">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>If option takes a required argument, and it's not the last char make
+the rest of the string its argument</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="o">[[</span> <span class="nv">$optstring</span> <span class="o">=</span> *<span class="s2">&quot;</span><span class="nv">$c</span><span class="s2">:&quot;</span>* <span class="o">&amp;&amp;</span> <span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">i</span><span class="p">+1</span><span class="si">}</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+          <span class="nv">options</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">:</span><span class="nv">i</span><span class="p">+1</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">)</span>
+          <span class="nb">break</span>
+        <span class="k">fi</span>
+      <span class="k">done</span>
+      <span class="p">;;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>If option is of type --foo=bar</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    --?*<span class="o">=</span>*<span class="o">)</span> <span class="nv">options</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">%%=*</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="p">#*=</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">)</span> <span class="p">;;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <p>add --endopts for --</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    --<span class="o">)</span> <span class="nv">options</span><span class="o">+=(</span>--endopts<span class="o">)</span> <span class="p">;;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>Otherwise, nothing special</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    *<span class="o">)</span> <span class="nv">options</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="o">)</span> <span class="p">;;</span>
+  <span class="k">esac</span>
+  <span class="nb">shift</span>
+<span class="k">done</span>
+<span class="nb">set</span> -- <span class="s2">&quot;</span><span class="si">${</span><span class="nv">options</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nb">unset</span> options</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      <p>Print help if no arguments were passed.
+Uncomment to force arguments when invoking the script</p>
+<hr />
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="o">[[</span> <span class="nv">$#</span> -eq <span class="m">0</span> <span class="o">]]</span> <span class="o">&amp;&amp;</span> <span class="nb">set</span> -- <span class="s2">&quot;--help&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      <p>Read the options and set stuff</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">while</span> <span class="o">[[</span> <span class="nv">$1</span> <span class="o">=</span> -?* <span class="o">]]</span><span class="p">;</span> <span class="k">do</span>
+  <span class="k">case</span> <span class="nv">$1</span> in
+    -h<span class="p">|</span>--help<span class="o">)</span> usage &gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span> safeExit <span class="p">;;</span>
+    --version<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;</span><span class="k">$(</span>basename <span class="nv">$0</span><span class="k">)</span><span class="s2"> </span><span class="si">${</span><span class="nv">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> safeExit <span class="p">;;</span>
+    -u<span class="p">|</span>--username<span class="o">)</span> shift<span class="p">;</span> <span class="nv">username</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span> <span class="p">;;</span>
+    -p<span class="p">|</span>--password<span class="o">)</span> shift<span class="p">;</span> <span class="nb">echo</span> <span class="s2">&quot;Enter Pass: &quot;</span><span class="p">;</span> stty -echo<span class="p">;</span> <span class="nb">read</span> PASS<span class="p">;</span> stty echo<span class="p">;</span>
+      <span class="nb">echo</span> <span class="p">;;</span>
+    -v<span class="p">|</span>--verbose<span class="o">)</span> <span class="nv">verbose</span><span class="o">=</span><span class="nb">true</span> <span class="p">;;</span>
+    -l<span class="p">|</span>--log<span class="o">)</span> <span class="nv">printLog</span><span class="o">=</span><span class="nb">true</span> <span class="p">;;</span>
+    -q<span class="p">|</span>--quiet<span class="o">)</span> <span class="nv">quiet</span><span class="o">=</span><span class="nb">true</span> <span class="p">;;</span>
+    -s<span class="p">|</span>--strict<span class="o">)</span> <span class="nv">strict</span><span class="o">=</span>true<span class="p">;;</span>
+    -d<span class="p">|</span>--debug<span class="o">)</span> <span class="nv">debug</span><span class="o">=</span>true<span class="p">;;</span>
+    --force<span class="o">)</span> <span class="nv">force</span><span class="o">=</span><span class="nb">true</span> <span class="p">;;</span>
+    --endopts<span class="o">)</span> shift<span class="p">;</span> <span class="nb">break</span> <span class="p">;;</span>
+    *<span class="o">)</span> die <span class="s2">&quot;invalid option: &#39;</span><span class="nv">$1</span><span class="s2">&#39;.&quot;</span> <span class="p">;;</span>
+  <span class="k">esac</span>
+  <span class="nb">shift</span>
+<span class="k">done</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>Store the remaining part as arguments.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">args</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="o">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <h2>Logging &amp; Feedback</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function</span> _alert<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;error&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">bold</span><span class="si">}${</span><span class="nv">red</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;warning&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">red</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;success&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">green</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;debug&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">purple</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;header&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">bold</span><span class="si">}${</span><span class="nv">tan</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">bold</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span>
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;info&quot;</span> <span class="o">]</span> <span class="o">||</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;notice&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nb">local</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="k">fi</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>Don't use colors on pipes or non-recognized terminals</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TERM</span><span class="si">}</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;xterm&quot;</span>* <span class="o">]]</span> <span class="o">||</span> <span class="o">[</span> -t <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="nv">reset</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="k">fi</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-26'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-26'>#</a>
+      </div>
+      <p>Print to console when script is not 'quiet'</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  <span class="k">if</span> <span class="si">${</span><span class="nv">quiet</span><span class="si">}</span><span class="p">;</span> <span class="k">then</span> <span class="k">return</span><span class="p">;</span> <span class="k">else</span>
+   <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>date +<span class="s2">&quot;%r&quot;</span><span class="k">)</span><span class="s2"> </span><span class="si">${</span><span class="nv">color</span><span class="si">}</span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;[%7s]&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> </span><span class="si">${</span><span class="nv">_message</span><span class="si">}${</span><span class="nv">reset</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="k">fi</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-27'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-27'>#</a>
+      </div>
+      <p>Print to Logfile</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  <span class="k">if</span> <span class="si">${</span><span class="nv">printLog</span><span class="si">}</span> <span class="o">&amp;&amp;</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;input&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="nv">reset</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="c1"># Don&#39;t use colors in logs</span>
+    <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>date +<span class="s2">&quot;%m-%d-%Y %r&quot;</span><span class="k">)</span><span class="s2"> </span><span class="k">$(</span><span class="nb">printf</span> <span class="s2">&quot;[%7s]&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> </span><span class="si">${</span><span class="nv">_message</span><span class="si">}</span><span class="s2">&quot;</span> &gt;&gt; <span class="s2">&quot;</span><span class="si">${</span><span class="nv">logFile</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="k">function</span> die <span class="o">()</span>       <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2"> Exiting.&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert error<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> safeExit<span class="p">;</span><span class="o">}</span>
+<span class="k">function</span> error <span class="o">()</span>     <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert error<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> warning <span class="o">()</span>   <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert warning<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> notice <span class="o">()</span>    <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert notice<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> info <span class="o">()</span>      <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert info<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> debug <span class="o">()</span>     <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert debug<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> success <span class="o">()</span>   <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert success<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> input<span class="o">()</span>      <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="k">$(</span>_alert input<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> header<span class="o">()</span>     <span class="o">{</span> <span class="nb">local</span> <span class="nv">_message</span><span class="o">=</span><span class="s2">&quot;== </span><span class="si">${</span><span class="p">*</span><span class="si">}</span><span class="s2"> ==  &quot;</span><span class="p">;</span> <span class="nb">echo</span> -e <span class="s2">&quot;</span><span class="k">$(</span>_alert header<span class="k">)</span><span class="s2">&quot;</span><span class="p">;</span> <span class="o">}</span>
+<span class="k">function</span> verbose<span class="o">()</span>    <span class="o">{</span> <span class="k">if</span> <span class="si">${</span><span class="nv">verbose</span><span class="si">}</span><span class="p">;</span> <span class="k">then</span> debug <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">fi</span> <span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-28'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-28'>#</a>
+      </div>
+      <h2>SEEKING CONFIRMATION</h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">function</span> seek_confirmation<span class="o">()</span> <span class="o">{</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-29'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-29'>#</a>
+      </div>
+      <p>echo ""</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>  input <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+  <span class="k">if</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">then</span>
+    notice <span class="s2">&quot;Forcing confirmation with &#39;--force&#39; flag set&quot;</span>
+  <span class="k">else</span>
+    <span class="nb">read</span> -p <span class="s2">&quot; (y/n) &quot;</span> -n <span class="m">1</span>
+    <span class="nb">echo</span> <span class="s2">&quot;&quot;</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+<span class="k">function</span> is_confirmed<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">then</span>
+    <span class="k">return</span> <span class="m">0</span>
+  <span class="k">else</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">REPLY</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ ^<span class="o">[</span>Yy<span class="o">]</span>$ <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="k">return</span> <span class="m">0</span>
+    <span class="k">fi</span>
+    <span class="k">return</span> <span class="m">1</span>
+  <span class="k">fi</span>
+<span class="o">}</span>
+<span class="k">function</span> is_not_confirmed<span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span> <span class="k">then</span>
+    <span class="k">return</span> <span class="m">1</span>
+  <span class="k">else</span>
+    <span class="k">if</span> <span class="o">[[</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">REPLY</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">=</span>~ ^<span class="o">[</span>Nn<span class="o">]</span>$ <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+      <span class="k">return</span> <span class="m">0</span>
+    <span class="k">fi</span>
+    <span class="k">return</span> <span class="m">1</span>
+  <span class="k">fi</span>
+<span class="o">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-30'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-30'>#</a>
+      </div>
+      <p>Trap bad exits with your cleanup function</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">trap</span> trapCleanup EXIT INT TERM</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-31'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-31'>#</a>
+      </div>
+      <p>Set IFS to preferred implementation</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39; \n\t&#39;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-32'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-32'>#</a>
+      </div>
+      <p>Exit on error. Append '||true' when you run the script if you expect an error.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">set</span> -o errexit</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-33'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-33'>#</a>
+      </div>
+      <p>Run in debug mode, if set</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">if</span> <span class="si">${</span><span class="nv">debug</span><span class="si">}</span><span class="p">;</span> <span class="k">then</span> <span class="nb">set</span> -x <span class="p">;</span> <span class="k">fi</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-34'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-34'>#</a>
+      </div>
+      <p>Exit on empty variable</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">if</span> <span class="si">${</span><span class="nv">strict</span><span class="si">}</span><span class="p">;</span> <span class="k">then</span> <span class="nb">set</span> -o nounset <span class="p">;</span> <span class="k">fi</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-35'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-35'>#</a>
+      </div>
+      <p>Bash will remember &amp; return the highest exitcode in a chain of pipes.
+This way you can catch the error in case mysqldump fails in <code>mysqldump |gzip</code>, for example.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="nb">set</span> -o pipefail</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-36'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-36'>#</a>
+      </div>
+      <p>Run your script</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>mainScript</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-37'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-37'>#</a>
+      </div>
+      <p>Exit cleanly</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>safeExit
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
