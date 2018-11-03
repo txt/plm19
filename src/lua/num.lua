@@ -2,8 +2,8 @@ local num = {name="Num"}
 
 function num.init() 
   return {mu=0,m2=0,sd=0,n=0,
-          lo= math.maxinteger,
-	  hi= math.mininteger}
+          lo= 10^32,
+	  hi= -1*10^32}
 end
 
 function num:__add(x,     d)

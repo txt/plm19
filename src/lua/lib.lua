@@ -1,12 +1,13 @@
 local m={}
 
-function m.new(meta, inits,   x)
-  x = meta.init()
+function m.new(meta, inits,f,  x)
+  x = meta.init and meta.init() or {}
   setmetatable(x,meta)
   meta.__index = meta
   meta.__tostring = function(z) 
     return m.show(z, meta.name) end
-  for _,y in pairs(inits or {}) do x = x + y end 
+  f = f or function(z) return z end
+  for _,y in pairs(inits or {}) do x = x + f(y) end 
   return x
 end
 
