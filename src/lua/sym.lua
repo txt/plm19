@@ -4,7 +4,7 @@ function sym.init()
   return {n=0,most=0,most=0,_seen={}}
 end
 
-function sym:__add(x,      new)
+function sym:__add(x) 
   if x == "?" then return self end
   self.n = self.n + 1
   self._seen[x] = (self._seen[x] or 0) + 1
