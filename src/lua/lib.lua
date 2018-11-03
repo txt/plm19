@@ -1,18 +1,11 @@
 local m={}
 
-function m.same(x) return x end
-
-function m.map(t, f, u)
-  u = {}
-  f = f or m.same
-  for k,v in pairs(f) do u[k] = f(v) end
-  return u
-end
-
-function m.new(meta, x, inits)
-  x = x or {}
+function m.new(meta, inits,   x)
+  x = meta.init()
   setmetatable(x,meta)
   meta.__index = meta
+  meta.__tostring = function(z) 
+    return m.show(z, meta.name) end
   for _,y in pairs(inits or {}) do x = x + y end 
   return x
 end
@@ -31,8 +24,9 @@ function m.show(t,   pre,s,sep)
   s,sep = pre.."{",""
   for k,v in m.ordered(t) do  
     if not k:match "^_" then
-      s= s..sep..":"..k.." "..tostring(v) 
-      sep=" " end  end
+      if type(v) ~= "function" then
+        s= s..sep..":"..k.." "..tostring(v) 
+        sep=" " end  end end
   return s.."}" 
 end 
 
