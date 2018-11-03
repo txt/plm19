@@ -1,21 +1,30 @@
-local ako=require("lib").ako
-local sym={}
+local lib = require("lib")
+local sym = {}
 
 function sym.new(  inits) 
-  return ako(sym, {n=0,most=0,most=0,seen={}}, inits) end
+  return lib.new(sym, {n=0,most=0,most=0,_seen={}}, inits) 
+end
 
-function sym.__tostring(i) 
-   return tostring("Sym{".. i.n    ..", "
-                         .. i.mode ..", "
-			 .. i.most .."}") end
+function sym:__tostring() 
+   return lib.show(self,"Sym")
+end
 
-function sym.__add(i, x,      old)
-  i.n       = i.n + 1
-  i.seen[x] = (i.seen[x] or 0) + 1
-  new       = i.seen[x]
-  if new > i.most then
-    i.mode, i.most = x, new end
-  return i
+function sym:__add(x,      new)
+  self.n        = self.n + 1
+  self._seen[x] = (self._seen[x] or 0) + 1
+  new           = self._seen[x]
+  if new > self.most then
+    self.mode, self.most = x, new end
+  return self
+end
+
+function sym:ent(   e,p)
+  e = 0
+  for _,v in pairs(self._seen) do
+    p = v/self.n
+    e = e - p*math.log(p,2)
+  end
+  return e
 end
 
 return sym

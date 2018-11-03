@@ -1,16 +1,19 @@
-local ako=require("lib").ako
-local num={}
+local lib = require("lib")
+local num = {}
 
-function num.new(  inits) return ako(num, {sum=0,mu=0,n=0}, inits) end
+function num.new(  inits) 
+  return lib.new(num, {sum=0,mu=0,n=0}, inits) 
+end
 
-function num.__tostring(n) 
-   return tostring("Num{"..n.sum ..", ".. n.mu ..", ".. n.n .."}") end
+function num:__tostring() 
+  return lib.show(self,"Num") 
+end
 
-function num.__add(n, x)
-  n.sum = n.sum+x
-  n.n   = n.n + 1
-  n.mu  = n.sum/n.n
-  return n
+function num:__add(x)
+  self.sum = self.sum+x
+  self.n   = self.n + 1
+  self.mu  = self.sum/self.n
+  return self
 end
 
 return num
