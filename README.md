@@ -1,5 +1,9 @@
 # plm19
 
+nice tour of scale
+
+https://docs.scala-lang.org/tour/tour-of-scala.html
+
 proj
 
 1. OO abstractions 
