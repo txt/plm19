@@ -3,11 +3,6 @@ import random
 import sys
 import traceback
 
-r   = random.random
-isa = isinstance
-sys.dont_write_bytecode = True
-same = lambda x:x
-
 def ok(*lst):
   print("### ",lst[0].__name__)
   for one in lst: unittest(one)
@@ -32,26 +27,30 @@ class unittest:
     print(traceback.format_exc())
     print(unittest.score(),':',test.__name__)
 
+r   = random.random
+isa = isinstance
+sys.dont_write_bytecode = True
+same = lambda x:x
+
+def sorted(x,key=None):
+  x.sort(key=key)
+  return x
 class o:
   """Emulate Javascript's uber simple objects."""
   def has(i)             : return i.__dict__
-  def keys(i)            : return i.has().keys().sort(key=i._order)
   def items(i)           : return i.has().items()
-  def __init__(i,_order=same,**d)    : i._order=_order; i.has().update(d)
+  def keys(i)            : return [k for k in sorted(i.has().keys(), key=i._order)
+                                   if not k[0] == "_"]
+  def __init__(i,**d)    : i._order=same;  i.has().update(d)
   def __setitem__(i,k,v) : i.has()[k] = v
   def __getitem__(i,k)   : return i.has()[k]
-  def __repr__(i)        : return 'o{'+str(i.asList())+'}'
-  def copy(i): 
-      j = o()
-      for k in i.has(): j[k] = i[k]
-      return j
-  def asList(i):
-    return [i[k] for k in i.keys() if not k[0] =="_"]
+  def __repr__(i)        : return 'o'+str([i(k) for k in i.keys()])
 
 @ok
 def _o():
   g=o(a=20,z=10,c=100)
-  print(g.keys())
+  print(g)
+
 
 class Has:
   def __init__(i,init,lo=0,hi=100):
@@ -76,41 +75,34 @@ class Aux(Has)  :
 S,A,F = Stock,Aux,Flow
 
 class Model:
-  def __init__(i,dt=1,tmax=30):
-    i.dt, i.tmax = dt,tmax
-    i.b4,i.now = o(),o()
   def step(i):
     raise NotImplementedError('"step" must be implemented in subclass')
   def have(i):
     raise NotImplementedError('"have" must be implemented in subclass')
+  def payload(i,state,inits=None):
+    x=o()
+    x._order=lambda z:state[z].rank()
+    if inits:
+      for k,v in inits.keys(): x[k] = v
+    return x
   def state(i):
-    """To create a state vector, we create 
-    one slot for each name in 'have'."""
     tmp=i.have()
     for k,v in tmp.has().items():
       v.name = k
-    return tmp  
+    return tmp
   def run(i,dt=1,tmax=30):
     """For time up to 'tmax', increment 't' 
        by 'dt' and 'step' the model."""
-    t,b4 = 0, o()
-    keep = []    ## 1
     state = i.state()
-    for k,a in state.items(): 
-      b4[k] = a.init
-    keys  = sorted(state.keys(),  ## 3
-                   key=lambda z: state[z].rank())
-    keep = [["t"] +  keys,
-            [0] + b4.asList(keys)]
+    t,b4 = 0, i.payload(state,state.items())
     while t < tmax:
-      now = b4.copy()
+      now = i.payload(state,b4)
+      print(now)
       i.step(dt,t,b4,now)
       for k in state.keys(): 
         now[k] = state[k].restrain(now[k]) ## 4
-      keep += [[t] + now.asList(keys)] ## 2
       t += dt
       b4 = now
-    return keep
 
 class Diapers(Model):
   def have(i):
