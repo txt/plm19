@@ -1,0 +1,283 @@
+#!/usr/bin/env bash
+
+# config. 
+
+# Where to store temporaries
+
+Gold="$PWD"
+Var="$Gold/.var"
+Lib="$Var/lib"
+
+Tmp="$Var/tmp"
+
+
+#
+Awk="`which gawk`"
+Vim="/usr/local/bin/vim"
+
+# Options for file editting
+
+blank() { cat<<-EOF
+	# vim: set filetype=awk ts=2 sw=2 sts=2 expandtab:cindent:formatoptions+=cro 
+
+	@include "gold"
+
+
+EOF
+}
+
+# end config
+#---------------------------------
+x=au
+
+banner() { 
+  red=$(tput setaf 1)
+  blue=$(tput setaf 6)
+  ltyl=$(tput setaf 11)
+  white=$(tput setaf 15)
+  echo -n "$ltyl"
+  cat<<'EOF'
+
+   _oOoOoOo_
+  (oOoOoOoOo)
+   )`"""""`(
+  /         \ 
+ |  G O L D  |
+ \           / 
+  `=========` 
+
+EOF
+  echo -n "$blue"
+}
+help() { ## # Show options.
+  banner
+  printf "Gawk object layer v0.3\n"
+  printf "(c) 2018, tim@menzies.us, BSD (2-clause)"
+  printf "\n\noptions:\n"
+  grep '{ ##' $0  | sort | $Awk '
+  BEGIN  {FS="#"}
+  /grep/ { next}
+         { gsub(/[^a-zA-Z0-9_]/,"",$1)
+	   printf("  %-10s%-8s%s\n",$1,$3,$4)}'
+  echo
+}
+_passfail() { 
+  gawk '
+    BEGIN        { f = p = 0 }
+                 { print $0 }
+    $2=="PASSED" { p++ }
+    $2=="FAILED" { f++ }
+    END          { 
+      print "\n# :PASSED " p " :FAILED " f \
+	    " :PERCENT " int(101*p/(p+f+0.0001))}'
+}
+ok() { ## [STEM] # Run one file. If no arg, then run all.
+  if [ -z "$1" ]; then
+    for f in *ok.$x; do
+	    run $(basename "$f" ".$x")
+    done | _passfail
+  else 
+    if [ ! -f "${1}ok.$x" ]; then
+	echo "#E> missing ${1}ok.$x"
+	return 1
+    fi
+    run ${1}ok | _passfail
+  fi  
+}
+twins() { ## STEM # Generate STEM.au and STEMok.au.
+  stem=$1
+  if [ ! -f "${stem}.$x" ]; then cat <<-EOF > "${stem}.$x"
+	$FileHeader
+	@include "${x}0"
+	
+	# ${stem}.$x 
+
+	EOF
+	echo "# Made ${stem}.$x"
+  fi
+  if [ ! -f "${stem}ok.$x" ]; then cat <<-EOF > "${stem}ok.$x"
+	$FileHeader
+	@include "${stem}"
+
+	function _test1(f) {
+	   is(f,1,1)
+	}
+	BEGIN {
+  	   srand(1)
+	   tests("$stem", "_test1")
+	}
+	EOF
+	echo "# Made ${stem}ok.$x"
+  fi
+}
+_2awk() {
+  $Awk '
+BEGIN {In=1}
+
+gsub(/^\"\"\"/,"") { In =  1 - In  }
+                   { pre  = In ? "" : "# " }
+In {
+    print pre gensub(/\.([^0-9])([a-zA-Z0-9_]*)/, 
+                    "[\"\\1\\2\"]", "g", $0)
+    next }
+   {
+    print pre $0
+   }
+' -
+}
+gitignore() { ## # Add a gitignore statement
+  if [ ! -f .gitignore ]; then cat <<-EOF > .gitignore
+	.DS_Store
+	# vim stuff
+	[._]*.s[a-w][a-z]
+	[._]s[a-w][a-z]
+	*.un~
+	Session.vim
+	.netrwhist
+	*~
+	# my stuff
+	awkprof.out
+	awkvars.out
+	var
+	EOF
+  fi
+}
+_0() { 
+    if [ ! -f "${x}0.$x" ]; then cat<<-'EOF'> ${x}0.$x
+	# /* vim: set filetype=awk ts=2 sw=2 sts=2 expandtab: */
+	
+	# ----------------------------------------
+	# structs
+	
+	function new(i)      { split("",i,"") }
+	function Object(i)   { new(i); i["oid"] = ++OID }
+	
+	function has(lst,key,fun) {
+	  lst[key][SUBSEP]
+	  split("",lst[key],"")
+	  if (fun) @fun(lst[key])
+	}
+	function have( lst,key,fun,a) { 
+	  has(lst,key); @fun(lst[key],a) }
+	function haves(lst,key,fun,a,b) { 
+		has(lst,key); @fun(lst[key],a,b) }
+	function have2(lst,key,fun,a,b,c) { 
+		has(lst,key); @fun(lst[key],a,b,c) }
+	function have3(lst,key,fun,a,b,c,d) { 
+		has(lst,key); @fun(lst[key],a,b,c,d) }
+	function have4(lst,key,fun,a,b,c,d,e) { 
+		has(lst,key); @fun(lst[key],a,b,c,d,e) }
+	
+	# ---------------------------------------
+	# tests
+	
+	function tests(what, all,   one,a,i,n) {
+	   n = split(all,a,",")
+	   print " "
+	   print "#--- " what " -----------------------"
+	   for(i=1;i<=n;i++) {
+	     one = a[i]
+	     @one(one)
+	}}
+	function is(f,got,want,    pre) {
+	  if (want == "") want=1
+	  if (want == got)
+	    pre="#TEST:\tPASSED"
+	  else
+	    pre="#TEST:\tFAILED"
+	  print( pre "\t" f "\t" want "\t" got )
+	}
+	EOF
+  fi
+}
+ed() { ## FILE # Edit a .au file
+   cat<<-EOF> $Tmp/vimrc 
+	set backupdir-=.
+	set backupdir^=~/tmp,/tmp
+	set nocompatible 
+	filetype plugin indent on
+	set modelines=3
+	set scrolloff=3
+	set autoindent
+	set visualbell
+	set backspace=indent,eol,start
+	set laststatus=2
+	set splitbelow
+	set mouse=a
+	set title
+	set number
+	autocmd BufEnter * silent! lcd %:p:h
+	set nohlsearch
+	set showmatch
+	set matchtime=15
+	set background=light
+	set syntax=on
+	syntax enable
+	set ignorecase
+	set incsearch
+	set smartcase
+	set showmatch
+	colorscheme zellner
+	EOF
+  $Vim -u "$Tmp/vimrc" $*
+}
+run() { ## STEM # Run STEM.au file
+  prep
+  file=$1
+  Built="$Lib/$file.awk"
+  shift
+  AWKPATH=$Lib                              \
+      $Awk --profile="$Tmp/${file}.profile"   \
+           --dump-variables="$Tmp/${file}.vars" \
+           -f $Built "$@"
+  if [ -f "$Tmp/${file}.vars" ]; then
+    $Awk '/[A-Z][A-Z]/ {next} {print "W> rogue local: ",$0}' $Tmp/${file}.vars
+  fi
+}
+zap() { ## # Kill all temps, reset system (dangerous)
+  if [  -d "$Var" ]; then
+    rm -rf "$Var"
+  fi
+  rm $Gold/${x}0.$x
+}
+prep() { ##  # Ensure all .au files have .awk version
+  for i in *.$x; do
+    stem=$(basename "$i" ".$x")
+    j="$Lib/${stem}.awk"
+    if [ "$i" -nt "$j" ]; then
+      echo "# $i ==> $j"
+      cat "$i" | _2awk > "$j"
+    fi
+  done
+} 
+_gitting() {
+  git config --global credential.helper cache
+  git config credential.helper 'cache --timeout=3600'
+}
+push() { ## # Commit all, push to Github
+  _gitting
+  git status; git commit -am "commit"; git push
+}
+pull() { ## # Pull from Github
+  _gitting
+  git pull
+}
+###################################
+# get all the configs (if any)
+
+for dir in "$Var" "$Lib" "$Doc" "$Tmp"; do
+  mkdir -p "$dir"; done
+
+_0
+
+if [ -f "${1}.$x" ]; then
+        run "$@"
+elif [ `type -t $1`"" == 'function' ]; then
+        f=$1
+        shift
+        $f "$@"
+else
+     help
+fi
+
+
