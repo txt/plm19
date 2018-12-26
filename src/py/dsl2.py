@@ -90,6 +90,8 @@ class Thing:
     raise NotImplementedError(
              '"rank" must be implemented in subclass')
 
+class Percent(Thing) : 
+  def rank(i): return 4
 class Flow(Thing) : 
   def rank(i): return 3
 class Stock(Thing): 

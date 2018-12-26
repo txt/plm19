@@ -1,5 +1,9 @@
+#!/usr/bin/env python3
+
+from  dsl2 import Model,Things,S,A,F, Stock,Flow,Percent,Aux
+
 class BrooksLaw(Model):
-  def reset(i): return o(
+  def have(i): return Things(
     aR    = Flow( "assimilationRate"),
     co    = Percent(  "communicationOverhead"),
     d     = Stock("developedSoftware",0),
@@ -32,3 +36,8 @@ class BrooksLaw(Model):
     j.np += (i.paR - i.aR)*dt
     j.d  += i.sdR*dt
     j.r  +=  - i.sdR*dt
+
+
+if __name__ == "__main__":
+    BrooksLaw().run(tmax=70)
+
