@@ -80,10 +80,12 @@ a `lo` and `hi` value.
 """
 
 class Thing:
-  def __init__(i,init=None,lo=0,hi=100):
+  def __init__(i,txt='thing',init=None,lo=0,hi=100):
     i.init = init if init != None else lo
     i.lo,i.hi = lo,hi
-    i.name = 0,''
+    i.lo = i.lo if i.lo < i.init else i.init
+    i.hi = i.hi if i.init < i.hi else i.init*2
+    i.txt = 0,txt
   def restrain(i,x):
     return max(i.lo, min(i.hi, x))
   def rank(i):

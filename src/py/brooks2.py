@@ -21,7 +21,7 @@ class BrooksLaw(Model):
                                           # he/she is fully assimilated.
     r     = Stock("requirements",500))
 
-  def step(self,i,j,t,dt):
+  def step(self,dt,t,i,j):
     def _co(x):
       myTeam = i.ts - 1   # talk to everyone in my team
       others = x/i.ts - 1 # talk to every other team
@@ -37,7 +37,5 @@ class BrooksLaw(Model):
     j.d  += i.sdR*dt
     j.r  +=  - i.sdR*dt
 
-
 if __name__ == "__main__":
     BrooksLaw().run(tmax=70)
-

@@ -43,5 +43,5 @@
                      it))
        (watch fmt (cdr lst) it (1+ n))))
 
-(watch "~{~6,2f~}~%" (mapcar #'str->lst (file->lines)))
+(watch "~{~,2f, ~}~%" (mapcar #'str->lst (file->lines)))
 ;(print (str->lst "101,asdas AAA,222" :f #'read-from-string))
