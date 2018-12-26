@@ -7,14 +7,12 @@
 
 (defmacro when-it (test &rest then)
   `(let ((it ,test))
-     (when it ,@then)))
-
-(defun same (x) x)
+     (if it (progn ,@then))))
 
 (defun str->lst (str &optional 
                      (sep #\,) (start 0) 
                      (fn #'read-from-string))
- "Seperate str into a list, seperated on sep.  Filter thru fn"
+ "Seperate str into a list, seperated on sep. Filter thru fn"
  (labels 
     ((worker (&optional (start 0))
        (if-it (position sep str :start start)
@@ -31,7 +29,7 @@
 
 (defun watch (fmt lst &optional b4 (n 0) &aux it)
   "Print a lst. Don't print cells that are unchanged
-   from the last item in the list"
+   from the same cell in the previous item in the list"
   (labels ((diff (x y) 
               "Only return x if it is different to y"
               (if (equalp x y) "." y))
