@@ -25,7 +25,7 @@
 
 (defun file->lines (&optional f)
  "Return one item per line in file f. "
- (if-it (read-line f nil nil)
+ (if-it (read-line f nil)
         (cons it 
               (file->lines f))))
 
