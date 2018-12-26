@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 """
+----
 ## Utilities
 
 Printing stuff.
@@ -57,6 +58,7 @@ class o:
     return 'o('+', '.join(tmp) + ')'
 
 """
+----
 ## `Stock`s, `Flow`, `Aux`illary Variables
 
 In compartmental modelling:
@@ -100,10 +102,22 @@ class Aux(Thing)  :
 S,A,F = Stock,Aux,Flow
 
 """
+----
 `Things` stores out meta-knowledge about variables in a model.
-The call
-Have(C = S(100), D = S(0),
-                q = F(0),  r = F(8), s = F(0))
+The call:
+
+     Things(C = S(100), D = S(0),
+            q = F(0),  r = F(8), s = F(0))
+
+creates `Stock`s, `Flow`s (no `Aux`illary variables)
+with names `C,D,q,r,s`. A `Things` also holds `order`
+which is all the things sorted by their rank. The
+method `asList` prints out values in their `order`.
+
+`Things` know how to generate `payloads`; i.e. `o` instances
+whose fields contain (initially) all the init values
+of our `Thing`s.  These `payloads` can be updated
+with current contents of the working memory.
 
 """
 class Things:
@@ -122,6 +136,19 @@ class Things:
   def asList(i,d):
     return [d[k] for k in i.order]
 
+"""
+----
+## Models
+
+`Model`s run `Things` from time 0 to `tmax` (defaults to 30).
+At each step
+
+- We build a new payload which is updated
+with the current contents of working memory.
+- We print the current contents of working memory, in the
+  right order.
+
+"""
 class Model:
   def step(i):
     raise NotImplementedError(
@@ -140,19 +167,4 @@ class Model:
       t += dt
       b4 = now
 
-class Diapers(Model):
-  def have(i):
-    return Things(C = S(100), D = S(0),
-                  q = F(0),  r = F(8), s = F(0))
-  def step(i,dt,t,u,v):
-    def saturday(x): return int(x) % 7 == 6
-    v.C +=  dt*(u.q - u.r)
-    v.D +=  dt*(u.r - u.s)
-    v.q  =  70  if saturday(t) else 0 
-    v.s  =  u.D if saturday(t) else 0
-    if t == 27: # special case (the day i forget)
-      v.s = 0
-
-if __name__ == "__main__":
-    Diapers().run()
 
