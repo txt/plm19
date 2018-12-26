@@ -1,47 +1,48 @@
 #!/usr/local/bin/clisp
 ; vim: lisp:syntax=lisp:ts=4 sw=4 sts=4 expandtab:cindent:formatoptions+=cro 
 
-(defmacro aif (test then &optional else)
+(defmacro if-it (test then &optional else)
   `(let ((it ,test))
-     (if it
-       ,then
-       ,else)))
+     (if it ,then ,else)))
+
+(defmacro when-it (test &rest then)
+  `(let ((it ,test))
+     (when it ,@then)))
 
 (defun same (x) x)
 
-(defun str->thing (str fn &optional (start 0) (stop (length str)))
- "Call fn on the chars from start to stop in str"
-  (funcall fn (subseq str start stop)))
-
-(defun str->lst (str &key (sep #\,) (fn #'same))
- "Seperate str into a list, seperated on sep.
-  Filter each sub-string through fn."
- (aif (position sep str)
-      (cons (str->thing str fn 0 it)
-            (str->lst (subseq str (1+ it)) 
-                      :sep sep :fn fn))
-      (list (str->thing str fn))))
+(defun str->lst (str &optional 
+                     (sep #\,) (start 0) 
+                     (fn #'read-from-string))
+ "Seperate str into a list, seperated on sep.  Filter thru fn"
+ (labels 
+    ((worker (&optional (start 0))
+       (if-it (position sep str :start start)
+              (cons (subseq str start it) 
+                    (worker (1+ it)))
+              (list (subseq str start)))))
+    (mapcar fn (worker))))
 
 (defun file->lines (&optional f)
- "Return one item per line in file f. 
-  Filter all lines through fn"
- (aif (read-line f nil nil)
-      (cons it 
-            (file->lines f))))
-
-(defun diff (x y) 
-  "Only return x if it is different to y"
-  (if (equalp x y) "." y))
+ "Return one item per line in file f. "
+ (if-it (read-line f nil nil)
+        (cons it 
+              (file->lines f))))
 
 (defun watch (fmt lst &optional b4 (n 0) &aux it)
   "Print a lst. Don't print cells that are unchanged
    from the last item in the list"
- (when (setf it (car lst))
-       (format t fmt
-                 (if (> n 1)
-                     (mapcar #'diff b4 it)
-                     it))
-       (watch fmt (cdr lst) it (1+ n))))
+  (labels ((diff (x y) 
+              "Only return x if it is different to y"
+              (if (equalp x y) "." y))
+           (report (lst)
+              "Print one list"
+              (format t fmt (if (> n 1)
+                                (mapcar #'diff b4 lst)
+                                lst))))
+     (when-it (car lst)
+              (report it)
+              (watch fmt (cdr lst) it (1+ n)))))
 
-(watch "~{~,2f, ~}~%" (mapcar #'str->lst (file->lines)))
-;(print (str->lst "101,asdas AAA,222" :f #'read-from-string))
+(watch "~{~6,2f, ~}~%" 
+       (mapcar #'str->lst (file->lines)))
