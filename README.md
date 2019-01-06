@@ -39,10 +39,10 @@ Mid-term: March 19<br>
 2ab: Apr18<br>2c:  Apr25 <br> 
 Exam: May 7
 </td>
-<td align=center><b>Lectures</b></td>
-<td align=center><b>Project</b>
-</td><td align=center><b>Review </td>
-<td align=center><b>Misc</b> </td>
+<td align=left valign=top><b>Lectures</b></td>
+<td align=left valign=top><b>Project</b>
+</td><td align=left valign=top><b>Review </td>
+<td align=left valign=top><b>Misc</b> </td>
 </tr>
 <tr>
 <td valign=top  xwidth="100px">
