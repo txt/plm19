@@ -151,10 +151,12 @@ The following grade scale will be used:
 
 Grades will be added together using:
 
-+ Mid-term (Thursday March1, 6pm) : 25  marks
-+ Final Exam (Tuesday, May8, 1pm to 3pm): 30 marks
++ Mid-term  : 25  marks
++ Final Exam : 30 marks
 + Project: 45 marks
     - Work in groups of 3 (Groups  created randomly, see http://tiny.cc/plm19give)
+
+Due dates for the above will shown on subject home page. Late submissions will earn 1 late mark per day (weekend is 1).
 
 ## Project
 
@@ -178,7 +180,7 @@ Part2 : 30 marks (10 per part)
      - THIRD add to the report an epilogue
 	  describing your experience with the abstractions AND your recommendations to other people about
 	  when to use/to avoid those abstractions. 
-     - FOURTH add a end section describing what maximum grades you expect for this section (see below _bonus marks_).
+     - FOURTH add an end section describing what maximum grades you expect for this section (see below _bonus marks_).
      - FIFTH in some public Github repo (not from NCSU) write
 	  a sub-directory called "_2b_". Add to that directory your report in pdf format  (I expect 5 pages (no less or more),
 	  [2 column conference format](https://www.overleaf.com/gallery/tagged/acm-official#.WOuOk2e1taQ) AND
