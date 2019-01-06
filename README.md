@@ -16,14 +16,14 @@ CSC 417 (001) SPRG 2019 (11904)
 # Programming Languages
 
 In your professional life you will work with dozens of different programming langauges.
-Waht can you learn from 100s of past languages to help you work with your future languages.
+So what can you learn from 100s of past languages to help you work with your future languages?
 
 
 <table width="100%" border=0 align=right>
 <tr>
 <td align=center><img  src="etc/img/lectures.gif"></td>
-<td align=center><img  src="etc/img/homework.png"></td>
-<td align=center><img  src="etc/img/review.gif"></td>
+<td align=center><img  src="etc/img/homework.gif"></td>
+<td align=center><img  src="etc/img/review.png"></td>
 <td align=center><img  src="etc/img/news.png"></td>
 </tr>
 <tr>
