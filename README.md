@@ -21,10 +21,10 @@ So what can you learn from 100s of past languages to help you work with your fut
 
 <table width="100%" border=0 align=right>
 <tr>
-<td align=center><img  src="etc/img/time.png"></td>
+<td align=center><img  width=64 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
 <td align=center><img  src="etc/img/homework.gif"></td>
-<td align=center><img  src="etc/img/review.png"></td>
+<td align=center><img  src="etc/img/review.gif"></td>
 <td align=center><img  src="etc/img/news.png"></td>
 </tr>
 <tr>
