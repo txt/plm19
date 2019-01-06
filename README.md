@@ -28,7 +28,7 @@ So what can you learn from 100s of past languages to help you work with your fut
 <td align=center><img  src="etc/img/news.png"></td>
 </tr>
 <tr>
-<td align=center><b>Due dates</b>
+<td align=left valign=top><b>Due dates</b>
 
 1a: Jan17<br> 1a+: Jan 24<br>
 1b: Jan31<br> 1b+: Feb 7<br>
