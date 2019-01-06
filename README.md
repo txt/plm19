@@ -27,7 +27,7 @@ So what can you learn from 100s of past languages to help you work with your fut
 <td align=center><img  src="etc/img/news.png"></td>
 </tr>
 <tr>
-<td align=left valign=top><b>Due dates</b>
+<td align=left valign=top><b>Schedule</b>
 
 </td>
 <td align=left valign=top><b>Lectures</b></td>
