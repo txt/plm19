@@ -62,8 +62,8 @@ Rahul Krishna, (CSC, Ph.D., May 2019).
 
 + Office Hours: Monday 11 to 1pm
 + Location of Office Hours: EE2, rm3240
-+ Slack name: rahik
-
++ Slack name: r.krsn
++ Github name: rahlk
 
 
 ## Group mailing list
