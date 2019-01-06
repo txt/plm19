@@ -1,3 +1,6 @@
+<img src="https://www.öppensourced.com/media/reviews/photos/original/70/90/7e/23-bsd-2-clause-simplified-or-freebsd-license-3-1424101855.png" align=right width=400>
+# LICENSE
+
 BSD 2-Clause License
 
 Copyright (c) 2018, textual stuff
