@@ -13,7 +13,6 @@
 
 CSC 417 (001) SPRG 2019 (11904)
 
-# Programming Languages
 
 In your professional life you will work with dozens of different programming langauges.
 So what can you learn from 100s of past languages to help you work with your future languages?
