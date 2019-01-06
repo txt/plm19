@@ -78,12 +78,6 @@ the Slack group https://plm19.slack.com.
 
 Prerequisite: CSC 316 or ECE 309 or equivalent.
 
-Note that this is a
-**programming-intensive** subject that covers many languages
-_only some of which the lecturer/GTA have used_.
-You will be spending much time in the process of
-self-education of different languages.
-
 ## Texts
 
 ### Required
@@ -107,32 +101,23 @@ ISBN-10: 0321712943
 
 - [Catalog of DSL patterns](https://martinfowler.com/dslCatalog/)
 
-Thinks Python   
-by Allen Downey   
-O'Reilly Media; 2 edition (December 28, 2015)   
-ISBN-10: 1491939362
-
-- [PDF version](http://greenteapress.com/thinkpython2/thinkpython2.pdf)
-- [HTML version](http://greenteapress.com/thinkpython2/html/index.html)
-- [Code samples](https://github.com/AllenDowney/ThinkPython2/tree/master/code)
-
-
 
 ## Expected Workload
+Note that this is a
+**programming-intensive** subject that covers many languages
+_only some of which the lecturer/GTA have used_.
+You will be spending much time in the process of
+self-education of different languages.
+
 
 Sometimes, the lecturer/tutor will require you to attend a review session during their consultation  time. There, students may be asked to review
 code, concepts, or comment on the structure of the course. Those sessions are mandatory and failure to attend will result in marks being deducted.
 
-Also, this is tools-based subject
-and it is required that students learn and use those
-tools (Python, repositories, etc).  Students MUST be
+Students MUST be
 prepared to dedicate AT LEAST 5-8 working hours a
 week to this class (excluding the time spent in the
 classroom). Laboratory instruction is not included
-in this subject (but the first three weeks will be
-spent on some in-depth programming tutorials). Note
-that the workload for masters and Ph.D. students
-will be different (see above).
+in this subject.
 
 ## Grades
 
