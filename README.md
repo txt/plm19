@@ -21,18 +21,22 @@ So what can you learn from 100s of past languages to help you work with your fut
 
 <table width="100%" border=0 align=right>
 <tr>
+<td align=center><img  src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
 <td align=center><img  src="etc/img/homework.gif"></td>
 <td align=center><img  src="etc/img/review.png"></td>
 <td align=center><img  src="etc/img/news.png"></td>
 </tr>
 <tr>
+<td align=center><b>Due dataes</b></td>
 <td align=center><b>Lectures</b></td>
 <td align=center><b>Project</b>
 </td><td align=center><b>Review </td>
 <td align=center><b>Misc</b> </td>
 </tr>
 <tr>
+<td valign=top  xwidth="100px">
+</td>
 <td valign=top  xwidth="100px">
 
 
