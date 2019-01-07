@@ -140,6 +140,7 @@ Due dates for the above will shown on subject home page. Late submissions will e
 
 ## Project
 
+
 Part1 : 15 marks
 
 - 1+ Grading some other group's homeworks 1abcde (1 mark each). Report to tutor if code does not run
@@ -175,6 +176,30 @@ List of abstractions
 1. See class
 2. From the Lopez book
 3. From the Fowler book.
+
+Students can develop their project anywhere, anyhow they like but
+when they deliver:
+
+- Code must be in a github repo (one per group), not NCSU
+- Code must run on command-line Ubunty 16+ on 
+  [codeanywhere.com](https://codeanywhere.com/pricing)
+- Code must auto-install; i.e. the run script should check the
+  environment for missing parts then install those parts.
+
+For example:
+
+```
+for i in vim lua clisp  
+do if   which $i
+   then echo "# $i installed" 
+   else sudo apt-get install $i 
+   fi
+done
+```
+There is a free [codeanywhere.com](https://codeanywhere.com/pricing)
+plan. But, optionally,
+students may want to consider _Freelancer_ package.
+
 
 ## Bonus Marks
 
