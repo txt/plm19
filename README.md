@@ -7,7 +7,7 @@
 [submit](http://tiny.cc/plm19give) |
 [chat](https://plm19.slack.com/)
 
-# Programing Languages
+# Programming Languages
 
 
 
