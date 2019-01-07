@@ -62,8 +62,8 @@ Rahul Krishna, (CSC, Ph.D., May 2019).
 
 + Office Hours: Monday 11 to 1pm
 + Location of Office Hours: EE2, rm3240
-+ Slack name: rahik
-
++ Slack name: r.krsn
++ Github name: rahlk
 
 
 ## Group mailing list
@@ -77,17 +77,6 @@ the Slack group https://plm19.slack.com.
 ## Prerequisite 
 
 Prerequisite: CSC 316 or ECE 309 or equivalent.
-
-Note that this is a
-**programming-intensive** subject. A programming
-background is required in a contemporary language
-such as Java or C/C++ or Python. Hence,he
-prerequisite for this class is 510, Software
-Engineering. Significant software industry
-experience may be substituted, at the instructor’s
-discretion.  Students in this class will work in
-Python, but no background knowledge of that language
-will be assumed.
 
 ## Texts
 
@@ -112,32 +101,23 @@ ISBN-10: 0321712943
 
 - [Catalog of DSL patterns](https://martinfowler.com/dslCatalog/)
 
-Thinks Python   
-by Allen Downey   
-O'Reilly Media; 2 edition (December 28, 2015)   
-ISBN-10: 1491939362
-
-- [PDF version](http://greenteapress.com/thinkpython2/thinkpython2.pdf)
-- [HTML version](http://greenteapress.com/thinkpython2/html/index.html)
-- [Code samples](https://github.com/AllenDowney/ThinkPython2/tree/master/code)
-
-
 
 ## Expected Workload
+Note that this is a
+**programming-intensive** subject that covers many languages
+_only some of which the lecturer/GTA have used_.
+You will be spending much time in the process of
+self-education of different languages.
+
 
 Sometimes, the lecturer/tutor will require you to attend a review session during their consultation  time. There, students may be asked to review
 code, concepts, or comment on the structure of the course. Those sessions are mandatory and failure to attend will result in marks being deducted.
 
-Also, this is tools-based subject
-and it is required that students learn and use those
-tools (Python, repositories, etc).  Students MUST be
+Students MUST be
 prepared to dedicate AT LEAST 5-8 working hours a
 week to this class (excluding the time spent in the
 classroom). Laboratory instruction is not included
-in this subject (but the first three weeks will be
-spent on some in-depth programming tutorials). Note
-that the workload for masters and Ph.D. students
-will be different (see above).
+in this subject.
 
 ## Grades
 
@@ -162,14 +142,13 @@ Due dates for the above will shown on subject home page. Late submissions will e
 
 Part1 : 15 marks
 
-- Grading some other group's homeworks 1abcde (1 mark each). Report to tutor if code does not run
+- 1+ Grading some other group's homeworks 1abcde (1 mark each). Report to tutor if code does not run
   or if the I/O behavior is not as it should be.
-- Writing 5 homeworks 1abcde  (2 mark each)
+- 1: Writing 5 homeworks 1abcde  (2 mark each)
 
 Part2 : 30 marks (10 per part)
 
-- 2a : Grading someone else's group 2 code (not the written report, just checking it works as advertised).
-- 2b : Given a data mining pipeline (from the lecturer), replace any one parts of the pipe using
+- 2a : Given a data mining pipeline (from the lecturer), replace any one parts of the pipe using
 	  a different programming language. 
      - FIRST, write a reporting ranking ten abstractions you are thinking
 	  of trying for that code (where  list includes a short description of each AND a tiny example where that 
@@ -182,12 +161,14 @@ Part2 : 30 marks (10 per part)
 	  when to use/to avoid those abstractions. 
      - FOURTH add an end section describing what maximum grades you expect for this section (see below _bonus marks_).
      - FIFTH in some public Github repo (not from NCSU) write
-	  a sub-directory called "_2b_". Add to that directory your report in pdf format  (I expect 5 pages (no less or more),
+	  a sub-directory called "_2a_". Add to that directory your report in pdf format  (I expect 5 pages (no less or more),
 	  [2 column conference format](https://www.overleaf.com/gallery/tagged/acm-official#.WOuOk2e1taQ) AND
 	  your working code AND a file canned "run" (that graders will run) AND a text file "run.out" showing the input and output when you run the code.
-- 2c : as per 2b but use a different language, and a different part of the pipe and store the outputs to
-         a directory "_2c_".
-- 2d : bonus marks. as per 2c. Only if allowed by professor.
+- 2b : as per 2a but use a different language, and a different part of the pipe and store the outputs to
+         a directory "_2b".
+- 2c : Grading someone else's group 2 code (not the written report, just checking it works as advertised).
+- 2d : bonus marks. as per 2c. Only if allowed by professor. And
+   this bonus mark is due same time as 2ab.
 
 List of abstractions
 
