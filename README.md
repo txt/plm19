@@ -52,7 +52,7 @@ Exam: May 7
 <!-- -------------------------------- -->
 
 </td><td align=center valign=top xwidth="100px">
-<a href="doc/lect1.md"</a><br>
+<a href="doc/lect1.md">One</a><br>
 
 </td>
 <td align=center valign=top  xwidth="100px">
