@@ -36,7 +36,7 @@
 
 (defun file->lines (&optional f)
  "Return one item per line in file f. "
- (if-it (next f)
+ (if-it (sys-next f)
         (cons it 
         (file->lines f))))
 
