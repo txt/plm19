@@ -10,21 +10,27 @@
 
 # Lecture 1 (Hints and Tips)
 
+## Motivation
+
 Q: What langauges will you need in your professional life?
 - A1: [Lots](https://www.tiobe.com/tiobe-index/)
 - A2: And they will [keep changing](https://raw.githubusercontent.com/txt/plm18/master/img/nextLanguage.png)
    - From Empirical Analysis of Programming Language Adoption Leo A. Meyerovich, Ariel Rabkin, OOPSLA '13.
 
+## Some Admin
+
 Are you in our [Slack group](https://plm19.slack.com/messages/CF707K3T3/)
 
 [Syllabus](https://github.com/txt/plm19/blob/master/doc/syllabus.md)
 
-To demo:
+## Demos
 
 - codeanywhere.com
 - shebang
 - install prolog
 - operators
+
+## Tutorials
 
 + [Github101](https://guides.github.com/introduction/flow/)
 + [Linux101](https://ryanstutorials.net/linuxtutorial/filemanipulation.php#introduction)
