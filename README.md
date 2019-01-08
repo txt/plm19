@@ -24,7 +24,6 @@ So what can you learn from 100s of past languages to help you work with your fut
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
 <td align=center><img  src="etc/img/homework.gif"></td>
-<td align=center><img  src="etc/img/review.gif"></td>
 <td align=center><img  src="etc/img/news.png"></td>
 </tr>
 <tr>
@@ -33,7 +32,6 @@ So what can you learn from 100s of past languages to help you work with your fut
 </td>
 <td align=left valign=top><b>Lectures</b></td>
 <td align=left valign=top><b>Project</b>
-</td><td align=left valign=top><b>Review </td>
 <td align=left valign=top><b>Misc</b> </td>
 </tr>
 <tr>
@@ -54,10 +52,9 @@ Exam: May 7
 <!-- -------------------------------- -->
 
 </td><td align=center valign=top xwidth="100px">
+[One](doc/lect1.md)
 
 </td>
-<td align=center   valign=top xwidth="100px">
- </td>
 <td align=center valign=top  xwidth="100px">
 </td>
 </tr>
