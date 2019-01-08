@@ -131,7 +131,7 @@ The following grade scale will be used:
 
 Grades will be added together using:
 
-+ Mid-term  : 25  marks
++ Mid-term  : 24  marks
 + Final Exam : 30 marks
 + Project: 45 marks
     - Work in groups of 3 (Groups  created randomly, see http://tiny.cc/plm19give)
@@ -141,11 +141,11 @@ Due dates for the above will shown on subject home page. Late submissions will e
 ## Project
 
 
-Part1 : 15 marks
+Part1 : 16 marks
 
 - 1+ Grading some other group's homeworks 1abcde (1 mark each). Report to tutor if code does not run
   or if the I/O behavior is not as it should be.
-- 1: Writing 5 homeworks 1abcde  (2 mark each)
+- 1: Writing 4 homeworks 1abcde  (3 mark each)
 
 Part2 : 30 marks (10 per part)
 
@@ -174,8 +174,9 @@ Part2 : 30 marks (10 per part)
 List of abstractions
 
 1. See class
-2. From the Lopez book
-3. From the Fowler book.
+2. See the design patters list
+3. From the Lopez book
+4. From the Fowler book.
 
 Students can develop their project anywhere, anyhow they like but
 when they deliver:
