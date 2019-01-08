@@ -1,4 +1,4 @@
-#!/usr/local/bin/clisp
+#!/usr/bin/env clisp
 ; vim: lisp:syntax=lisp:ts=4 sw=4 sts=4 expandtab:cindent:formatoptions+=cro 
 
 (defmacro if-it (test then &optional else)
@@ -21,26 +21,37 @@
               (list (subseq str start)))))
     (mapcar fn (worker))))
 
+(defun next (f) 
+   "reading the next line has a silly syntax, given to
+    us courtery of Common LISP. I hite this silliness inside 'next'"
+   (read-line f nil))
+
 (defun file->lines (&optional f)
  "Return one item per line in file f. "
- (if-it (read-line f nil)
+ (if-it (next f)
         (cons it 
-              (file->lines f))))
+        (file->lines f))))
+
+(defun show (fmt lst &optional (digits 5)) 
+   "print a list where integers get no zeros, floats get 5"
+   (labels ((pretty(arg)
+                (cond ((not (numberp arg))   
+					   arg)
+                      ((= (round arg) arg)   
+					   (round arg))
+                      (t (float (/ (round (* arg (expt 10 digits)))
+                                                 (expt 10 digits)))))))
+     (format t fmt (mapcar #'pretty lst))))
 
 (defun watch (fmt lst &optional b4 (n 0) &aux it)
   "Print a lst. Don't print cells that are unchanged
    from the same cell in the previous item in the list"
-  (labels ((diff (x y) 
-              "Only return x if it is different to y"
-              (if (equalp x y) "." y))
-           (report (lst)
-              "Print one list"
-              (format t fmt (if (> n 1)
-                                (mapcar #'diff b4 lst)
-                                lst))))
-     (when-it (car lst)
-              (report it)
+  (labels ((diff (x y) (if (equalp x y) "." y)))
+    (when-it (car lst)
+             (show fmt (if (> n 1)
+                           (mapcar #'diff b4 it)
+                           it))
               (watch fmt (cdr lst) it (1+ n)))))
 
-(watch "~{~6,2f, ~}~%" 
+(watch "~{~9@A ~}~%" 
        (mapcar #'str->lst (file->lines)))
