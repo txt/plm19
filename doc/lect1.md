@@ -12,7 +12,8 @@
 
 Q: What langauges will you need in your professional life?
 - A1: [Lots](https://www.tiobe.com/tiobe-index/)
-- A2: ANd they will keep changing
+- A2: And they will [keep changing](https://raw.githubusercontent.com/txt/plm18/master/img/nextLanguage.png)
+   - From Empirical Analysis of Programming Language Adoption Leo A. Meyerovich, Ariel Rabkin, OOPSLA '13.
 
 Are you in our [Slack group](https://plm19.slack.com/messages/CF707K3T3/)
 
