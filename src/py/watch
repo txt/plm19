@@ -1,6 +1,18 @@
 #!/usr/bin/env clisp
 ; vim: lisp:syntax=lisp:ts=4 sw=4 sts=4 expandtab:cindent:formatoptions+=cro 
 
+
+;; magic lisp functions that do most of the work
+(defun sys-compile(x) 
+  "read anything from a string, return symbol,float, int as appropraite"
+   (read-from-string x))
+
+(defun sys-next (f) 
+   "reading the next line has a silly syntax, given to
+    us courtery of Common LISP. I hite this silliness inside 'next'"
+   (read-line f nil))
+
+;; macros that extend lisp
 (defmacro if-it (test then &optional else)
   `(let ((it ,test))
      (if it ,then ,else)))
@@ -9,6 +21,7 @@
   `(let ((it ,test))
      (if it (progn ,@then))))
 
+;; filters
 (defun str->lst (str &optional 
                      (sep #\,) (start 0) 
                      (fn #'read-from-string))
@@ -20,11 +33,6 @@
                     (worker (1+ it)))
               (list (subseq str start)))))
     (mapcar fn (worker))))
-
-(defun next (f) 
-   "reading the next line has a silly syntax, given to
-    us courtery of Common LISP. I hite this silliness inside 'next'"
-   (read-line f nil))
 
 (defun file->lines (&optional f)
  "Return one item per line in file f. "
@@ -43,6 +51,7 @@
                                                  (expt 10 digits)))))))
      (format t fmt (mapcar #'pretty lst))))
 
+;; main
 (defun watch (fmt lst &optional b4 (n 0) &aux it)
   "Print a lst. Don't print cells that are unchanged
    from the same cell in the previous item in the list"
@@ -53,5 +62,6 @@
                            it))
               (watch fmt (cdr lst) it (1+ n)))))
 
+;; sample call
 (watch "~{~9@A ~}~%" 
        (mapcar #'str->lst (file->lines)))
