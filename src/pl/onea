@@ -1,0 +1,88 @@
+#!/usr/bin/env swipl
+% vim: set filetype=prolog: ts=2 sw=2 sts=2 expandtab:cindent:formatoptions+=cro %
+
+% PROLOG TUTOR
+% ============
+:w
+% 
+% To run this tutorial first isntall prolog
+%
+%	sudo apt-get install prolog
+% 
+% Next, split the screen with an editor on one side and a shell on the other.
+%
+% Next, make this file executable
+%
+%       chmod +x onea
+%
+% Then run the file in the shell, find errors, fix then in the editor, re-run
+%
+%	./onea
+%
+% Terms
+% -----
+% 
+% In Prolog, everything is a term.
+% 
+% Terms have a functor and an "arity" number of arguments.  e.g.g
+% 
+%      emp(tim,30)  
+% 
+% functor = emp, arity = 2. Also, for another example:
+% 
+%     append(List1,List2, List3) 
+% 
+% functor = append, arity = 3
+% 
+% Some functors are operators (which may be infix, prefix, prefix) e.g
+% 
+%      2*3- 4  
+% 
+% Internally, this has a "canonical form" -(*(2,3),4) so functor = infix "-", arity = 2
+% 
+%       happy :- wise, healthy.  
+% 
+% Internally this is :-(happy, ,(wise, healthy)) so functor = ":-" and arity =2
+% 
+% Each argument is a atom, a var or a term. 
+% 
+% Atoms are symbols or numbers or strings (and strings are things wrapped in
+% 'single rabbit ears').
+% 
+% Vars start with an "U"pper case letter and are imutable (can only be assigned once).
+% 
+% Lists are are just long nested terms. 
+% 
+% e.g. [name, age, shoesize, diet] is really 
+% 
+% '|'(name, '|'(age, '|'(shoesize,diet))) i.e. thhe functor is "|" and arity= 2 
+% and the second argument is nested 
+% 
+
+% TODO: print write down the following in their internal Prolog form
+
+:- format('10/8 + 6*8*10            has functor ~w and arity ~w~n',[(+),2]). % <=== this is correct.
+:- format('better(beer,bread)       has functor ~w and arity ~w~n',[(+),2]). % <=== this is wrong.
+:- format('live :- work, play,sleep has functor ~w and arity ~w~n',[(+),2]). % <=== this is wrong.
+
+% Predicates
+% ----------
+% 
+% Other languges have (e.g.) functions where some inouts are turned into an output.
+% 
+% Prolog has predictates that only return pass,fail but as a side-effect,
+% updates variable assignments. e.g.
+% 
+%
+
+
+eg(1) :- print(1).
+
+egs:- forall(clause(eg(What),Code),
+             (format("~N%--- ~w -----~n",[What]) 
+             ,Code
+	     ,nl
+	     )).
+
+:- egs, halt.
+
