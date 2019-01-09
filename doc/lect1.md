@@ -45,4 +45,4 @@ Are you in our [Slack group](https://plm19.slack.com/messages/CF707K3T3/)
       shebang is that it is from the default shell sh, usually invoked
       with shebang. This usage was current by December 1989,
       and probably earlier.
-+ [Prolog](https://guides.github.com/introduction/flow/): used in Project1a.
++ [Prolog](https://www.cpp.edu/~jrfisher/www/prolog_tutorial/contents.html):  used in Project1a.
