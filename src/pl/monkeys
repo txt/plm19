@@ -52,7 +52,7 @@ canget(State1,[Action|Plan]) :-                           % not goal state, do s
 :- (canget(state(atwindow, onbox, atwindow, hasnot), Plan ), print(Plan), nl | true).
 % No
 
-:- canget(state(Monkey, onfloor, atwindow, hasnot), Plan), print([Monkey,Plan]), nl.
+:- canget(state(Monkey, onfloor, atwindow, hasnot), Plan), print(Monkey=Plan), nl.
 % Monkey = atwindow
 % Plan = [push(atwindow, middle), climb, grab] 
 

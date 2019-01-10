@@ -1,9 +1,9 @@
 #!/usr/bin/env swipl
 % vim: set filetype=prolog: ts=2 sw=2 sts=2 expandtab:cindent:formatoptions+=cro %
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % PROLOG TUTOR
 % ============
-:w
 % 
 % To run this tutorial first isntall prolog
 %
@@ -19,70 +19,146 @@
 %
 %	./onea
 %
-% Terms
-% -----
-% 
-% In Prolog, everything is a term.
-% 
-% Terms have a functor and an "arity" number of arguments.  e.g.g
-% 
-%      emp(tim,30)  
-% 
-% functor = emp, arity = 2. Also, for another example:
-% 
-%     append(List1,List2, List3) 
-% 
-% functor = append, arity = 3
-% 
-% Some functors are operators (which may be infix, prefix, prefix) e.g
-% 
-%      2*3- 4  
-% 
-% Internally, this has a "canonical form" -(*(2,3),4) so functor = infix "-", arity = 2
-% 
-%       happy :- wise, healthy.  
-% 
-% Internally this is :-(happy, ,(wise, healthy)) so functor = ":-" and arity =2
-% 
-% Each argument is a atom, a var or a term. 
-% 
-% Atoms are symbols or numbers or strings (and strings are things wrapped in
-% 'single rabbit ears').
-% 
-% Vars start with an "U"pper case letter and are imutable (can only be assigned once).
-% 
-% Lists are are just long nested terms. 
-% 
-% e.g. [name, age, shoesize, diet] is really 
-% 
-% '|'(name, '|'(age, '|'(shoesize,diet))) i.e. thhe functor is "|" and arity= 2 
-% and the second argument is nested 
-% 
 
-% TODO: print write down the following in their internal Prolog form
+%Here are the current ops defined in SWI-Prolog
 
-:- format('10/8 + 6*8*10            has functor ~w and arity ~w~n',[(+),2]). % <=== this is correct.
-:- format('better(beer,bread)       has functor ~w and arity ~w~n',[(+),2]). % <=== this is wrong.
-:- format('live :- work, play,sleep has functor ~w and arity ~w~n',[(+),2]). % <=== this is wrong.
 
-% Predicates
-% ----------
-% 
-% Other languges have (e.g.) functions where some inouts are turned into an output.
-% 
-% Prolog has predictates that only return pass,fail but as a side-effect,
-% updates variable assignments. e.g.
-% 
+prints([]).
+prints([H|T]) :- print(H), nl, prints(T).
+
+allOps :- setof([P,A,X],current_op(P,A,X),L), prints(L).
+
+%:- allOps.
+%[1,fx,$]
+%[100,yfx,'.']
+%[200,fy,+]
+%[200,fy,-]
+%[200,fy,@]
+%[200,fy,\]
+%[200,xfx,**]
+%[200,xfy,^]
+%[250,yfx,?]
+%[400,yfx,*]
+%[400,yfx,/]
+%[400,yfx,//]
+%[400,yfx,<<]
+%[400,yfx,>>]
+%[400,yfx,div]
+%[400,yfx,mod]
+%[400,yfx,rdiv]
+%[400,yfx,rem]
+%[400,yfx,xor]
+%[500,yfx,+]
+%[500,yfx,-]
+%[500,yfx,/\]
+%[500,yfx,\/]
+%[600,xfy,:]
+%[700,xfx,:<]
+%[700,xfx,<]
+%[700,xfx,=]
+%[700,xfx,=..]
+%[700,xfx,=:=]
+%[700,xfx,=<]
+%[700,xfx,==]
+%[700,xfx,=@=]
+%[700,xfx,=\=]
+%[700,xfx,>]
+%[700,xfx,>:<]
+%[700,xfx,>=]
+%[700,xfx,@<]
+%[700,xfx,@=<]
+%[700,xfx,@>]
+%[700,xfx,@>=]
+%[700,xfx,\=]
+%[700,xfx,\==]
+%[700,xfx,\=@=]
+%[700,xfx,as]
+%[700,xfx,is]
+%[900,fy,\+]
+%[990,xfx,:=]
+%[1000,xfy,',']
+%[1050,xfy,*->]
+%[1050,xfy,->]
+%[1100,xfy,;]
+%[1105,xfy,'|']
+%[1150,fx,discontiguous]
+%[1150,fx,dynamic]
+%[1150,fx,initialization]
+%[1150,fx,meta_predicate]
+%[1150,fx,module_transparent]
+%[1150,fx,multifile]
+%[1150,fx,public]
+%[1150,fx,thread_initialization]
+%[1150,fx,thread_local]
+%[1150,fx,volatile]
+%[1200,fx,:-]
+%[1200,fx,?-]
+%[1200,xfx,-->]
+%[1200,xfx,:-]
+
+% TODO1.
+% Define operators such that the following expression does NOT generate an
+% error when prolog loads it.
+:- op(802,xfx,  if).
+:- op(801,xfx,  then).
+:- op(800,xfy,  or).
+:- op(799,xfy,  and).
+:- op(798, fy,  not).
+:- op(797, xfy, has).
+:- op(796, xfx, in).
+:- op(1, fx, rule).
+
+
+rule 1 if emp = E has job=J has mother in [president,chancellor] and
+          job = J has salary < 10000 and
+	  job = J2 has salary > 20000
+then
+	  emp =E has job = J2.
 %
 
+% TODO2.
+%Given a database of facts
 
-eg(1) :- print(1).
 
-egs:- forall(clause(eg(What),Code),
-             (format("~N%--- ~w -----~n",[What]) 
-             ,Code
-	     ,nl
-	     )).
+thing(emp,jane,     [job=president]).
+thing(emp,tim,      [job=cleaner,mother=president]).
+thing(job,cleaner,  [salary=10000]).
+thing(job,professor,[salary=30000]).
 
-:- egs, halt.
+% TODO3
+% emp has name=tim has age < 20 has shoesize > 12
+
+ok(X and Y) :- ok(X), ok(Y).
+ok(X or Y)  :- ok(X) ; ok(Y).
+ok(not X)       :- not(ok(X)).
+
+test(X =Id has Y) :- thing(X,Id,Fs),  ok(Y,Fs).
+
+ok(X has Y,Fs) :- ok(X,Fs), ok(Y,Fs).
+ok(X =  Y, Fs) :- member(X=Y,Fs).
+ok(X>=  Y, Fs) :- ok(X=Z,Fs), Z>=Y.
+ok(X >  Y, Fs) :- ok(X=Z,Fs), Z> Y.
+ok(X \= Y, Fs) :- ok(X=Z,Fs), Z \= Y.
+ok(X <  Y, Fs) :- ok(X=Z,Fs), Z < Y.
+ok(X =< Y, Fs) :- ok(X=Z,Fs), Z =< Y.
+ok(X in L, Fs) :- ok(X=Z,Fs), member(Z,L).
+
+do(X =Id has Y) :- retract(thing(X,Id,Old)), do1(Y,Old,New), assert(thing(X,Id,New)).
+
+do1(X has Y,Old,New) :- do1(X, Old, Tmp), do1(Y, Tmp, New).
+
+do1(X=Y,Old,New) :-  
+   append(B4,[X=_|After],Old),
+   append(B4,[X=Y|After],New).
+
+think :-
+ rule _ if Condition then Action,
+ test(Condition),
+ do(Action).
+
+
+
+%Write a prolog interpreter to test for _job=J2 has salary > 2000
+
+%macros in Proog
 
