@@ -47,12 +47,14 @@ Mid-term: March 19<br>
 Exam: May 2
 </td>
 <td valign=top  xwidth="100px">
+<a href="doc/onea.md">Logic</a><br>
 <a href="doc/lect1.md">One</a><br>
 
 
 <!-- -------------------------------- -->
 
 </td><td align=center valign=top xwidth="100px">
+<a href="src/pl/onea">1a</a><br>
 
 </td>
 <td align=center valign=top  xwidth="100px">

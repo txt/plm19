@@ -31,9 +31,7 @@ fact(job,professor,[salary=30000]).
 % load-time errors and all the testN predicates working without
 % getting "failed(X)" errors
 
-main:-
-  tests, testNepotism, halt.
-
+main:- tests, testNepotism.
 % Expected output
 %
 % $ ./onea
@@ -166,7 +164,7 @@ test(16).
 testNepotism :-
   listing(fact),
   nl,
-  rule nepotism if Condition then Action,
+  rule(nepotism) if Condition then Action,
   had(Condition),
   has(Action),
   listing(fact).
@@ -333,3 +331,4 @@ allOps :- setof([P,A,X],current_op(P,A,X),L), prints(L).
 %[1200,xfx,:-]
 
 :- main.
+:- halt.
