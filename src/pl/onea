@@ -141,7 +141,7 @@ ok(X >  Y, Fs) :- ok(X=Z,Fs), Z> Y.
 ok(X \= Y, Fs) :- ok(X=Z,Fs), Z \= Y.
 ok(X <  Y, Fs) :- ok(X=Z,Fs), Z < Y.
 ok(X =< Y, Fs) :- ok(X=Z,Fs), Z =< Y.
-ok(X in L, Fs) :- ok(X=Z,Fs), member(Z,L).
+ok(X in L, [H|T]) :- ok(X=Z,[H|T]), member(Z,[H|T]).
 
 do(X =Id has Y) :- retract(thing(X,Id,Old)), do1(Y,Old,New), assert(thing(X,Id,New)).
 
