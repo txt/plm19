@@ -22,11 +22,14 @@ a(X,Y,Z) :- has(X,Y,Z).
 
 % same cluase incorrectly defined twice.
 
-a(1).
-a(2).
+posint(1).
+posint(2).
 
 somethingElse.
 
-a(3).
+posint(3).
+
+winner(X) :- character(X,strong), peerPressure(X,hi), not(lazy(X)).
+
 
 :- halt.
