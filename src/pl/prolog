@@ -1,4 +1,0 @@
-#!/bin/sh
-echo $(which swipl) -q -f "$1" --
-$(which swipl) -q -f $1 --
-

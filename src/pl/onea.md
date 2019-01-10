@@ -196,6 +196,8 @@ age(Dob,Age) :- now(Now), Age is Now - Dob.
 
 The scope of variables is one clause; there is no such thing as a global variable or nested scope within blocks.
 
+
+
 ## Backtracking
 
 When Prolog tries to answer a query, it goes through a matching process. It tries to match the predicates on the right-hand side of the rule from left to right, binding variables when it finds a match. If a match fails, it may be because of the bindings in matches to the left. In that case, the interpreter backtracks - it returns to the nearest previous binding and tries to find a different match. If that fails, it backtracks some more.
@@ -324,6 +326,16 @@ Also, we can find all members of a list:
     X = b;
     X = c
     
+
+Here's a predicated to print a list of terms. Like
+all recursion it has at least two parts:
+
+	prints([]).    % termination
+	prints([H|T]) :- 
+	   print(H), nl,  % handle one thing
+	   prints(T).     % recurse to handle the rest
+	
+
 Also, Prolog is a relational language. Variables are not inputs and outputs but concepts woven together by constraints. Also, we only need to partially specify the I/O to query those constraints:
 
     ?-  member(name=What, [age=20,shoesize=12,name=tim]).
@@ -331,7 +343,20 @@ Also, Prolog is a relational language. Variables are not inputs and outputs but 
     
 (If this is causing stress, just chant to yourself: in Prolog, we don't code; rather, we draw the shape of the solution.)
 
-This can get really funky. Here's the standard definition of how to append two lists:
+To use that list stuff for a little database, we have to be able to update fields.
+
+	switch([],_,[]).
+	switch([X=_Old | T],  X=New, [X=New|T]).
+	switch([Y=Old  | T0], X=New, [Y=Old|T]) :-
+	   X \= Y,
+	   switch(T0,X=New,T).
+
+        ?- switch([a=1,b=2], b=3,Out).
+	Out = [a=1,b=3].
+
+### Fun with Append
+
+Lists can get really funky. Here's the standard definition of how to append two lists:
 
     append([], A, A).
     append([A|B], C, [A|D]) :-
