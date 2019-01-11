@@ -17,9 +17,8 @@
 - syntax
 - semantics
 
-## Abstractions
 
-### Pipe and Filter
+## Pipe and Filter
 
 <img width=600 align=right src="https://www.cs.uic.edu/~jbell/CourseNotes/OO_SoftwareEngineering/images/Chapter6/Fig6-25.jpg">
 
@@ -46,7 +45,7 @@
    - Don't use for GUI applications where users want to hunt and peck all over different parts of the pipe (since
      pipes are fast methods for going here to there).
 
-### Precendence-Driven parser
+## Precendence-Driven parser
 <img align=right width=400 src="https://students.cs.byu.edu/~cs235ta/labs/images/expressions.png">
 Simple way to specify the syntax of a simple language.
 
@@ -64,7 +63,7 @@ Core cocentps:
 - yfx, xfy, fy, yf
 - prefix, index, postfix
 
-### Interpreter
+## Interpreter
 
 <img align=right width=500 src="https://www.cs.northwestern.edu/academics/courses/325/readings/interpreter1.gif">
 
