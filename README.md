@@ -47,6 +47,7 @@ Mid-term: March 19<br>
 Exam: May 2
 </td>
 <td valign=top  xwidth="100px">
+<a href="doc/llvm.md">Roll your own</a><br>
 <a href="src/pl/onea.md">Logic</a><br>
 <a href="doc/lect1.md">One</a><br>
 
@@ -58,6 +59,7 @@ Exam: May 2
 
 </td>
 <td align=center valign=top  xwidth="100px">
+<a href="doc/week1.md">Week1</a><br>
 </td>
 </tr>
 </table>
