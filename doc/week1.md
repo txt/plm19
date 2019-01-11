@@ -21,7 +21,7 @@
 
 ### Pipe and Filter
 
-<img width=400 align=right src="https://www.cs.uic.edu/~jbell/CourseNotes/OO_SoftwareEngineering/images/Chapter6/Fig6-25.jpg">
+<img width=600 align=right src="https://www.cs.uic.edu/~jbell/CourseNotes/OO_SoftwareEngineering/images/Chapter6/Fig6-25.jpg">
 
 - **Intent**  Divide and conqueor
 
