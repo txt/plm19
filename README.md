@@ -12,7 +12,9 @@
 
 
 
-CSC 417 (001) SPRG 2019 (11904)
+CSC 417 (001)   
+SPRG 2019   
+NcState (11904) 
 
 
 In your professional life you will work with dozens of different programming langauges.
@@ -36,7 +38,7 @@ So what can you learn from 100s of past languages to help you work with your fut
 </tr>
 <tr>
 <td valign=top  xwidth="100px">
-1a: <br> 1a+: Jan 31<br>
+1a: Jan25<br> 1a+: Jan 31<br>
 1b: Feb7<br> 1b+: Feb 14<br>
 1c: Feb21<br> 1c+: Fed 28<br>
 1d: Mar 7<br> 1d+: Mar 21
