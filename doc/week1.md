@@ -14,8 +14,45 @@
 ## Words
 
 - shebang
+- syntax
+- semantics
+
+## Abstractions
+
+### Pipe and Filter
+
+- **Intent**  Divide and conqueor
+
+- **Probems**: 
+    Need to apply a series of ordered but independent computations is required, perhaps as a series of time-step operations, on ordered data.
+
+- **Structure**: Pipes (that move things) and filters (that change things).
+
+- **Example**:  Bell Labs. 1970s. Hundreds of Ph.D. comptuer scientists with no job descriptions all looking for ways 
+   to work together (this is the world that gave us UNIX). They broke all their work up into tiny tools (filters)
+   which could be wired together in many and magical magnficent ways.
+
+
+- **Rules of thumb**:
+   - Use a common  format for all i/o (e.g text files, comma-seperated-values, json)
+   - Each filter should do one thing well and one thing only.
+   - Useful for multi-tasking (operating system can run each filter seperately).
+   - Don't use when 2 filters need to tightly co-ordinate with each other
+   - Don't use when very complex state has to be transferred between the filters 
+   - Can be slower to run than "one big pile of code" since so much i/o between filters
+   - Can be easier to maintain than "one big pile of code" since easier to upgrade each bit in isolation 
+   - Don't use for GUI applications where users want to hunt and peck all over different parts of the pipe (since
+     pipes are fast methods for going here to there).
+
+### Precendence-Driven parser
+
+Simple way to specify the syntax of a simple language.
+
+Pre-processor for interpreter.
+
+Core cocentps:
+
 - parse tree
-- pipe and filter
 - operator
 - operand
 - predence
@@ -24,23 +61,6 @@
 - xfx, fx, xf
 - yfx, xfy, fy, yf
 - prefix, index, postfix
-
-## Abstractions
-
-### Parse tree
-
-
-Constraints:
-
-Very small amount of primary memory, typically orders of magnitude smaller than the data that needs to be processed/generated. (The example sets the limit to 1024 cells)
-
-No labels -- i.e. no variable names or tagged memory addresses. All we have is memory that is addressable with numbers.
-
-Possible names:
-
-Good old times
-Early 50s style
-NOTE: this example program takes a good 5-10 minutes to run over Pride and Prejudice
 
 ### Interpreter
 
