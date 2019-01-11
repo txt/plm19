@@ -24,14 +24,19 @@ More common way
      - Ugly way: Parse your preferred languages, walk the parse tree spitting  out  phrases in the target language
             - Hint: use a target language with a  very simple, regular semantics (e.g. Lua).
      - Nicer way: grammars
-            - e.g. Coffeescript
+            - e.g. [Coffeescript](https://coffeescript.org/#language)'s [grammer](https://coffeescript.org/v1/annotated-source/grammar.html)
      - The transpiler curse: code in X debug info in Y
 
 Other ways
 
 - Take core theory and work to that
-     - e.g. lambda bodies (ECMAScript, [lis.py](http://norvig.com/lispy.html) or [lispy2](http://norvig.com/lispy2.html))
-     - e.g. unification (if you like logic)
+    - e.g. lambda bodies (ECMAScript, [lis.py](http://norvig.com/lispy.html) or [lispy2](http://norvig.com/lispy2.html))
+    - e.g. unification (if you like logic)
+- The traditional way
+    - [BNF](https://en.wikipedia.org/wiki/Backus–Naur_form#Example)  to define the language
+    - Grammers to  define valid sentences and [precedence](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Precedence_and_Associativity)
+    - Lex (lexical analysis) 
+    - Yacc (compiler compiler)
 
 And, if you want to massively scale your program
 
