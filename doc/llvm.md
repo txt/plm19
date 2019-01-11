@@ -26,6 +26,7 @@ More common way
      - Nicer way: grammars
             - e.g. [Coffeescript](https://coffeescript.org/#language)'s [grammer](https://coffeescript.org/v1/annotated-source/grammar.html)
      - The transpiler curse: code in X debug info in Y
+     - The transpiler curse: code in X restricted by what you can do in Y
 
 Other ways
 
