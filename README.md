@@ -41,6 +41,8 @@ NcState (11904)
 In your professional life you will work with dozens of different programming langauges.
 <p>
 So what can you learn from 100s of past languages to help you work with your future languages?
+<p>
+Lets find out...
 </td>
 <td valign=top  xwidth="100px">
 1a: Jan25<br> 1a+: Jan 31<br>
