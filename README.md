@@ -33,9 +33,9 @@
 <tr>
 <td valign=top  width="300px">
 <p>
-In your professional life you will work with dozens of different programming languages.
+In your future professional life you will work with dozens of different programming languages.
 <p>
-So what can you learn from 100s of past languages to help you work with your future languages?
+So what can you learn from 100s of past languages to help you work with those future languages?
 <p>
 Well...
 </td>
