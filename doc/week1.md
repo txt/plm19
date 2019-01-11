@@ -97,10 +97,11 @@ Core cocentps:
     - Simple, uniform semantics is key (think lambda!).
     - Added layers of interpretation slows down the program
       - So yes, [JAVA is slower than C](https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fast.html) 
-    - Maintainability and usability can be more important
-      than mere speed
-    - And CPUs are faster these days
-    - and, sometimes, the clarity of the higher level
+    - CPUs are faster these days so why not interpret?
+    - For many applciations, network latency is what drives runtime speed so adding an interepred language doesn't slow
+      down anything very much.
+    - Maintainability and usability can be more important than mere speed
+    - Sometimes, the clarity of the higher level
       interpreted system can make it optimize better
 - **See also**
     - Grammers
