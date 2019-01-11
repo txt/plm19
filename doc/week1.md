@@ -78,7 +78,7 @@ Core cocentps:
    convenient, more succinct, summary language
 - **Examples**
   - Homework 1a
-  - any interpretered language (JAVA, Lisp, smalltalk, Prolog, Awk,...)
+  - any interpretered language (Python, Runy, Prolog...)
 - **Names**
     - Interpreter
     - Abstract machine
@@ -94,7 +94,15 @@ Core cocentps:
       writing your own, is the best way to understand a 
       a langguage.
 - **Rules of Thumb**
-    - Simple, uniform semantics is key (think lambda!).
+    - Intepret into a virtual machine, then build an execution tool for the virtual machine (e.g. Java ==> JVM)
+         - e.g. Smalltalk ==> bytecodes, 
+	 - e.g. JAVA ==? JVM
+	 - e.g. Lisp ==> lambda bodies
+         - Useful for cross platfrom stuff
+    - To build a compiler, interpret into machine code then cache that intepretation
+         - So the next time you want to do something, no wait for the interpreter
+    - Seperate out the syntaxical from semantic (otherwise, things get too complex)
+    - Simple, uniform semantics makes interpretation easier
     - Added layers of interpretation slows down the program
       - So yes, [JAVA is slower than C](https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fast.html) 
     - CPUs are faster these days so why not interpret?
