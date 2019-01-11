@@ -66,7 +66,7 @@ Core cocentps:
 
 ### Interpreter
 
-<img align=right width=400 src="https://image.slidesharecdn.com/synapseindiadotnetdevelopment-computerprogramming-141121054735-conversion-gate02/95/synapseindia-dot-net-development-computer-programming-15-638.jpg?cb=1416549025">
+<img align=right width=600 src="https://image.slidesharecdn.com/synapseindiadotnetdevelopment-computerprogramming-141121054735-conversion-gate02/95/synapseindia-dot-net-development-computer-programming-15-638.jpg?cb=1416549025">
 
 - **Intent** Seperate what you want to say from underlying
   execution device
