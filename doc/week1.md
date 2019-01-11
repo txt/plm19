@@ -66,7 +66,7 @@ Core cocentps:
 
 ### Interpreter
 
-<img align=right width=600 src="https://image.slidesharecdn.com/synapseindiadotnetdevelopment-computerprogramming-141121054735-conversion-gate02/95/synapseindia-dot-net-development-computer-programming-15-638.jpg?cb=1416549025">
+<img align=right width=500 src="https://www.cs.northwestern.edu/academics/courses/325/readings/interpreter1.gif">
 
 - **Intent** Seperate what you want to say from underlying
   execution device
@@ -97,7 +97,7 @@ Core cocentps:
     - Studying interepreters, and more importantly,
       writing your own, is the best way to understand a 
       a langguage.
-- **Rules of Thumb**
+- **Rules of Thumb** <img align=right width=600 src="https://image.slidesharecdn.com/synapseindiadotnetdevelopment-computerprogramming-141121054735-conversion-gate02/95/synapseindia-dot-net-development-computer-programming-15-638.jpg?cb=1416549025">
     - Intepret into a virtual machine, then build an execution tool for the virtual machine (e.g. Java ==> JVM)
          - e.g. Smalltalk ==> bytecodes, 
 	 - e.g. JAVA ==? JVM
