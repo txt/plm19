@@ -36,7 +36,7 @@ NcState (11904)
 <td align=left valign=top><b>Review</b> </td>
 </tr>
 <tr>
-<td valign=top  width="400px">
+<td valign=top  width="300px">
 In your professional life you will work with dozens of different programming langauges.
 So what can you learn from 100s of past languages to help you work with your future languages?
 </td>
