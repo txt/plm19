@@ -40,7 +40,7 @@ So what can you learn from 100s of past languages to help you work with your fut
 1b: Feb7<br> 1b+: Feb 14<br>
 1c: Feb21<br> 1c+: Fed 28<br>
 1d: Mar 7<br> 1d+: Mar 21<br>
-Mid-term: March 19<br>
+Mid-term: Mar19<br>
 2a: Apr 4<br>2a+: Apr 11<br>
 2b: Apr18<br>2b+:  Apr25 <br> 
 2c: Apr18<br>
