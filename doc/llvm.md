@@ -13,7 +13,7 @@
 
 ## The easy way
 
-Easist way (for me, but others disagree):
+Easiest way (for me, but others disagree):
 
 - Meta-interpreters in Prolog
 - Macros in Lisp
@@ -21,16 +21,16 @@ Easist way (for me, but others disagree):
 More common way
 
 - transpilers (source to source translation). 
-     - Ugly way: PArse your preferred languages, walkt the parse tree spitting  out  phrases in the target language
-            - Hint: use a target language witha  very simple, regular semantics (e.g. Lua).
-     - Nicer way: grammers
+     - Ugly way: Parse your preferred languages, walk the parse tree spitting  out  phrases in the target language
+            - Hint: use a target language with a  very simple, regular semantics (e.g. Lua).
+     - Nicer way: grammars
             - e.g. Coffeescript
      - The transpiler curse: code in X debug info in Y
 
 Other ways
 
 - Take core theory and work to that
-     - e.g. lambda bodies (EMCAscript, [lis.py](http://norvig.com/lispy.html) or [lispy2](http://norvig.com/lispy2.html))
+     - e.g. lambda bodies (ECMAScript, [lis.py](http://norvig.com/lispy.html) or [lispy2](http://norvig.com/lispy2.html))
      - e.g. unification (if you like logic)
 
 And, if you want to massively scale your program
@@ -41,19 +41,19 @@ And, if you want to massively scale your program
 ## LLVM
 
 
-Illsutrates many of the complexities of compliation.
+Illustrates many of the complexities of compilation.
 
-Simpliies them. Abstracts them away to numerous seperte modules... which means now you can add your own.
+Simplifies them. Abstracts them away to numerous separate modules... which means now you can add your own.
 
 ## What is it?
 
-At the frontend you can have C, Scala, Perl, Luam and many other high level languages. At the backend, you have the natives code that run directly on the machine.
+At the front end you can have C, Scala, Perl, Lua, and many other high level languages. At the backend, you have the natives code that run directly on the machine.
 
-At the centre is your intermediate code representation. If every high level languages can be represented in this LLVM IR format, then analysis tools based on this IR can be easily reused - that is the basic rational.
+At the center is your intermediate code representation. If every high level languages can be represented in this LLVM IR format, then analysis tools based on this IR can be easily reused - that is the basic rational.
 
 ![](https://i.stack.imgur.com/9xGDe.png)
 
-Useful for many things (including just in time compiltation) including compile-time  transformations
+Useful for many things (including just in time compilation) including compile-time  transformations
 and of code. It also consists of a number of tools serving distinct usages. e.g.
 
 - llvm-prof is a profiling tool that allows you to do profiling of execution in order to identify program hotspots. 
@@ -76,7 +76,7 @@ The original author of LuaJist moved on to other things and now we have a great 
 
 Is it better to use tools known to more people? [Some people](https://github.com/gligneul/FastLua) [think so](https://github.com/dibyendumajumdar/ravi).
 
-- Reality check: currently, LuaJit is pragmaatially the best. 
+- Reality check: currently, LuaJit is pragmatically the best. 
 - But as Lua evolves for 5.4, 6, 7 .. what then?
 
 ## Examples
@@ -84,23 +84,23 @@ Is it better to use tools known to more people? [Some people](https://github.com
 No, I do not understand all the [passes available in LLVM](https://llvm.org/docs/Passes.html)
 but they divide into:
 
-- analysis (thing, attributed grammars... looking atht eht code and reporting extra things); e.g.
-       - [sanity check](https://llvm.org/docs/Passes.html#lint-statically-lint-checks-llvm-ir)
-       - some [safety checks](https://llvm.org/docs/Passes.html#stack-safety-stack-safety-analysis)
-- transformations (think optimizations); e.g
-       - [Remove redunancies](https://llvm.org/docs/Passes.html#instcombine-combine-redundant-instructions)   
-       - [Canonicalize induction variables](https://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables)
-       - [Unroll and jam the loops](https://llvm.org/docs/Passes.html#loop-unroll-and-jam-unroll-and-jam-loops)
-       - remove [dead code](https://llvm.org/docs/Passes.html#dce-dead-code-elimination); i.e. things we cannot reach
-       - simple [constraint propergation](https://llvm.org/docs/Passes.html#constprop-simple-constant-propagation)
-       - [inlining](https://llvm.org/docs/Passes.html#inline-function-integration-inlining) of simple functions
-       - [unswitching loops](https://llvm.org/docs/Passes.html#loop-unswitch-unswitch-loops)
-       - [anonymousing code](https://llvm.org/docs/Passes.html#strip-strip-all-symbols-from-a-module)
-       - [tail call elimination](https://llvm.org/docs/Passes.html#tailcallelim-tail-call-elimination)
+- analysis (thing, attributed grammars... looking at the  code and reporting extra things); e.g.
+    - [sanity check](https://llvm.org/docs/Passes.html#lint-statically-lint-checks-llvm-ir)
+    - some [safety checks](https://llvm.org/docs/Passes.html#stack-safety-stack-safety-analysis)
+- transformations (think optimization's); e.g
+    - [Remove redunancies](https://llvm.org/docs/Passes.html#instcombine-combine-redundant-instructions)   
+    - [Canonical's induction variables](https://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables)
+    - [Unroll and jam the loops](https://llvm.org/docs/Passes.html#loop-unroll-and-jam-unroll-and-jam-loops)
+    - remove [dead code](https://llvm.org/docs/Passes.html#dce-dead-code-elimination); i.e. things we cannot reach
+    - simple [constraint propergation](https://llvm.org/docs/Passes.html#constprop-simple-constant-propagation)
+    - [inlining](https://llvm.org/docs/Passes.html#inline-function-integration-inlining) of simple functions
+    - [unswitching loops](https://llvm.org/docs/Passes.html#loop-unswitch-unswitch-loops)
+    - [anonymous code](https://llvm.org/docs/Passes.html#strip-strip-all-symbols-from-a-module)
+    - [tail call elimination](https://llvm.org/docs/Passes.html#tailcallelim-tail-call-elimination)
 - utilities (reports); e.g.
-       - [view the call graph](https://llvm.org/docs/Passes.html#tailcallelim-tail-call-elimination)
-       - [checking for dumb things](https://llvm.org/docs/Passes.html#verify-module-verifier) (and yes, this could also
-         have been an _analysis_ pass
+    - [view the call graph](https://llvm.org/docs/Passes.html#tailcallelim-tail-call-elimination)
+    - [checking for dumb things](https://llvm.org/docs/Passes.html#verify-module-verifier) (and yes, this could also
+         have been an _analysis_ pass...).
 
 The point here is that if you want more than the above, LLVM lets you [write your own](http://llvm.org/docs/WritingAnLLVMPass.html).
 
@@ -113,13 +113,13 @@ Good news:
 Bad news: 
 
 - ever tried debugging optimized code? Shudder.
-- and if optimziations are platform dependent then different semantics on different platforms (Shudder).
+- and if optimizations are platform dependent then different semantics on different platforms (Shudder).
 
-Premature optimization is the root of all evil -- DonaldKnuth
+Premature optimization is the root of all evil -- Donald Knuth
 
-In DonaldKnuth's paper "StructuredProgrammingWithGoToStatements", he wrote: "Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%."
+In Donald Knuth's paper "StructuredProgrammingWithGoToStatements", he wrote: "Programmers waste enormous amounts of time thinking about, or worrying about, the speed of noncritical parts of their programs, and these attempts at efficiency actually have a strong negative impact when debugging and maintenance are considered. We should forget about small efficiencies, say about 97% of the time: premature optimization is the root of all evil. Yet we should not pass up our opportunities in that critical 3%."
 
-So PrematureOptimization can be defined (in less loaded terms) as optimizing before we know that we need to.
+So Premature Optimization can be defined (in less loaded terms) as optimizing before we know that we need to.
 
 Step1: write "it"  clean
 
