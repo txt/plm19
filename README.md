@@ -18,7 +18,7 @@ CSC 417 (001) SPRG 2019 (11904)
 In your professional life you will work with dozens of different programming langauges.
 So what can you learn from 100s of past languages to help you work with your future languages?
 
-
+<center>
 <table width="100%" border=0 align=center>
 <tr>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
@@ -63,6 +63,6 @@ Exam: May 2
 </td>
 </tr>
 </table>
-
+</center>
 
 
