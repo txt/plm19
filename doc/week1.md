@@ -21,6 +21,8 @@
 
 ### Pipe and Filter
 
+<img width=400 align=right src="https://www.cs.uic.edu/~jbell/CourseNotes/OO_SoftwareEngineering/images/Chapter6/Fig6-25.jpg">
+
 - **Intent**  Divide and conqueor
 
 - **Probems**: 
@@ -45,7 +47,7 @@
      pipes are fast methods for going here to there).
 
 ### Precendence-Driven parser
-
+<img align=right width=400 src="https://students.cs.byu.edu/~cs235ta/labs/images/expressions.png">
 Simple way to specify the syntax of a simple language.
 
 Pre-processor for interpreter.
@@ -63,6 +65,8 @@ Core cocentps:
 - prefix, index, postfix
 
 ### Interpreter
+
+<img align=right width=400 src="https://image.slidesharecdn.com/synapseindiadotnetdevelopment-computerprogramming-141121054735-conversion-gate02/95/synapseindia-dot-net-development-computer-programming-15-638.jpg?cb=1416549025">
 
 - **Intent** Seperate what you want to say from underlying
   execution device
