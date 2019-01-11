@@ -11,11 +11,6 @@
 
 
 
-CSC 417 (001)   
-SPRG 2019   
-NcState (11904) 
-
-
 
 <center>
 <table width="100%" border=0 align=center>
