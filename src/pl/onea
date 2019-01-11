@@ -331,4 +331,4 @@ allOps :- setof([P,A,X],current_op(P,A,X),L), prints(L).
 %[1200,xfx,:-]
 
 :- main.
-:- halt.
+%:- halt.
