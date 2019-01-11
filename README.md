@@ -19,7 +19,7 @@ In your professional life you will work with dozens of different programming lan
 So what can you learn from 100s of past languages to help you work with your future languages?
 
 
-<table width="100%" border=0 align=right>
+<table width="100%" border=0 align=center>
 <tr>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
