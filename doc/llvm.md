@@ -30,9 +30,18 @@ More common way
 
 Other ways
 
-- Take core theory and work to that
+- "External" domain-specific languages
+    - Write macros, sub-routines, classes to batch up complex sets of operations
+      behind simpler, more succinct interfaces.
+         - E.g. the "program" is some tiny sub-classes that defines 
+	   itself as an extension to some (possibly large) set of super-classes.
+- Assume a (simple) core semantics, and build for that:
+    - e.g. state machines, 
+    - e.g. compartmental models
     - e.g. lambda bodies (ECMAScript, [lis.py](http://norvig.com/lispy.html) or [lispy2](http://norvig.com/lispy2.html))
     - e.g. unification (if you like logic)
+    - Rule of thumb: the simpler and more uniform your semantics, the smaller your
+      interpreter
 - The traditional way
     - [BNF](https://en.wikipedia.org/wiki/Backus–Naur_form#Example)  to define the language
     - Grammers to  define valid sentences and [precedence](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Precedence_and_Associativity)

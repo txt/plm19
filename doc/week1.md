@@ -73,7 +73,7 @@ Core cocentps:
    - You want some platfrom independent way
   to express solutions. 
    - Or you want to think one way
-   (e.g. Objects, classes, messages) and the underlying
+   (e.g. pattern matching, lambda bodies, compartmental models, agents, objects, classes, messages) and the underlying
    machine does not support that (e.g. it only knows
    about stacks and registers). 
    - Or you want to batch
