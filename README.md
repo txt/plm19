@@ -16,11 +16,18 @@
 </td>
 </tr>
 <tr>
-<td valign=top>
-Tues/Thurs 4:30 to 5:45<br>
-EE I, Room 1007<br>
-Prof. Tim Menzies
-
+<td width="400px" valign=top rowspan=3>
+<h3>Why study this subject?</h3>
+<p>
+In your future professional life you will work with dozens of different programming languages.
+<p>
+So what can you learn from 100s of past languages to help you work with those future languages?
+<p>
+Well, let's see....
+<p>&nbsp;
+<p>&nbsp;
+<p>&nbsp;
+<img width=380 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
@@ -38,17 +45,6 @@ Prof. Tim Menzies
 </tr>
 <tr>
 <td valign=top  width="400px">
-<h3>Why study this subject?</h3>
-<p>
-In your future professional life you will work with dozens of different programming languages.
-<p>
-So what can you learn from 100s of past languages to help you work with those future languages?
-<p>
-Well, let's see....
-<p>&nbsp;
-<p>&nbsp;
-<p>&nbsp;
-<img width=380 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td>
 <td valign=top  xwidth="100px">
 1a: Jan25<br> 1a+: Jan 31<br>
