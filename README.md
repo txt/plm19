@@ -15,7 +15,7 @@
 </td>
 </tr>
 <tr>
-<td width="400" valign=middle rowspan=3>
+<td xwidth="400" valign=middle rowspan=3>
 <img width=250 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
 <p>
 Why study this subject?
