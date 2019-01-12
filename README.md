@@ -9,7 +9,7 @@
 <a href="https://github.com/txt/plm19/tree/master/src">src</a> |
 <a href="http://tiny.cc/plm19give">submit</a> |
 <a href="https://plm19.slack.com/">chat</a>
-</td></tr><tr><td align=right colspan=4>
+</td><td align=right colspan=4>
 <a href="https://github.com/txt/plm19/blob/master/license.md">copyright</a> &copy;2019, <a href="http://menzies.us">Tim Menzies</a>
 </td>
 </tr>
