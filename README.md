@@ -23,13 +23,13 @@
 <td align=center><img  src="etc/img/review.gif"></td>
 </tr>
 <tr>
-<td align=left valign=top><b>Why this subject?</b>
-<td align=left valign=top><b>Schedule</b>
+<td align=left valign=top><b>WHY THIS SUBJECT?</b>
+<td align=left valign=top><b>SCHEDULE</b>
 
 </td>
-<td align=left valign=top><b>Lectures</b></td>
-<td align=left valign=top><b>Project</b>
-<td align=left valign=top><b>Review</b> </td>
+<td align=left valign=top><b>LECTURES</b></td>
+<td align=left valign=top><b>PROJECT</b>
+<td align=left valign=top><b>REVIEW</b> </td>
 </tr>
 <tr>
 <td valign=top  width="400px">
