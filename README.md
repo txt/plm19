@@ -16,7 +16,7 @@
 </td>
 </tr>
 <tr>
-<td width="500px" valign=middle rowspan=3>
+<td width="450" valign=middle rowspan=3>
 <h3>Why study this subject?</h3>
 <p>
 In your future professional life you will work with dozens of different programming languages.
@@ -27,7 +27,7 @@ Well, let's see....
 <p>&nbsp;
 <p>&nbsp;
 <p>&nbsp;
-<img width=480 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
+<img width=430 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
@@ -44,16 +44,16 @@ Well, let's see....
 </tr>
 <tr>
 <td valign=top  xwidth="100px">
-1a: Jan25<br> 1a+: Jan 31<br>
-1b: Feb7<br> 1b+: Feb 14<br>
-1c: Feb21<br> 1c+: Fed 28<br>
-1d: Mar 7<br> 1d+: Mar 21
+1a:Jan25<br> 1a+:Jan31<br>
+1b:Feb7<br> 1b+:Feb14<br>
+1c:Feb21<br> 1c+:Feb28<br>
+1d:Mar7<br>1d+:Mar21
 <hr>
-Mid-term: Mar19
+Mid-term:Mar19
 <hr>
-2a: Apr 4<br>2a+: Apr 11<br>
-2b: Apr18<br>2b+:  Apr25 <br> 
-2c: Apr18
+2a:Apr4<br>2a+:Apr11<br>
+2b:Apr18<br>2b+:Apr25 <br> 
+2c:Apr18
 <hr>
 Exam: May 2
 </td>
