@@ -32,7 +32,7 @@
 <td align=left valign=top><b>Review</b> </td>
 </tr>
 <tr>
-<td valign=top  width="300px">
+<td valign=top  width="400px">
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
