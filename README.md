@@ -13,7 +13,7 @@
 <a href="https://github.com/txt/plm19/blob/master/license.md">copyright</a> &copy;2019, <a href="http://menzies.us">Tim Menzies</a>
 </td>
 </tr>
-<tr><td rowspan=5>
+<tr><td colspan=5>
 <a href="http://tiny.cc/plm19"><img width=900 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a>
 </td>
 </tr>
