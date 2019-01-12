@@ -23,11 +23,7 @@ In your future professional life you will work with dozens of different programm
 <p>
 So what can you learn from 100s of past languages to help you work with those future languages?
 <p>
-Well, let's see....
-<p>&nbsp;
-<p>&nbsp;
-<p>&nbsp;
-<img width=380 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
+Well, let's take a look....
 </td>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
