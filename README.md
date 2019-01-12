@@ -23,7 +23,7 @@
 <td align=center><img  src="etc/img/review.gif"></td>
 </tr>
 <tr>
-<td align=left valign=top><b>WHY THIS SUBJECT?</b>
+<td align=left valign=top></b>
 <td align=left valign=top><b>SCHEDULE</b>
 
 </td>
@@ -33,12 +33,13 @@
 </tr>
 <tr>
 <td valign=top  width="400px">
+<h2>Why study this subject?</h2>
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
 So what can you learn from 100s of past languages to help you work with those future languages?
 <p>
-Well...
+Well, let's see....
 </td>
 <td valign=top  xwidth="100px">
 1a: Jan25<br> 1a+: Jan 31<br>
