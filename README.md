@@ -15,7 +15,7 @@
 <center>
 <table width="100%" border=0 align=center>
 <tr>
-<td rowspan=4>
+<td colspan=4>
 a
 </td>
 </tr>
