@@ -1,3 +1,9 @@
+
+
+<center>
+<table width="100%" border=0 align=center>
+<tr>
+<td colspan=5>
 [home](http://tiny.cc/plm19) |
 [copyright](https://github.com/txt/plm19/blob/master/license.md) &copy;2019, timm&commat;ieee.org
 <br>
@@ -7,16 +13,6 @@
 [src](https://github.com/txt/plm19/tree/master/src) |
 [submit](http://tiny.cc/plm19give) |
 [chat](https://plm19.slack.com/)
-
-
-
-
-
-<center>
-<table width="100%" border=0 align=center>
-<tr>
-<td colspan=4>
-a
 </td>
 </tr>
 <tr>
@@ -36,7 +32,7 @@ a
 <td align=left valign=top><b>Review</b> </td>
 </tr>
 <tr>
-<td valign=top  width="300px">
+<td valign=top  xwidth="300px">
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
