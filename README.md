@@ -35,7 +35,6 @@ Well, let's see....
 <td align=center><img  src="etc/img/review.gif"></td>
 </tr>
 <tr>
-<td align=left valign=top></b>
 <td align=left valign=top><b>SCHEDULE</b>
 
 </td>
@@ -44,8 +43,6 @@ Well, let's see....
 <td align=left valign=top><b>REVIEW</b> </td>
 </tr>
 <tr>
-<td valign=top  width="400px">
-</td>
 <td valign=top  xwidth="100px">
 1a: Jan25<br> 1a+: Jan 31<br>
 1b: Feb7<br> 1b+: Feb 14<br>
