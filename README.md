@@ -16,7 +16,7 @@
 </td>
 </tr>
 <tr>
-<td width="400" valign=middle rowspan=3>
+<td xwidth="400" valign=middle rowspan=3>
 <h3>Why study this subject?</h3>
 <p>
 In your future professional life you will work with dozens of different programming languages.
