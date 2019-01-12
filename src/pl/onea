@@ -205,7 +205,7 @@ switch([Y=Old  | T0], X=New, [Y=Old|T]) :-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % To run this tutorial first isntall prolog
 %
-%	sudo apt-get install prolog
+%	sudo apt-get install swi-prolog
 % 
 % Next, split the screen with an editor on one side and a shell on the other.
 %
