@@ -16,7 +16,12 @@
 </td>
 </tr>
 <tr>
-<td align=center></td>
+<td valign=top>
+Tues/Thurs 4:30 to 5:45<br>
+EE I, Room 1007<br>
+Prof. Tim Menzies
+
+</td>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
 <td align=center><img  src="etc/img/homework.gif"></td>
