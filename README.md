@@ -16,8 +16,8 @@
 </td>
 </tr>
 <tr>
-<td width="400" valign=top rowspan=3>
-<img width=300 src="https://openclipart.org/image/800px/svg_to_png/291313/why.png">
+<td width="400" valign=middle rowspan=3>
+<img width=200 src="https://openclipart.org/image/800px/svg_to_png/291313/why.png">
 <p>
 Why study this subject?
 <p>
