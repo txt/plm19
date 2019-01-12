@@ -33,7 +33,7 @@
 </tr>
 <tr>
 <td valign=top  width="400px">
-<h2>Why study this subject?</h2>
+<h3>Why study this subject?</h3>
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
