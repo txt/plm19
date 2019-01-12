@@ -9,16 +9,38 @@
 [submit](http://tiny.cc/plm19give) |
 [chat](https://plm19.slack.com/)
 
+
 # Roll Your Own Language
+
+Why write a language? Many reasons: fun, an itch to scrtach, a good way to learn core computer science, as an exploration of an important conceept, a way to stress test some ideas. 
+
+Also, if your company is the main providor for that language, or tools for that language, then that
+language can earn and keep your market share
+
+- e.g. For decades, Microsoft wanted you to use tools that  forever hard-wired you into their products 
+
+(Incidently, there is deep reasons why that works-- many animals, including us, mark territory with langauge.)
+
+## The easiest easiest way to roll your own
+
+- "External" domain-specific languages
+    - Write macros, sub-routines, classes to batch up complex sets of operations
+      behind simpler, more succinct interfaces.
+         - E.g. the "program" is some tiny sub-classes that defines 
+	   itself as an extension to some (possibly large) set of super-classes.
+- Don't do it
+    - Just use Lua (as done in Vim, Tex, 100 games...)
+        - Interpreter designed to be embeddable 
+        - Very clean interface to "C"
 
 ## The easy way
 
-Easiest way (for me, but others disagree):
+Easy way (for me, but others disagree):
 
 - Meta-interpreters in Prolog
 - Macros in Lisp
 
-More common way
+An increasingly commont way:
 
 - transpilers (source to source translation). 
      - Ugly way: Parse your preferred languages, walk the parse tree spitting  out  phrases in the target language
@@ -30,23 +52,18 @@ More common way
 
 Other ways
 
-- "External" domain-specific languages
-    - Write macros, sub-routines, classes to batch up complex sets of operations
-      behind simpler, more succinct interfaces.
-         - E.g. the "program" is some tiny sub-classes that defines 
-	   itself as an extension to some (possibly large) set of super-classes.
 - Assume a (simple) core semantics, and build for that:
     - e.g. state machines, 
     - e.g. compartmental models
     - e.g. lambda bodies (ECMAScript, [lis.py](http://norvig.com/lispy.html) or [lispy2](http://norvig.com/lispy2.html))
     - e.g. unification (if you like logic)
-    - Rule of thumb: the simpler and more uniform your semantics, the smaller your
-      interpreter
+    - Rule of thumb: the simpler and more uniform your semantics, the smaller your interpreter
+        - But beware! [The microkernel story](https://www.ibm.com/developerworks/community/blogs/6e6f6d1b-95c3-46df-8a26-b7efd8ee4b57/entry/linux_is_obsolete_a_must_read_debate_between_andrew_s_tanenbaum_and_linus_torvalds34?lang=en)
 - The traditional way
     - [BNF](https://en.wikipedia.org/wiki/Backus–Naur_form#Example)  to define the language
     - Grammers to  define valid sentences and [precedence](https://en.wikibooks.org/wiki/Introduction_to_Programming_Languages/Precedence_and_Associativity)
-    - Lex (lexical analysis) 
-    - Yacc (compiler compiler)
+    - Lex (lexical syntactic analysis): generates a program that will tokenize your code 
+    - Yacc (yet another compiler compiler, for the semantics): generates a progarm that adds semantics to your parse
 
 And, if you want to massively scale your program
 
@@ -60,9 +77,7 @@ Illustrates many of the complexities of compilation.
 
 Simplifies them. Abstracts them away to numerous separate modules... which means now you can add your own.
 
-## What is it?
-
-At the front end you can have C, Scala, Perl, Lua, and many other high level languages. At the backend, you have the natives code that run directly on the machine.
+At the front end of LLVM you can have C, Scala, Perl, Lua, and many other high level languages. At the backend, you have the natives code that run directly on the machine.
 
 At the center is your intermediate code representation. If every high level languages can be represented in this LLVM IR format, then analysis tools based on this IR can be easily reused - that is the basic rational.
 
@@ -106,6 +121,8 @@ but they divide into:
     - [Remove redunancies](https://llvm.org/docs/Passes.html#instcombine-combine-redundant-instructions)   
     - [Canonical's induction variables](https://llvm.org/docs/Passes.html#indvars-canonicalize-induction-variables)
     - [Unroll and jam the loops](https://llvm.org/docs/Passes.html#loop-unroll-and-jam-unroll-and-jam-loops)
+          - I spent much time trying to understand this one. Talked to a lot of people. In the end, the best they could tell me  is that this one makes other optimizations awesome, for reasons I did not understand.
+          - Meta-lesson: optiization is black art.  Tread carefully!
     - remove [dead code](https://llvm.org/docs/Passes.html#dce-dead-code-elimination); i.e. things we cannot reach
     - simple [constraint propergation](https://llvm.org/docs/Passes.html#constprop-simple-constant-propagation)
     - [inlining](https://llvm.org/docs/Passes.html#inline-function-integration-inlining) of simple functions
