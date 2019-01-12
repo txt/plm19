@@ -17,6 +17,8 @@
 <a href="http://tiny.cc/plm19"><img width=900 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a>
 </td>
 </tr>
+</table>
+<table>
 <tr>
 <td width="400" valign=middle rowspan=3>
 <img width=250 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
