@@ -16,8 +16,8 @@
 </td>
 </tr>
 <tr>
-<td xwidth="400" valign=top rowspan=3>
-<img width=400 src="https://cdn.shopify.com/s/files/1/0306/3653/files/Wait-But-Why_2048x.png?v=1517029055">
+<td width="400" valign=top rowspan=3>
+<img width=300 src="https://openclipart.org/image/800px/svg_to_png/291313/why.png">
 <p>
 Why study this subject?
 <p>
