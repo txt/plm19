@@ -16,8 +16,10 @@
 </td>
 </tr>
 <tr>
-<td xwidth="400" valign=middle rowspan=3>
-<h3>Why study this subject?</h3>
+<td xwidth="400" valign=top rowspan=3>
+<img width=400 src="https://cdn-images-1.medium.com/max/1600/1*HEh2WJs_r9hoStp6VqQFeQ.png">
+<p>
+Why study this subject?
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
