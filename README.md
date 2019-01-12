@@ -15,6 +15,11 @@
 <center>
 <table width="100%" border=0 align=center>
 <tr>
+<td rowspan=4>
+a
+</td>
+</tr>
+<tr>
 <td align=center></td>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
