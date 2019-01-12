@@ -16,7 +16,7 @@
 </td>
 </tr>
 <tr>
-<td width="450" valign=middle rowspan=3>
+<td width="400" valign=middle rowspan=3>
 <h3>Why study this subject?</h3>
 <p>
 In your future professional life you will work with dozens of different programming languages.
@@ -27,7 +27,7 @@ Well, let's see....
 <p>&nbsp;
 <p>&nbsp;
 <p>&nbsp;
-<img width=430 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
+<img width=380 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td>
 <td align=center><img  width=80 src="etc/img/time.png"></td>
 <td align=center><img  src="etc/img/lectures.gif"></td>
