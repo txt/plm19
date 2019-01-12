@@ -40,6 +40,8 @@ In your future professional life you will work with dozens of different programm
 So what can you learn from 100s of past languages to help you work with those future languages?
 <p>
 Well, let's see....
+<br>
+<img width=380 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td>
 <td valign=top  xwidth="100px">
 1a: Jan25<br> 1a+: Jan 31<br>
@@ -71,9 +73,6 @@ Exam: May 2
 <a href="doc/week1.md">Week1</a><br>
 </td>
 </tr>
-<tr><td align=center colspan=5>
-<img src="http://imgs.xkcd.com/comics/lisp_cycles.png">
-</td></tr>
 </table>
 </center>
 
