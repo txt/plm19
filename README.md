@@ -55,7 +55,7 @@ Mid-term:Mar19
 2b:Apr18<br>2b+:Apr25 <br> 
 2c:Apr18
 <hr>
-Exam: May 2
+Exam:May2
 </td>
 <td valign=top  xwidth="100px">
 <a href="doc/llvm.md">Roll your own</a><br>
