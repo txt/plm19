@@ -4,15 +4,15 @@
 <table width="100%" border=0 align=center>
 <tr>
 <td colspan=5>
-[home](http://tiny.cc/plm19) |
-[copyright](https://github.com/txt/plm19/blob/master/license.md) &copy;2019, timm&commat;ieee.org
+<a href="http://tiny.cc/plm19">home</a> |
+<a href="https://github.com/txt/plm19/blob/master/license.md">copyright</a> &copy;2019, timm&commat;ieee.org
 <br>
 <a href="http://tiny.cc/plm19"><img width=900 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a>
 <br>
-[syllabus](https://github.com/txt/plm19/blob/master/doc/syllabus.md) |
-[src](https://github.com/txt/plm19/tree/master/src) |
-[submit](http://tiny.cc/plm19give) |
-[chat](https://plm19.slack.com/)
+<a href="https://github.com/txt/plm19/blob/master/doc/syllabus.md">syllabus</a> |
+<a href="https://github.com/txt/plm19/tree/master/src">src</a> |
+<a href="http://tiny.cc/plm19give">submit</a> |
+<a href="https://plm19.slack.com/">chat</a>
 </td>
 </tr>
 <tr>
@@ -32,7 +32,7 @@
 <td align=left valign=top><b>Review</b> </td>
 </tr>
 <tr>
-<td valign=top  xwidth="300px">
+<td valign=top  width="300px">
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
