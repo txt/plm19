@@ -43,8 +43,6 @@ Well, let's see....
 <p>&nbsp;
 <p>&nbsp;
 <p>&nbsp;
-<p>&nbsp;
-<p>&nbsp;
 <img width=380 src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td>
 <td valign=top  xwidth="100px">
