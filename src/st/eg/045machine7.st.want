@@ -1,0 +1,20 @@
+
+---| 045machine7.st |-----------------------------------------
+
+An instance of Stagger
+  contents: OrderedCollection (Transition(from: NormalState(start#3) to: NormalState(run#4)) )
+  pointer: 1
+An instance of Stagger
+  contents: OrderedCollection (Transition(from: NormalState(run#4) to: EndState(endF#7)) Transition(from: NormalState(run#4) to: NormalState(run#4)) )
+  pointer: 1
+working 
+looping 2
+looping 3
+looping 5
+looping 6
+that's all folks!
+
+____________________________________________________________
+
+Terminated at tick 58
+Final patience -1

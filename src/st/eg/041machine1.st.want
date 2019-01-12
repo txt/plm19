@@ -1,0 +1,7 @@
+
+---| 041machine1.st |-----------------------------------------
+
+Transition(from: NormalState(waiting#3) to: NormalState(running#4))
+NormalState(waiting#3)
+NormalState(running#4)
+(Machine#1 'suburb' with 1 group)

@@ -1,0 +1,5 @@
+label fruit prices
+range 0 0 20 20
+tag 3 apples 7 *
+tag 10 oranges 13 +
+tag 16 pears 9 $ 

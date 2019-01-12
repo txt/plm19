@@ -1,0 +1,35 @@
+
+---| 045machine4.st |-----------------------------------------
+
+An instance of Machine
+  container: a Factory'city'
+  name: 'suburb'
+  id: 1
+  current: nil
+  start: NormalState(start#16)
+  states: Dictionary (
+	#start->NormalState(start#16)
+	#running->NormalState(running#4)
+	#waiting->NormalState(waiting#3)
+	#endF->EndState(endF#9)
+)
+  transitions: Dictionary (
+	#start->a Stagger
+	#running->a Stagger
+	#waiting->a Stagger
+)
+
+____________________________________________________________
+#start
+Transition(from: NormalState(start#16) to: NormalState(waiting#3))
+
+____________________________________________________________
+#running
+Transition(from: NormalState(running#4) to: NormalState(running#4))
+Transition(from: NormalState(running#4) to: EndState(endF#9))
+Transition(from: NormalState(running#4) to: NormalState(running#4))
+Transition(from: NormalState(running#4) to: NormalState(running#4))
+
+____________________________________________________________
+#waiting
+Transition(from: NormalState(waiting#3) to: NormalState(running#4))

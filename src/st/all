@@ -1,0 +1,5 @@
+files=`(cd eg; ls *.want)`
+for file in $files; do
+	stem=${file%.st.want}
+	./$* $stem
+done

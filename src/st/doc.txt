@@ -1,0 +1,58 @@
+use cases
+note, when a transition is active, The= that transition.
+So 
+	"The state" is the "current" state of the machine
+	"The next" is the "next" state of the machine
+	"The machine" is the machine holding the transition
+	"The factory" is the factory hold the transisition.
+	
+copy go:to:if:then: method to watch:to:if:thin with the same functioanlity but
+if ever "if" is true, we print the of number of the trans
+
+Write a lint method for factories that checks itself. recursively, this will call machines [:do| machine lint]
+and machie will call transitions do: [:trans| trans lint] and transition will call state lint and next lint.
+Lint shoud return any anomnalies with the machines, before your run them. Can you think what those anomalies would be?
+
+sub-class a state so that we get a ittle sone every time we enter the state
+
+sub-class machine to create machines for persons waiting in line with states arrive, patient, impatient,leave. impatient if in line for more
+than 5 minutes. local state willneed to track arrival time. transition to impatient happens if current time = arrive + 5
+
+sub-class factory. producing cars from parts should be the same as producing an ice cream from parts.
+protocol: 
+	part: name uses: listOfParts
+tranistions: 
+	if a part needs a sub-part and that sub-part is avaiable, add sub-part to part
+	if a part needs a sub-part and that sub-part is unavaiable, then goto complain
+
+add a machine at runtime
+	if a we enter a certain state, model a desire as a new final state and an intention as a new machine
+
+============
+
+check track of start
+
+============
+run => main start function. calls reset, then walk
+walk ==> does one pass thru all the  machines in the Factory, then maybe
+         does one more
+step =>  returns true if at least one transition in
+         one machine fired
+
+many objects
+init
+	- when an instance is created
+
+App, Factory, Machine, Transition, State
+reset
+	- set run time info back to eden.
+
+Factory, Machine, Transition, State
+start
+	- any start up actions
+Machine and State
+stop	- machines are stopped in they are in a stopped
+          State
+
+=======
+

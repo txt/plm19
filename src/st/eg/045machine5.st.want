@@ -1,0 +1,39 @@
+
+---| 045machine5.st |-----------------------------------------
+
+
+____________________________________________________________
+person1
+
+____________________________________________________________
+#start
+Transition(from: NormalState(start#18) to: NormalState(waiting#3))
+
+____________________________________________________________
+#running
+Transition(from: NormalState(running#4) to: NormalState(running#4))
+Transition(from: NormalState(running#4) to: NormalState(running#4))
+Transition(from: NormalState(running#4) to: NormalState(running#4))
+Transition(from: NormalState(running#4) to: EndState(endF#16))
+
+____________________________________________________________
+#waiting
+Transition(from: NormalState(waiting#3) to: NormalState(running#4))
+
+____________________________________________________________
+person2
+
+____________________________________________________________
+#start
+Transition(from: NormalState(start#37) to: NormalState(waiting#22))
+
+____________________________________________________________
+#running
+Transition(from: NormalState(running#23) to: NormalState(running#23))
+Transition(from: NormalState(running#23) to: NormalState(running#23))
+Transition(from: NormalState(running#23) to: NormalState(running#23))
+Transition(from: NormalState(running#23) to: EndState(endF#35))
+
+____________________________________________________________
+#waiting
+Transition(from: NormalState(waiting#22) to: NormalState(running#23))

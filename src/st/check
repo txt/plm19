@@ -1,0 +1,1 @@
+bash exists eg/$1.st && make X=$1.st test

@@ -1,0 +1,43 @@
+
+---| 010-0lib.st |-----------------------------------------
+
+
+____________________________________________________________
+flintsone
+
+flintsone
+flintsone
+
+flintsoneflintsone
+(11 22 33)
+OrderedCollection ('to' 'be' 'or' 'not' 'to' 'be' )
+1:	(#Fred isa:  Object 
+2:	       with: 'name age ') public !
+3:	
+4:	|f|
+5:	f := Fred new name: 'flintsone'.
+6:	f name loo.
+7:	f name noo.
+8:	f name oo.
+9:	f name no.
+10:	f name o.
+11:	'' oo.
+12:	!
+13:	
+14:	#(11 22 33) oo.
+15:	'to be or not to be' asWords oo. 
+16:	!
+17:	
+18:	|i|
+19:	i := 0.
+20:	'eg/010-0lib.st' fileLinesDo: [:line| 
+21:	   i := i + 1.
+22:	        (i s, ':', Character tab s, line ) oo].
+23:	!
+24:	
+25:	|x|
+26:	x ifNil: 	[x := 23].
+27:	x notNil: 	[x loo].
+
+____________________________________________________________
+23

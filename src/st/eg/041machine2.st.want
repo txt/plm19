@@ -1,0 +1,26 @@
+
+---| 041machine2.st |-----------------------------------------
+
+An instance of Machine
+  container: nil
+  name: 'new'
+  id: 1
+  current: nil
+  start: nil
+  states: Dictionary (
+	#running->NormalState(running#3)
+	#waiting->NormalState(waiting#2)
+	#loveShack->NormalState(loveShack#8)
+)
+  transitions: Dictionary (
+	#running->a Stagger
+	#waiting->a Stagger
+)
+
+#running
+Transition(from: NormalState(running#3) to: NormalState(waiting#2))
+Transition(from: NormalState(running#3) to: NormalState(waiting#2))
+
+#waiting
+Transition(from: NormalState(waiting#2) to: NormalState(loveShack#8))
+Transition(from: NormalState(waiting#2) to: NormalState(loveShack#8))

@@ -1,0 +1,7 @@
+
+---| 013stagger.st |-----------------------------------------
+
+ #run #the #see #past #jane #jane #ball #past #run #see
+ #the #ball #jane #the #see #past #run #run #the #ball
+ #past #see #jane #past #ball #the #see #run #jane #the
+Bag(#run:1666 #past:1667 #ball:1667 #jane:1667 #see:1667 #the:1666 )

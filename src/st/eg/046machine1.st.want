@@ -1,0 +1,36 @@
+
+---| 046machine1.st |-----------------------------------------
+
+Machine:[23] 0Machine:[1] 0Machine:[23] 2Machine:[1] 2Machine:[23] 1
+ha ha ha ha ha
+Machine:[1] 5Machine:[1] that is all folksTransition(from: NormalState(run#4) to: EndState(endF#22))
+NormalState(run#4)
+EndState(endF#22)
+(KillJoy#1 'party boy' with 4 groups)
+a Factory'f2'
+that's all folks!
+Machine:[23] 3still laughing
+Machine:[23] 3still laughing
+Machine:[23] 4Machine:[23] Too drunk to stay awake.the fun stops here
+Machine:[23] 2Machine:[23] 1
+ha ha ha ha ha
+Machine:[23] 4Machine:[23] Too drunk to stay awake.the fun stops here
+Machine:[23] 2Machine:[23] 2Machine:[23] 1
+ha ha ha ha ha
+Machine:[23] 3still laughing
+Machine:[23] 3still laughing
+Machine:[23] 4Machine:[23] Too drunk to stay awake.the fun stops here
+Machine:[23] 1
+ha ha ha ha ha
+Machine:[23] 4Machine:[23] Too drunk to stay awake.the fun stops here
+Machine:[23] 5Machine:[23] that is all folksTransition(from: NormalState(run#26) to: EndState(endF#44))
+NormalState(run#26)
+EndState(endF#44)
+(KillJoy#23 'party boy' with 4 groups)
+a Factory'f2'
+that's all folks!
+
+____________________________________________________________
+
+Terminated at tick 74
+Final patience -1

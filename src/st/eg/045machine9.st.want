@@ -1,0 +1,64 @@
+
+---| 045machine9.st |-----------------------------------------
+
+021
+ha ha ha ha ha
+3still laughing
+4the fun stops here
+21
+ha ha ha ha ha
+3still laughing
+4the fun stops here
+21
+ha ha ha ha ha
+3still laughing
+4the fun stops here
+221
+ha ha ha ha ha
+3still laughing
+3still laughing
+3still laughing
+3still laughing
+4the fun stops here
+1
+ha ha ha ha ha
+4the fun stops here
+21
+ha ha ha ha ha
+3still laughing
+3still laughing
+3still laughing
+3still laughing
+3still laughing
+3still laughing
+4the fun stops here
+221
+ha ha ha ha ha
+3still laughing
+3still laughing
+3still laughing
+4the fun stops here
+21
+ha ha ha ha ha
+3still laughing
+3still laughing
+3still laughing
+4the fun stops here
+1
+ha ha ha ha ha
+3still laughing
+4the fun stops here
+2
+5
+that is all folks
+Transition(from: NormalState(run#4) to: EndState(endF#22))
+NormalState(run#4)
+EndState(endF#22)
+(Machine#1 'trans1' with 4 groups)
+a Factory'f1'
+that's all folks!
+
+____________________________________________________________
+
+Terminated at tick 101
+Final patience 11

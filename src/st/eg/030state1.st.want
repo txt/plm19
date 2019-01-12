@@ -1,0 +1,7 @@
+
+---| 030state1.st |-----------------------------------------
+
+ErrorState(errorX#1)
+LoopState(andThenL#2)
+EndState(finallyF#3)
+NormalState(other#4)
