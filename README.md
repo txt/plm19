@@ -71,7 +71,7 @@ Exam: May 2
 <a href="doc/week1.md">Week1</a><br>
 </td>
 </tr>
-<tr><td align=center rowspan=5>
+<tr><td align=center colspan=5>
 <img src="http://imgs.xkcd.com/comics/lisp_cycles.png">
 </td></tr>
 </table>
