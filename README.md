@@ -1,6 +1,5 @@
 
 
-<center>
 <table width="100%" border=0 align=center>
 <tr>
 <td colspan=5>
@@ -15,7 +14,7 @@
 </td>
 </tr>
 <tr>
-<td width="350" valign=middle rowspan=3>
+<td width="350" valign=middle >
 <img width=250 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
 <p>
 Why study this subject?
@@ -26,21 +25,8 @@ So what can you learn from 100s of past languages to help you work with those fu
 <p>
 Well, let's take a look....
 </td>
-<td align=center><img  width=80 src="etc/img/time.png"></td>
-<td align=center><img  src="etc/img/lectures.gif"></td>
-<td align=center><img  src="etc/img/homework.gif"></td>
-<td align=center><img  src="etc/img/review.gif"></td>
-</tr>
-<tr>
-<td align=center valign=top><b>SCHEDULE</b>
-
-</td>
-<td align=center valign=top><b>LECTURES</b></td>
-<td align=center valign=top><b>PROJECT</b>
-<td align=center valign=top><b>REVIEW</b> </td>
-</tr>
-<tr>
-<td valign=top  align=center xwidth="100px">
+<td align=center><img  width=80 height=80 src="etc/img/time.png"></td>
+<b>SCHEDULE</b><br>
 1a:Jan25<br> 1a+:Jan31<br>
 1b:Feb7<br> 1b+:Feb14<br>
 1c:Feb21<br> 1c+:Feb28<br>
@@ -54,23 +40,24 @@ Mid-term:Mar19
 <hr>
 Exam:May2
 </td>
-<td valign=top  xwidth="100px">
+
+<td align=center><img  height=80 src="etc/img/lectures.gif"></td>
+<b>LECTURES</b><br>
 <a href="doc/llvm.md">Roll your own</a><br>
 <a href="src/pl/onea.md">Logic</a><br>
 <a href="doc/lect1.md">One</a><br>
+</td>
 
 
-<!-- -------------------------------- -->
-
-</td><td align=center valign=top xwidth="100px">
+<td align=center><img  height=80 src="etc/img/homework.gif"></td>
+<b>PROJECT</b><br>
 <a href="src/pl/onea">1a</a><br>
 
-</td>
-<td align=center valign=top  xwidth="100px">
+<td align=center><img  height=80 src="etc/img/review.gif"></td>
+<b>REVIEW</b><br>
 <a href="doc/week1.md">Week1</a><br>
 </td>
 </tr>
 </table>
-</center>
 
 
