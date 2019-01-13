@@ -25,7 +25,7 @@ So what can you learn from 100s of past languages to help you work with those fu
 <p>
 Well, let's take a look....
 </td>
-<td align=center valign=top><img  width=85 height=85 src="etc/img/time.png">
+<td align=center valign=top><img  width=85 height=84 src="etc/img/time.png">
 <b>SCHEDULE</b><hr>
 1a:Jan25<br> 1a+:Jan31<br>
 1b:Feb7<br> 1b+:Feb14<br>
