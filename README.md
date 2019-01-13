@@ -14,7 +14,7 @@
 </td>
 </tr>
 <tr>
-<td width="350" valign=middle >
+<td width="350" valign=middle>
 <img width=250 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
 <p>
 Why study this subject?
@@ -25,7 +25,7 @@ So what can you learn from 100s of past languages to help you work with those fu
 <p>
 Well, let's take a look....
 </td>
-<td align=center><img  width=80 height=80 src="etc/img/time.png"></td>
+<td align=center><img  width=80 height=80 src="etc/img/time.png">
 <b>SCHEDULE</b><br>
 1a:Jan25<br> 1a+:Jan31<br>
 1b:Feb7<br> 1b+:Feb14<br>
@@ -41,7 +41,7 @@ Mid-term:Mar19
 Exam:May2
 </td>
 
-<td align=center><img  height=80 src="etc/img/lectures.gif"></td>
+<td align=center><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><br>
 <a href="doc/llvm.md">Roll your own</a><br>
 <a href="src/pl/onea.md">Logic</a><br>
@@ -49,11 +49,11 @@ Exam:May2
 </td>
 
 
-<td align=center><img  height=80 src="etc/img/homework.gif"></td>
+<td align=center><img  height=80 src="etc/img/homework.gif">
 <b>PROJECT</b><br>
 <a href="src/pl/onea">1a</a><br>
-
-<td align=center><img  height=80 src="etc/img/review.gif"></td>
+</td>
+<td align=center><img  height=80 src="etc/img/review.gif">
 <b>REVIEW</b><br>
 <a href="doc/week1.md">Week1</a><br>
 </td>
