@@ -7,3 +7,4 @@ Session.vim
 *.bak
 *~
 .DS_Store
+*__pycache__*
