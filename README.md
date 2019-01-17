@@ -52,7 +52,7 @@ Exam:May2
 
 
 <td align=center valign=top><img  height=80 src="etc/img/homework.gif">
-<b>PROJECT</b><hr>
+<b>HOMEWORKS</b><hr>
 <a href="src/pl/onea">1a</a><br>
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/review.gif">
