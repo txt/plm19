@@ -35,6 +35,8 @@
 
 
 - **Rules of thumb**:
+   - K.I.S.S. Unix piles are (mostly) one input, one output (i.e. "|" not "Y" or "T"); makes
+    then **simple** to use
    - Use a common  format for all i/o (e.g text files, comma-seperated-values, json)
    - Each filter should do one thing well and one thing only.
    - Useful for multi-tasking (operating system can run each filter seperately).
@@ -107,15 +109,17 @@ Core cocentps:
     - Studying interepreters, and more importantly,
       writing your own, is the best way to understand a 
       a langguage.
-- **Rules of Thumb** <img align=right width=600 src="https://image.slidesharecdn.com/synapseindiadotnetdevelopment-computerprogramming-141121054735-conversion-gate02/95/synapseindia-dot-net-development-computer-programming-15-638.jpg?cb=1416549025">
+- **Rules of Thumb** <img align=right width=600 src="https://cdncontribute.geeksforgeeks.org/wp-content/uploads/compilerDesign.jpg">
     - Intepret into a virtual machine, then build an execution tool for the virtual machine (e.g. Java ==> JVM)
          - e.g. Smalltalk ==> bytecodes, 
-	 - e.g. JAVA ==? JVM
-	 - e.g. Lisp ==> lambda bodies
-         - Useful for cross platfrom stuff
+         - e.g. JAVA ==? JVM
+         - e.g. Lisp ==> lambda bodies
+          - Useful for cross platfrom stuff
     - To build a compiler, interpret into machine code then cache that intepretation
          - So the next time you want to do something, no wait for the interpreter
-    - Seperate out the syntaxical from semantic (otherwise, things get too complex)
+    - Seperate out _lexical analyzer_ (strings to tokens) from _syntactical analyzer_ (tokens to
+      parse trees) from semantic analyzer (how to run the trees) from _optimizer_ from _target
+      code generation_
     - Simple, uniform semantics makes interpretation easier
     - Added layers of interpretation slows down the program
       - So yes, [JAVA is slower than C](https://benchmarksgame-team.pages.debian.net/benchmarksgame/which-programs-are-fast.html) 
@@ -126,19 +130,15 @@ Core cocentps:
     - Sometimes, the clarity of the higher level
       interpreted system can make it optimize better
 - **See also**
-    - Grammers
     - Macros
-    - Virtual machone
     - Lambda calculus (where "computation" means  rewriting sub-trees)
     - Unification (where "computation" means  
       matching sub0trees)
-    - OO design patterns
-          - _Composite_ provides a way to represent a part-whole hierarchy 
+    - _Composite_ pattern provides a way to represent a part-whole hierarchy 
 as a tree (composite) object structure.
-          - _Builder_ provides a way to create the elements of an object structure.
-          - _Iterator_ provides a way to traverse the elements of an object structure.
-          - _Visitor_ provides a way to define new operations for the elements of an object structure.
-          - _Interpreter_ represents a sentence in a simple language 
-as a tree (composite) object structure (abstract syntax tree).
+    - _Builder_ pattern provides a way to create the elements of an object structure.
+     _Iterator_ pattern provides a way to traverse the elements of an object structure.
+    - _Visitor_ pattern provides a way to define new operations for the elements of an object structure.
+    - _Interpreter_ pattern represents a sentence in a simple language as a tree (composite) object structure (abstract syntax tree).
 
 
