@@ -65,7 +65,8 @@ Core cocentps:
 
 ## Interpreter
 
-<img align=right width=500 src="https://www.cs.northwestern.edu/academics/courses/325/readings/interpreter1.gif">
+
+<img align=right width=500 src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Interpreter_UML_class_diagram.svg/536px-Interpreter_UML_class_diagram.svg.png">
 
 - **Intent** Seperate what you want to say from underlying
   execution device
