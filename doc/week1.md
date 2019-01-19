@@ -69,7 +69,6 @@ Core cocentps:
 
 - **Intent** Seperate what you want to say from underlying
   execution device
-- **Problem** 
    - You want some platfrom independent way
   to express solutions. 
    - Or you want to think one way
@@ -79,9 +78,20 @@ Core cocentps:
    - Or you want to batch
    up many of the underlying services into some
    convenient, more succinct, summary language
-- **Examples**
+- **Problem** 
+   - How can a grammar for a simple language be defined 
+     so that sentences in the language can be interpreted? 
+
+   - **Examples**
   - Homework 1a
   - any interpretered language (Python, Runy, Prolog...)
+- **Stucture**
+   - Grammaer
+   - Terminal (has 0 rewrites)
+   - Non-terminals (has N rewrites)
+   - Abstract syntax tree (AST) : which part
+     of the grammer is needed to describe 
+     a particular set of sentences.
 - **Names**
     - Interpreter
     - Abstract machine
@@ -118,5 +128,17 @@ Core cocentps:
     - Grammers
     - Macros
     - Virtual machone
-    - Lambda bodies
-    - Unification
+    - Lambda calculus (where "computation" means  rewriting sub-trees)
+    - Unification (where "computation" means  
+      matching sub0trees)
+    - OO design patterns
+          - _Composite_ provides a way to represent a part-whole hierarchy 
+as a tree (composite) object structure.
+
+          - _Builder_ provides a way to create the elements of an object structure.
+          - _Iterator_ provides a way to traverse the elements of an object structure.
+          - _Visitor_ provides a way to define new operations for the elements of an object structure.
+          - _Interpreter_ represents a sentence in a simple language 
+as a tree (composite) object structure (abstract syntax tree).
+
+
