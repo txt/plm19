@@ -135,7 +135,6 @@ Core cocentps:
     - OO design patterns
           - _Composite_ provides a way to represent a part-whole hierarchy 
 as a tree (composite) object structure.
-
           - _Builder_ provides a way to create the elements of an object structure.
           - _Iterator_ provides a way to traverse the elements of an object structure.
           - _Visitor_ provides a way to define new operations for the elements of an object structure.
