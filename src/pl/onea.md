@@ -1,4 +1,4 @@
-# Logic Programming
+# Logic Programming I
 
 The language Prolog is the Fortran of logic programming: it was the
 first of its kind, it was much criticized, and it is still widely used.
