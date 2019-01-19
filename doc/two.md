@@ -29,7 +29,9 @@ In Prolog:
 ```prolog
 
 longest --> weight, sort, first.       
-weight -->  maplist(long).                                                           
+
+weight  -->  maplist(long).                                                           
+
 long(Word, N / Word) :- atom_length(Word,M), N is -1*M.               
 
 first([ _/X | _ ], X).                                              
@@ -62,7 +64,7 @@ weight(A, B) :-
 Other details:
 
 - `is` is the Prolog maths predicate
-- `atom\_length` is a built-in
+- `atom_length` is a built-in
 - In Prolog, don't write a program. Instead, draw it (see `first`).
 
 ## Prolog Bits and Pieces
