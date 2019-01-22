@@ -62,7 +62,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/review.gif">
 <b>Help</b><hr>
-<a href="doc/codeanywhere.md">Using Codeanywhere</a><br>
+<a href="doc/codeanywhere.md">Codeanywhere</a><br>
 </td>
 </tr>
 </table>
