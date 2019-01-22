@@ -59,6 +59,10 @@ Exam:May2
 <b>REVIEW</b><hr>
 <a href="doc/week1.md">Week1</a><br>
 </td>
+<td align=center valign=top><img  height=80 src="etc/img/review.gif">
+<b>Help</b><hr>
+<a href="doc/codeanywhere.md">Using Codeanywhere</a><br>
+</td>
 </tr>
 </table>
 
