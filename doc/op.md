@@ -10,7 +10,7 @@
 [chat](https://plm19.slack.com/)
 
 
-# Precedence-driven Grammers
+# Precedence-driven Grammars
 
 Useful for very small languages (for big stuff, aimed at massive industrial use,
 see [LLVM](llvm.md)).
@@ -23,7 +23,7 @@ We can:
 - built from postfix expressions
 - which in turn are built from infix expressions
 
-Terminologu:
+Terminology:
 
 - prefix: operators before operands
 - postfix: operands before operators
@@ -36,7 +36,7 @@ inorder: (e.g. print a tree)
 - then node
 - then order (right)
 
-postorder : (e.g. code to place on stack for evalautions)
+postorder : (e.g. code to place on stack for evaluations)
 
 - left postorder(left)
 - postorder(right)
@@ -46,7 +46,7 @@ preorder:
 
 -first node,
 -the preorder left 
--then pre-roder right
+-then pre-order right
 
 ## Evaluate the tree
 
@@ -74,7 +74,7 @@ But how to build the tree?
 
 Infix to postfix (precursor to execution
 
-- Tokens: tokenzied infix expresssion e.g, [a,+,b,\*,x,-,d]
+- Tokens: tokenzied infix expression e.g, [a,+,b,\*,x,-,d]
 - STACK: a FIFO stack
 - Queue: output
 
@@ -86,9 +86,9 @@ Three operations
 
 ![](https://rosettacode.org/wiki/Parsing/Shunting-yard_algorithm#Python)
 
-The following does not do prefixs or. infix operatos
+The following does not do prefixs or. infix operators
 
-Also, dont memorize the following (not examinable). But if given the above diagram, tell me why we did
+Also, don't memorize the following (not examinable). But if given the above diagram, tell me why we did
 (e.g.) a DOWN or a LEFT in a particular case.
 
 While there are tokens to be read:
@@ -106,7 +106,7 @@ While there are tokens to be read:
            - Pop the left bracket from the stack and discard it
 - While there are operators on the stack, pop them to the queue 
 
-## Prefix to Indix tree
+## Prefix to Infix tree
 
 Examples:
 
@@ -128,10 +128,10 @@ Output : Infix : ((A-(B/C))*((A/K)-L))
 create a node for the operator with 
     - node.operator = symbol
     - node.left= pop(stack) 
-    - node.right = pop(stacj).
+    - node.right = pop(stack).
 - And push the new node back to Stack
 - Repeat till end of prefix expression
-- Return the last geenrated node.
+- Return the last generated node.
 
 ```
 
