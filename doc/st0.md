@@ -9,6 +9,10 @@
 
 # Beginner Smalltak
 
+This homework is optional and wills core you zero marks.
+
+But it will get you started with Smalltalk.
+
 On codeanywhere:
 
     sudo apt-get update
