@@ -63,6 +63,8 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/review.gif">
 <b>Help</b><hr>
+<a href="http://www.angelfire.com/tx4/cus/notes/smalltalk.html">St-cheat</a><br>
+<a href="https://people.eecs.berkeley.edu/~fateman/264/papers/smalltalk-tutorial.html>">St-tut</a><br>
 <a href="doc/codeanywhere.md">Codeanywhere</a><br>
 </td>
 </tr>
