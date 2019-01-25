@@ -16,8 +16,8 @@
 </td>
 </tr>
 <tr>
-<td width="350" valign=middle>
-<img width=250 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
+<td xwidth="350" valign=middle>
+<img width=150 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
 <p>
 Why study this subject?
 <p>
