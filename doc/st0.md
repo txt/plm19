@@ -31,20 +31,25 @@ Test it out
 Working!
 
 Now split your environment into a shell (on left) and editor (on right). Edit the file `st101`
-  
- 
+     
      #!/usr/bin/env gst
      
      "things in quotes are comments"
      
-     Transcript show: 1 printString; cr " command are grouped by '!'"
+     Transcript nextPutAll: 1 printString; 
+                cr " command are grouped by '!'"
      !
      
+     ! Object methods !
+     oo
+       Transcript nextPutAll: self printString; 
+                  cr!
+     !  
      
      | x y | "locals vars. live till next '!'"
      x := 1.
      y:=2.
-     (x+y) printLn  "should print 3"
+     (x+y) oo  "should print 3"
      !
      
      "now go to 
@@ -53,8 +58,8 @@ Now split your environment into a shell (on left) and editor (on right). Edit th
      
      "e.g. 1.2"
      
-     'Hello, world' printNl!
-     
+     'Hello, world' oo!
+
 Remember to `chmod +x st101` before running it with
 
       ./st101  
