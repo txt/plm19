@@ -57,7 +57,7 @@ Exam:May2
 <a href="doc/st0.md">Smalltalk0</a><br>
 <a href="src/pl/onea">1a</a><br>
 </td>
-<td align=center valign=top><img  width=135 src="etc/img/review.gif">
+<td align=center valign=top><img  height=100 width=140 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
 <a href="doc/week1.md">Week1</a><br>
 </td>
