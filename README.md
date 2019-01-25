@@ -54,14 +54,14 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/homework.gif">
 <b>HOMEWORKS</b><hr>
+<a href="doc/st0.md">Smalltalk0</a><br>
 <a href="src/pl/onea">1a</a><br>
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
-<a href="doc/st0.md">Smalltalk0</a><br>
 <a href="doc/week1.md">Week1</a><br>
 </td>
-<td align=center valign=top><img  height=80 src="etc/img/review.gif">
+<td align=center valign=top><img  height=80 src="etc/img/news.png">
 <b>Help</b><hr>
 <a href="http://www.angelfire.com/tx4/cus/notes/smalltalk.html">St-cheat</a><br>
 <a href="https://people.eecs.berkeley.edu/~fateman/264/papers/smalltalk-tutorial.html">St-tut</a><br>
