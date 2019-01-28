@@ -8,7 +8,13 @@
 <br>
 <a href="http://tiny.cc/plm19"><img width=1000 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a>
 
-#  A Crash Course in  Smalltak (again)
+# Smalltalk1
+
+
+"Smalltalk's the source. It'll change your life. Swear to God" --Point Break (sort of)
+
+- [Smalltalk-80](https://www.youtube.com/watch?v=AuXCc7WSczM)
+- [Scientific American, 1977](http://dreammachin.es/Kay_SciAm_77.pdf)
 
 Tips: 
 
