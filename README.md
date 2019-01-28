@@ -54,6 +54,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/homework.gif">
 <b>HOMEWORKS</b><hr>
+<a href="doc/st1.md">Smalltalk1</a><br>
 <a href="doc/st0.md">Smalltalk0</a><br>
 <a href="src/pl/onea">1a</a><br>
 </td>
