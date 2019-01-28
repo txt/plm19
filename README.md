@@ -29,7 +29,7 @@ Well, let's take a look....
 </td>
 <td align=center valign=top><img  width=85 height=82 src="etc/img/time.png">
 <b>SCHEDULE</b><hr>
-1a:Jan25<br> 1a+:Jan31<br>
+<strike>1a:Jan25</strike><br> 1a+:Jan31<br>
 1b:Feb7<br> 1b+:Feb14<br>
 1c:Feb21<br> 1c+:Feb28<br>
 1d:Mar7<br>1d+:Mar21
