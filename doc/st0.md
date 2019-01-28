@@ -7,7 +7,7 @@
 <br>
 <a href="http://tiny.cc/plm19"><img width=1000 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a>
 
-# Beginner Smalltak
+# Beginner Smalltalk
 
 This homework is optional and wills core you zero marks.
 
