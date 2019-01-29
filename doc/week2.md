@@ -132,7 +132,7 @@ Of course  `do*` is itself a macro that expands into some gotos:
 
 ```
 (BLOCK NIL
- (LET* ((#:LIST-3230 Y) 
+ (LET* ((#:LIST-3230 LST) 
         (X NIL)) 
    (DECLARE (LIST #:LIST-3230))
    (TAGBODY #:LOOP-3231 
@@ -163,6 +163,10 @@ Note: older languages used macros extensively. Modern languages, not so much (ex
 Rule of Representation
  
  Developers should choose to make data more complicated rather than the procedural logic of theprogram when faced with the choice, because it is easier for humans to understand complex data compared with complex logic. This rule aims to make programs more readable for any developer working on the project, which allows the program to be maintained.
+
+simplue unifrm sematics: tools support = easier user trainign easier
+
+some claim fits better with himan metnal models. but...
 
 See also
 compartmental models
