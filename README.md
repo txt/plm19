@@ -61,6 +61,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 width=240 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
+<a href="doc/week2.md">Week2</a><br>
 <a href="doc/week1.md">Week1</a><br>
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/news.png">
