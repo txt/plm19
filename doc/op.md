@@ -122,14 +122,17 @@ Output : ((a*b)+c)
 1. While there are input symbol left
      - Read the next symbol from the left of the input.
 2. If the symbol is an operand
-     - …2.1 Push it onto the stack.
+     - Push it onto the stack.
 3. Otherwise,
      - the symbol is an operator.
      - Pop the top 2 values from the stack.
-     - Put the operator, with the values as arguments and form a string.
-     - Push the resulted string back to stack.
+     - Put the operator, with the values as arguments and form a tree.
+     - Push the resulted tree back to stack.
 4. If there is only one value in the stack
      - That value in the stack is the desired infix string.
+
+The following code does strings, not trees. Exercise for the reader: convert to a tree generator.
+
 
 ```c++
 // CPP program to find infix for 
