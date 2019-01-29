@@ -106,18 +106,16 @@ While there are tokens to be read:
            - Pop the left bracket from the stack and discard it
 - While there are operators on the stack, pop them to the queue 
 
-## Prefix to Infix tree
+## Postfix to Infix tree
 
 Examples:
 
 ```
-Input :  Prefix :  *+AB-CD
-Output : Infix : ((A+B)*(C-D))
-```
+Input : abc++
+Output : (a + (b + c))
 
-```
-Input :  Prefix :  *-A/BC-/AKL
-Output : Infix : ((A-(B/C))*((A/K)-L)) 
+Input  : ab*c+
+Output : ((a*b)+c)
 ```
 
 
