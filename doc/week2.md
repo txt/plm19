@@ -22,20 +22,20 @@
 ### Parsing:
 
 - pre- post- in- order traversal
-- prefix, infix, postix
+- prefix, infix, postfix
 - how, as a human, to convert infix to (e.g.) postfix
       - write down parse tree
       - perform a  (say) post-order traversal, writing down the notes you visit
-- how, as a computer, to convert infix to somethign you can evalaute
+- how, as a computer, to convert infix to something you can evaluate
       - shunting yard (infix --> postfix)
       - postfix --> tree
       - recursively evaluate tree
 
 
-### Grammers:
+### Grammars:
 
 - rewrite rules:
-- thigns that can be rewritten are non-terminals.
+- things that can be rewritten are non-terminals.
 - things that can't are terminals.
 
 
@@ -67,7 +67,7 @@ type paragraph =
   and img_ref = { img_src : string; img_alt : string; }
 ```
 
-Grammer s can be used to code precences, without explicit numbers. e.g in the following, "/" is "inside "+"
+Grammar s can be used to code precedence's, without explicit numbers. e.g in the following, "/" is "inside "+"
   Also, "/" is left associative.
 
 ```
@@ -81,14 +81,14 @@ term --> term, [/], const.
 
 ## Macros
 
-_**Intent**_ : transform inout text into a differen before using templates.
+_**Intent**_ : transform input text into a different before using templates.
 
 _**Problem**_ : 
 
 - you want to think about the problem one way, but the program wants you to do it another.
-- you keep doing the sam darn thing, over and over again
+- you keep doing the same darn thing, over and over again
 
-_Structure_ : Some input form to  be expanded (supplied by the end programmer) and some tempate used
+_Structure_ : Some input form to  be expanded (supplied by the end programmer) and some template used
 to do the expansion (supplied by the language author).
 Macros bring syntactic abstraction, which is a wonderful thing. It helps
 make your code clearer, by describing your intent without getting bogged
@@ -98,7 +98,7 @@ both redundancy and irrelevant details.
 
 _**Examples**_ 
 
-e.g. Macro exapnsion in C (usieful for simple in-lining of one-line functions).
+e.g. Macro expansion in C (useful for simple in-lining of one-line functions).
 
 e.g. in Prolog, the "-->" rules are macroed as follows.
 Recall that this is used to do "pipes" in Prolog where the output of one thing becomes the input to another.
@@ -155,21 +155,21 @@ _**Rules of thumb**_
 reader, which is learning a new syntactic concept for each macro. And
 so it should not be abused.
 
-Note: older languages used macros extensively. Modern languages, not so much. But maybe the tibe is turn (very new languages have macros, again, elixr, julia).
+Note: older languages used macros extensively. Modern languages, not so much. But maybe the tide is turn (very new languages have macros, again, elixr, julia).
 
 ##  Production Systems
 
-_**Intent**_ Seperate the logic from the program. 
+_**Intent**_ Separate the logic from the program. 
 
-_**Problem**_ : High level knowlege, encoded into (e.g.) "C" becomes
-convulated, verbose, hard to maintain.
+_**Problem**_ : High level knowledge, encoded into (e.g.) "C" becomes
+convoluted, verbose, hard to maintain.
 
 _**Structure**_: 
 
-- A working memroy of assertions
+- A working memory of assertions
 - An explicit high-level rule-based notation (recall proj1a)
   that matches to the working memory and, maybe, does updates to that memory.
-- A seperate inference engine that does 
+- A separate inference engine that does 
      - Match (find the N rules with satisfied conditions)
      - Select (finds the best rule to use)
      - Act (applies that rule)
@@ -178,16 +178,16 @@ _**Structure**_:
 (Reminds you of macros? But here we are _committing_ to the match-select-act semantics).
 
 Another way to say the above is "look before you leap". THink what you _could_ do before
-deciing what you _should_ do.
+deciding what you _should_ do.
 
-Note that _select_ is also called "conflect resolution"; i.e. how to handle the case
+Note that _select_ is also called "conflict resolution"; i.e. how to handle the case
 where multiple rules  want to change the working memory in different ways.
-Standard conflict resolution opertors:
+Standard conflict resolution operators:
 
-- Recency: facor rules that match to the most recent changes to working memory
-- Precedence: give each rule an explicity precedence and select hogher precendence ones
+- Recentcy: favor rules that match to the most recent changes to working memory
+- Precedence: give each rule an explicitly precedence and select higher precedence ones
    over lower precedence ones.
-- Specificity: if tow rules can fir, use the msot complex one.
+- Specificity: if tow rules can fir, use the most complex one.
 - Roll your own
 
 
@@ -201,17 +201,17 @@ See your proj1a rules.
 _**Rules of thumb**_
 
 - dozens to 100s of rules are good: maintainable knowledge
-- 1000s of rules are bad: maintainence nightmare
+- 1000s of rules are bad: maintenance nightmare
 - Think rule groups: objects containing small lists of rules that are about
-  just theor content
-      - So find some way to divide very big rule sets into doznes of small to medium rule sets.
+  just their content
+      - So find some way to divide very big rule sets into dozens of small to medium rule sets.
 - 80% of the time (or more) in a production system spent in match
-      - Solution 1: clever cross comialtion of rules into sets of related tests
+      - Solution 1: clever cross compilation of rules into sets of related tests
       - Solution 2: rule groups.
 - Simple uniform semantics makes rules a candidate for an end-user language
   (something they can read and understand and critique, and even write).
 - Simple uniform semantics makes rules an excellent candidate for tool support
-     - e,g, writing "checkers" to find sillt errors.
+     - e,g, writing "checkers" to find sill errors.
 - Simple uniform semantics makes rules hard to express certain procedural constructs
 
 _**See also**_
