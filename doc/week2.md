@@ -144,7 +144,7 @@ Of course  `do*` is itself a macro that expands into some gotos:
       #:END-3232 (RETURN-FROM NIL (PROGN NIL))))) 
 ```
 
-**Rules of thumb**
+_**Rules of thumb**_
 
 - Simple macros good for simple things.
 - Very quickly get messy for larger things.
@@ -155,26 +155,67 @@ Of course  `do*` is itself a macro that expands into some gotos:
 reader, which is learning a new syntactic concept for each macro. And
 so it should not be abused.
 
-Note: older languages used macros extensively. Modern languages, not so much (exceptions: elixr, julia).
+Note: older languages used macros extensively. Modern languages, not so much. But maybe the tibe is turn (very new languages have macros, again, elixr, julia).
 
 ##  Production Systems
- 
 
-Rule of Representation
- 
- Developers should choose to make data more complicated rather than the procedural logic of theprogram when faced with the choice, because it is easier for humans to understand complex data compared with complex logic. This rule aims to make programs more readable for any developer working on the project, which allows the program to be maintained.
+_**Intent**_ Seperate the logic from the program. 
 
-simplue unifrm sematics: tools support = easier user trainign easier
+_**Problem**_ : High level knowlege, encoded into (e.g.) "C" becomes
+convulated, verbose, hard to maintain.
 
-some claim fits better with himan metnal models. but...
+_**Structure**_: 
 
-See also
-compartmental models
-state machines
-decsion table
+- A working memroy of assertions
+- An explicit high-level rule-based notation (recall proj1a)
+  that matches to the working memory and, maybe, does updates to that memory.
+- A seperate inference engine that does 
+     - Match (find the N rules with satisfied conditions)
+     - Select (finds the best rule to use)
+     - Act (applies that rule)
+     - And repeat till no more rules found.
 
-match 80%
+(Reminds you of macros? But here we are _committing_ to the match-select-act semantics).
 
-select : confect resolution recency, prioirt, specificity
+Another way to say the above is "look before you leap". THink what you _could_ do before
+deciing what you _should_ do.
 
-act
+Note that _select_ is also called "conflect resolution"; i.e. how to handle the case
+where multiple rules  want to change the working memory in different ways.
+Standard conflict resolution opertors:
+
+- Recency: facor rules that match to the most recent changes to working memory
+- Precedence: give each rule an explicity precedence and select hogher precendence ones
+   over lower precedence ones.
+- Specificity: if tow rules can fir, use the msot complex one.
+- Roll your own
+
+
+
+_**Examples**_
+
+So many business logic languages.
+
+See your proj1a rules.
+
+_**Rules of thumb**_
+
+- dozens to 100s of rules are good: maintainable knowledge
+- 1000s of rules are bad: maintainence nightmare
+- Think rule groups: objects containing small lists of rules that are about
+  just theor content
+      - So find some way to divide very big rule sets into doznes of small to medium rule sets.
+- 80% of the time (or more) in a production system spent in match
+      - Solution 1: clever cross comialtion of rules into sets of related tests
+      - Solution 2: rule groups.
+- Simple uniform semantics makes rules a candidate for an end-user language
+  (something they can read and understand and critique, and even write).
+- Simple uniform semantics makes rules an excellent candidate for tool support
+     - e,g, writing "checkers" to find sillt errors.
+- Simple uniform semantics makes rules hard to express certain procedural constructs
+
+_**See also**_
+
+- compartmental models
+- state machines
+- decision tables
