@@ -84,7 +84,7 @@ Three operations
 - DOWN : pop Input, push to Temp
 - UP   : pop Temp, push to Input
 
-![](https://en.wikipedia.org/wiki/Shunting-yard_algorithm#/media/File:Shunting_yard.svg)
+![](../etc/img/shunting.png)
 
 The following does not do prefixs or. infix operators
 
