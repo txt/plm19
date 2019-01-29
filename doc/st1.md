@@ -49,7 +49,7 @@ Tips:
      - [e.g whileTrue:](https://github.com/gnu-smalltalk/smalltalk/blob/master/kernel/BlkClosure.st#L346-L354)
 - #() =array
 - : =keyword argument
-    - `5 between: 3 and: 8`  = selector of `between:and:`
+    - `5 between: 3 and: 8`  = selector `between:and:`
 
 ## Moving on
 
@@ -86,7 +86,7 @@ Tips:
 
 - Blocks. `aBlock value: x`.
      - e.g. `1 to: 10 by:2 do: [:x| x oo]`
-     - [Number.st](https://github.com/gnu-smalltalk/smalltalk/blob/master/kernel/Number.st#L1030-L1048)
+     - [Number.st](https://github.com/gnu-smalltalk/smalltalk/blob/master/kernel/Number.st#L982-L999)
 
 
 ## Polymorphism
