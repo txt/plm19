@@ -34,6 +34,7 @@ Tips:
 - false  =Only intance of class False
 - nil    =Only instance of class UndefinedObject
 - Smalltalk =global, holds all globals; e.g. classes
+- #abc =symbol
 - $x =character
 - "  =comments
 - ' =strings
@@ -41,12 +42,14 @@ Tips:
 - . =end statement
 - ^ =return
 - := =assignment
-- [] =block
-    - basis of all control, loops
-    - [e.g whileTrue:](https://github.com/gnu-smalltalk/smalltalk/blob/master/kernel/BlkClosure.st#L346-L354)
+- blocks (of code)
+     - [] =block
+     - [:x| ... ] =block with one argument
+     - basis of all control, loops
+     - [e.g whileTrue:](https://github.com/gnu-smalltalk/smalltalk/blob/master/kernel/BlkClosure.st#L346-L354)
 - #() =array
 - : =keyword argument
-    - `5 between: 3 and: 8`  = selector `between:and:`
+    - `5 between: 3 and: 8`  = selector of `between:and:`
 
 ## Moving on
 
