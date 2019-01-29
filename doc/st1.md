@@ -170,8 +170,8 @@ Literally, everything is an object.
             Metaclass
         BlockClosure -- []
         Boolean
-          False -- true
-          True  -- false
+          False -- false
+          True  -- true
         CObject
           -- C stuff
         Collection
@@ -192,7 +192,7 @@ Literally, everything is an object.
             Dictionary
               IdentityDictionary
               RootNamespace
-                SystemDictionary
+                SystemDictionary -- Smalltalk
             Set
               IdentitySet
         File
