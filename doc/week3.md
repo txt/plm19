@@ -9,7 +9,7 @@
 [submit](http://tiny.cc/plm19give) |
 [chat](https://plm19.slack.com/)
 
-# Review, week23
+# Review, week3
 
 ## Things to know
 
