@@ -45,6 +45,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><hr>
+<a href="doc/lisp1.md">Lisp1</a><br>
 <a href="doc/st1.md">Smalltalk1</a><br>
 <a href="doc/llvm.md">D.I.Y.</a><br>
 <a href="doc/op.md">Postfix</a><br>
