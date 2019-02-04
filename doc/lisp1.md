@@ -21,7 +21,7 @@ powerful that Fortran, Cobol,... many modern languages
 
 Let me show you the power of LISP....
 
-![](https://xkcd.com/297/)
+![](https://imgs.xkcd.com/comics/lisp_cycles.png)
 
 
 ## The Primitives Of Lisp
@@ -122,6 +122,57 @@ while `when` just uses all the parts as `then`.)
 3
 4
 ```
+
+For an even cooler example, see Norvig's lis.py. This is a (non-standard) LISP
+implementation that is crazy short (100 lines of code) but the STUFF it can do
+(note, in his code, `(define x y)` says that in the current environment,
+`x` has the value `y`.)
+
+```lisp
+s.py> (define circle-area (lambda (r) (* pi (* r r))))
+lis.py> (circle-area 3)
+28.274333877
+lis.py> (define fact (lambda (n) (if (<= n 1) 1 (* n (fact (- n 1))))))
+lis.py> (fact 10)
+3628800
+lis.py> (fact 100)
+9332621544394415268169923885626670049071596826438162146859296389521759999322991
+5608941463976156518286253697920827223758251185210916864000000000000000000000000
+lis.py> (circle-area (fact 10))
+4.1369087198e+13
+lis.py> (define first car)
+lis.py> (define rest cdr)
+lis.py> (define count (lambda (item L) (if L (+ (equal? item (first L)) (count item (rest L))) 0)))
+lis.py> (count 0 (list 0 1 2 3 0 0))
+3
+lis.py> (count (quote the) (quote (the more the merrier the bigger the better)))
+4
+lis.py> (define twice (lambda (x) (* 2 x)))
+lis.py> (twice 5)
+10
+lis.py> (define repeat (lambda (f) (lambda (x) (f (f x)))))
+lis.py> ((repeat twice) 10)
+40
+lis.py> ((repeat (repeat twice)) 10)
+160
+lis.py> ((repeat (repeat (repeat twice))) 10)
+2560
+lis.py> ((repeat (repeat (repeat (repeat twice)))) 10)
+655360
+lis.py> (pow 2 16)
+65536.0
+lis.py> (define fib (lambda (n) (if (< n 2) 1 (+ (fib (- n 1)) (fib (- n 2))))))
+lis.py> (define range (lambda (a b) (if (= a b) (quote ()) (cons a (range (+ a 1) b)))))
+lis.py> (range 0 10)
+(0 1 2 3 4 5 6 7 8 9)
+lis.py> (map fib (range 0 10))
+(1 1 2 3 5 8 13 21 34 55)
+lis.py> (map fib (range 0 20))
+(1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765)
+```
+
+
+
 ## Example4: Local Variables
 
 For yet another example, 
@@ -337,6 +388,8 @@ The core simplicity of LISP is easier to see it in Norvig's work:
 - http://norvig.com/lispy.html
     - LISP in Python
     - Source code: https://github.com/norvig/pytudes/blob/master/py/lis.py
+
+For learning LISP, I strongly endorse the amazing [Land of Lisp])(http://landoflisp.com).
 
 ## Clojure: Lisp on the JVM
 
