@@ -15,9 +15,9 @@
 
 - "CoffeeScript is a transpiler language." Explain.
 
-- List 2 advantages and disadavtanges of writing languages using the following. For each item
-write at leat 5 lines describe the thing before talking of its advantas and disavanatgages
-     - precdence-drive gramamers
+- List 2 advantages and disadvantages of writing languages using the following. For each item
+write at least 5 lines describe the thing before talking of its advantages and disadvantages
+     - precedence-drive grammars
      - interpreters in Prolog
      - macros
      - transpilers
@@ -29,7 +29,7 @@ write at leat 5 lines describe the thing before talking of its advantas and disa
      - utilities
 
 - If I set any of the Smalltalk homework questions, could you answer them in an exam?
-- Write a Smalltalk object method for collecting every second item in a `Colelction`.
+- Write a Smalltalk object method for collecting every second item in a `Collection`.
      - Should that method be in `Collection`? Discuss.
 - The following question using the Smalltalk hierarchy, described below:
      - Define a String method for testing if a `String` is a palindrome (i.e. you get
@@ -37,7 +37,7 @@ write at leat 5 lines describe the thing before talking of its advantas and disa
      - Discuss the merits, if any of moving that method down into `Symbol`.
      - Discuss the merits, if any of moving that method down to `Bag`.
      - Discuss the merits, if any of moving that method down to `Collection`.
-     - OVerall, where do you think that method should live?
+     - Overall, where do you think that method should live?
 
 ```
 Object
