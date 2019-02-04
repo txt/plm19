@@ -123,13 +123,13 @@ while `when` just uses all the parts as `then`.)
 4
 ```
 
-For an even cooler example, see Norvig's lis.py. This is a (non-standard) LISP
+For an even cooler example, see Norvig's [lis.py](http://norvig.com/lispy.html). This is a (non-standard) LISP
 implementation that is crazy short (100 lines of code) but the STUFF it can do
 (note, in his code, `(define x y)` says that in the current environment,
 `x` has the value `y`.)
 
 ```lisp
-s.py> (define circle-area (lambda (r) (* pi (* r r))))
+lis.py> (define circle-area (lambda (r) (* pi (* r r))))
 lis.py> (circle-area 3)
 28.274333877
 lis.py> (define fact (lambda (n) (if (<= n 1) 1 (* n (fact (- n 1))))))
