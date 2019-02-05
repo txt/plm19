@@ -128,6 +128,8 @@ while `when` just uses all the parts as `then`.)
 3
 4
 ```
+Not the use of recursion in the above. This gets hard if each recursive call builds up stack entries of function call blocks and local variables (which can be very bad for very deep recursion; e.g. `(for 0 10000000 #'print)`. So
+our ideal LISP systems comes with [tail call optimization](https://stackoverflow.com/questions/310974/what-is-tail-call-optimization).
 
 For an even cooler example, see Norvig's [lis.py](http://norvig.com/lispy.html). This is a (non-standard) LISP
 implementation that is crazy short (100 lines of code) but the STUFF it can do
