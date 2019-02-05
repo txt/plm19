@@ -389,7 +389,9 @@ The core simplicity of LISP is easier to see it in Norvig's work:
     - LISP in Python
     - Source code: https://github.com/norvig/pytudes/blob/master/py/lis.py
 
-For learning LISP, I strongly endorse the amazing [Land of Lisp])(http://landoflisp.com).
+For learning LISP and having a lot of fun doing it, I strongly endorse the amazing [Land of Lisp](http://landoflisp.com).
+
+Then, once you get serious, turn to [Practical Common Lisp](http://www.gigamonkeys.com/book/).
 
 ## Clojure: Lisp on the JVM
 
