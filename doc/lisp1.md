@@ -238,6 +238,9 @@ programming. We can define objects as lists of lambda bodies
 returns one of the lambda bodies).
 
 ```lisp
+; Example from Norvig 
+; https://github.com/norvig/paip-lisp/blob/master/lisp/clos.lisp
+
 (defun new-account (name &optional (balance 0.00)
                     (interest-rate .06))
   "Create a new account that knows the following messages:"
@@ -271,85 +274,12 @@ This lets us defined some convenience functions:
 (defun withdraw (object &rest args)
   (apply (send object 'withdraw) args))
 ```
-## Macros
-
-Now we add a macro facility such that high-level constructs unwind into
-lower-level constructs at load time. The following code is my
-protest against the Common Lisp Object System (which is so verbose).
-I prefer
-
-```lisp
-(isa stuff       ;class
-     magic       ;superclass
-     (a 1 )      ;slots with defaults
-     (b 2) 
-     (_cache "tim")))
-```
-The equivalent in CLOS is the following, which I'm
-not going to even to explain to you cause I hate it so much.
-
-```lisp
-(defclass stuff (magic)
- ((a :initarg :a :initform 1 :accessor stuff-a)
-  (b :initarg :b :initform 2 :accessor stuff-b)
-  (_cache :initarg :_cache :initform "tim" :accessor
-   stuff-_cache))) 
-```
-I could make the specification of my classes easier with a
-`macro` that turns (e.g.) `(a 1)` into 
- 
-        (a :initarg :a :initform 1 :accessor stuff-a)
-
-Easily done:
-
-```lisp
-(defmacro uses  (slot x form)
-    `(,slot
-	:initarg  ,(intern (symbol-name slot) "KEYWORD")
-	:initform ,form
-	:accessor ,(intern (format nil "~a-~a" x slot))))
-```
-Note the backtick notation. This creates a "toggle environment"
-where "x" evalautes to to the symbol "x" but ",x" evaluates
-to whatever value "x" points to.
-
-Here's the whole thing where  the `uses` 
-macro is now a sub-routine inisde
-`isa` (why? cause I don't like polluting the global name space).
-
-```lisp
-(defmacro isa (x parent &rest slots)
-  "simpler creator for claseses. see example in thingeg.lisp"
-  (labels ((uses  
-	     (slot x form)
-	     `(,slot
-		:initarg  ,(intern (symbol-name slot) "KEYWORD")
-		:initform ,form
-		:accessor ,(intern (format nil "~a-~a" x slot)))))
-    `(progn
-       (defun ,x  (&rest inits)
-	 (apply #'make-instance (cons ',x inits)))
-       (defclass ,x (,parent)
-	 ,(loop for (slot form) in slots collect (uses slot x form))))))
-
-(macroexpand '(isa stuff magic (a 1 ) (b 2) (_cache "tim")))
-
-(PROGN
-
-  (DEFUN STUFF (&REST INITS)
-	 (APPLY #'MAKE-INSTANCE (CONS 'STUFF INITS)))
-
-  (DEFCLASS STUFF (MAGIC)
-	    ((A :INITARG :A :INITFORM 1 :ACCESSOR STUFF-A)
-	     (B :INITARG :B :INITFORM 2 :ACCESSOR STUFF-B)
-	     (_CACHE :INITARG :_CACHE :INITFORM "tim" :ACCESSOR
-		     STUFF-_CACHE)))) ;
-```
-
 ## Design Patterns (e.g. Visitor)
 
 For yet another another example, consider the `visitor` design pattern
 which, in OO languages, needs all these new classes. Not so in LISP
+
+In the following, `stufff` is a subclass of `magic` (and we'll get to that in the next example).
 
 ```lisp
 (defmethod visit ((x t) f)
@@ -403,6 +333,159 @@ completeness but need not bother us too much:
 	       (mapcar #'name 
 		       (slots1 x)))))
 ```
+## Macros
+
+Now we add a macro facility such that high-level constructs unwind into
+lower-level constructs at load time. 
+
+### Unitl
+
+For example,
+LISP has no `until` statement. But that can easily be fixed: just add a macro that
+defined `until` in terms of `while`.
+
+```lisp
+(defmacro until (test &body body)
+  "implements 'until' (which is not standard in LISP)"
+  `(while (not ,test)
+     ,@body))
+```
+Note the backtick notation. This creates a "toggle environment"
+where "x" evalautes to to the symbol "x" but ",x" evaluates
+to whatever value "x" points to.
+
+Note also the `@body` command. This flattens out a list. So
+in the following,
+
+```lisp
+(let ((x 1000))
+  (until (< x 0)
+    (setf x (- 1 x))
+    (print x)))
+```
+
+then `(setf x (- 1 x)) (print x)` is `@body` and this gets laid
+out as flat items as follows:
+
+```lisp
+(let ((x 1000))
+  (while (not (< x 0))
+    (setf x (- 1 x))
+    (print x)))
+```
+
+### While
+
+Whoops, I forgot. LISP has no `while` command. Again, easily fixed,
+I'll defined `while` in terms of the list `do` loop command:
+
+```lisp
+(defmacro while (test &body body)
+  "implements 'while' (which is not standard in LISP)"
+  `(do ()
+       ((not ,test))
+     ,@body))
+```		
+
+### Nested Slot Access
+
+ALso suppose I have a table of `data` from which I wan the independent numeric
+variables from the header. That can be done as follows:
+
+```lisp
+(SLOT-VALUE 
+    (SLOT-VALUE 
+        (SLOT-VALUE DATA 'HEADER) 
+    'NUMERICS) 
+'INDENDENT)
+```
+Which is kinda verbose. The same code can be auto-generated using:
+
+```lisp
+(defmacro ? (obj first-slot &rest more-slots)
+  "From https://goo.gl/dqnmvH:"
+  (if (null more-slots)
+    `(slot-value ,obj ',first-slot)
+    `(? (slot-value ,obj ',first-slot) ,@more-slots)))
+```
+So now
+
+     (? data header numerics independent)
+
+automatically expands into the above.
+
+
+### Simplifying Objects in LISP
+
+For a more interesting example,
+the following code is my
+protest against the Common Lisp Object System (which is so verbose).
+I prefer
+
+```lisp
+(isa stuff       ;class
+     magic       ;superclass
+     (a 1 )      ;slots with defaults
+     (b 2) 
+     (_cache "tim")))
+```
+The equivalent in CLOS is the following, which I'm
+not going to even to explain to you cause I hate it so much.
+
+```lisp
+(defclass stuff (magic)
+ ((a :initarg :a :initform 1 :accessor stuff-a)
+  (b :initarg :b :initform 2 :accessor stuff-b)
+  (_cache :initarg :_cache :initform "tim" :accessor
+   stuff-_cache))) 
+```
+I could make the specification of my classes easier with a
+`macro` that turns (e.g.) `(a 1)` into 
+ 
+        (a :initarg :a :initform 1 :accessor stuff-a)
+
+Easily done:
+
+```lisp
+(defmacro uses  (slot x form)
+    `(,slot
+	:initarg  ,(intern (symbol-name slot) "KEYWORD")
+	:initform ,form
+	:accessor ,(intern (format nil "~a-~a" x slot))))
+```
+Here's the whole thing where  the `uses` 
+macro is now a sub-routine inisde
+`isa` (why? cause I don't like polluting the global name space).
+
+```lisp
+(defmacro isa (x parent &rest slots)
+  "simpler creator for claseses. see example in thingeg.lisp"
+  (labels ((uses  
+	     (slot x form)
+	     `(,slot
+		:initarg  ,(intern (symbol-name slot) "KEYWORD")
+		:initform ,form
+		:accessor ,(intern (format nil "~a-~a" x slot)))))
+    `(progn
+       (defun ,x  (&rest inits)
+	 (apply #'make-instance (cons ',x inits)))
+       (defclass ,x (,parent)
+	 ,(loop for (slot form) in slots collect (uses slot x form))))))
+
+(macroexpand '(isa stuff magic (a 1 ) (b 2) (_cache "tim")))
+
+(PROGN
+
+  (DEFUN STUFF (&REST INITS)
+	 (APPLY #'MAKE-INSTANCE (CONS 'STUFF INITS)))
+
+  (DEFCLASS STUFF (MAGIC)
+	    ((A :INITARG :A :INITFORM 1 :ACCESSOR STUFF-A)
+	     (B :INITARG :B :INITFORM 2 :ACCESSOR STUFF-B)
+	     (_CACHE :INITARG :_CACHE :INITFORM "tim" :ACCESSOR
+		     STUFF-_CACHE)))) ;
+```
+
 
 ## Have you drunk the Koolaid?
 
