@@ -67,7 +67,11 @@ Lambdas process variables in a `environment` which is, conceptually, a list of c
 that this environment also holds lambda bodies (e.g. `first` is a synonym for `(lambda (x) (car x))`).
 
 ```
-'((a 1) (b 1) (first (lambda (x) (car x))) ...)
+'((a 1)
+  (b 1) 
+  (first (lambda (x) (car x))) 
+  (a 10) 
+  ...)
 ```
 
 When we call a lambda body:
@@ -76,6 +80,7 @@ When we call a lambda body:
 list are appended **to the left** of the envrionment list.
 - When we refer to variables inside a lambda body, we look them up
 **from the left**
+- This means that left-hand-side vars can _shadow_ right-hand-side vars (so when we look up `a` in the above, we get 1, not 10). This will be useful when we pass environments to sub-routines (see below).
 
 Now in case you blinked and missed it, you got a full-fledged
 programming language. 
