@@ -132,7 +132,11 @@ implementation that is crazy short (100 lines of code) but the STUFF it can do
 lis.py> (define circle-area (lambda (r) (* pi (* r r))))
 lis.py> (circle-area 3)
 28.274333877
-lis.py> (define fact (lambda (n) (if (<= n 1) 1 (* n (fact (- n 1))))))
+lis.py> (define fact (lambda (n) 
+              (if (<= n 1) 
+	          1 
+		  (* n 
+		     (fact (- n 1))))))
 lis.py> (fact 10)
 3628800
 lis.py> (fact 100)
@@ -142,7 +146,11 @@ lis.py> (circle-area (fact 10))
 4.1369087198e+13
 lis.py> (define first car)
 lis.py> (define rest cdr)
-lis.py> (define count (lambda (item L) (if L (+ (equal? item (first L)) (count item (rest L))) 0)))
+lis.py> (define count (lambda (item L) 
+            (if L 
+	        (+ (equal? item (first L)) 
+		   (count  item (rest L))) 
+		0)))
 lis.py> (count 0 (list 0 1 2 3 0 0))
 3
 lis.py> (count (quote the) (quote (the more the merrier the bigger the better)))
@@ -150,7 +158,9 @@ lis.py> (count (quote the) (quote (the more the merrier the bigger the better)))
 lis.py> (define twice (lambda (x) (* 2 x)))
 lis.py> (twice 5)
 10
-lis.py> (define repeat (lambda (f) (lambda (x) (f (f x)))))
+lis.py> (define repeat (lambda (f) 
+                          (lambda (x) 
+			      (f (f x)))))
 lis.py> ((repeat twice) 10)
 40
 lis.py> ((repeat (repeat twice)) 10)
@@ -161,8 +171,17 @@ lis.py> ((repeat (repeat (repeat (repeat twice)))) 10)
 655360
 lis.py> (pow 2 16)
 65536.0
-lis.py> (define fib (lambda (n) (if (< n 2) 1 (+ (fib (- n 1)) (fib (- n 2))))))
-lis.py> (define range (lambda (a b) (if (= a b) (quote ()) (cons a (range (+ a 1) b)))))
+lis.py> (define fib (lambda (n) 
+               (if (< n 2)
+	           1 
+		   (+ (fib (- n 1)) 
+		      (fib (- n 2))))))
+lis.py> (define range (lambda (a b) 
+                           (if (= a b) 
+			       (quote ()) 
+			       (cons a 
+			             (range (+ a 1) 
+				             b)))))
 lis.py> (range 0 10)
 (0 1 2 3 4 5 6 7 8 9)
 lis.py> (map fib (range 0 10))
