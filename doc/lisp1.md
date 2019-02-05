@@ -9,6 +9,9 @@
 [submit](http://tiny.cc/plm19give) |
 [chat](https://plm19.slack.com/)
 
+(For a great tutorial on lots of useful Lisp idoms, see [here](https://learnxinyminutes.com/docs/common-lisp/).
+For notes on why LISP is so amazing, see below.)
+
 # LISP: One ring to rule them all.
 
 Give me less than dozen  primitives and I can give you a language more
@@ -425,6 +428,8 @@ Then, once you get serious, turn to
 
 - [Practical Common Lisp](http://www.gigamonkeys.com/book/).
 - The [QuickLisp](https://www.quicklisp.org/beta/) package manager
+
+See also [Lua](https://learnxinyminutes.com/docs/lua/), which is a much simpler language, and was heavily inspired by a LISP variant called SCHEME (and sometimes I think of LUA as "SCHEME without brackets"). LUA is my current "best" language (at least for today...). 
 
 ## Clojure: Lisp on the JVM
 
