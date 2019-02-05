@@ -63,10 +63,11 @@ Which also means I can pass in a lambda to a lambda
 (a b c)
 ```
 􏰐
-Lambdas process variables in a `environment` which is, conceptually, a list of cons symbol values
+Lambdas process variables in a `environment` which is, conceptually, a list of cons symbol/values. Note 
+that this environment also holds lambda bodies (e.g. `first` is a synonym for `(lambda (x) (car x))`).
 
 ```
-'((a 1) (b 1) ...)
+'((a 1) (b 1) (first (lambda (x) (car x))) ...)
 ```
 
 When we call a lambda body:
