@@ -410,13 +410,22 @@ The core simplicity of LISP is easier to see it in Norvig's work:
 
 For learning LISP and having a lot of fun doing it, I strongly endorse the amazing [Land of Lisp](http://landoflisp.com).
 
-Then, once you get serious, turn to [Practical Common Lisp](http://www.gigamonkeys.com/book/).
+- To edit LISP code, I used to tell folks, EMACS!
+- Now I find VIM is just find find (see 
+
+Then, once you get serious, turn to 
+
+- [Practical Common Lisp](http://www.gigamonkeys.com/book/).
+- The [QuickLisp](https://www.quicklisp.org/beta/) package manager
 
 ## Clojure: Lisp on the JVM
 
 Java is everywhere, which means that Java Virtual Machines are everywhere. Creating a version of Lisp that runs on the JVM made it possible to run Lisp anywhere. That was the primary motivation for creating Clojure, and a great reason to learn the language.
 
 Another benefit is that Clojure provides access, via the JVM, to countless tools and third-party libraries written in Java. This gives Clojure a development ecosystem that is more powerful than those previously available to any Lisp dialect.
+
+(See also [ClojureScript](https://www.youtube.com/watch?v=8-kVTUNhwJY) that transpiles to JavaScript and plugs into all
+the JS echo system. Has a great REPL in Atom as well.)
 
 Btw, Clojure tells us what LISP overlooked. It is recommended
 to start Clojure projects using the `lien` package manager. If you do that,
