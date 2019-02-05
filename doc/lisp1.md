@@ -48,14 +48,14 @@ LISP  functions as a list whose:
 - second item is a list of `parameter` atoms
 - remaining items is an `expression`.
 
-```
+```lisp
 ((lambda (x)􏰐(cons x '(b)) 'a) ==> (a b)
 􏰐
 ((lambda (x y)􏰏(cons x (cdr y))) 'z '(a b c))􏰐==> (z b c)
 ```
 Which also means I can pass in a lambda to a lambda
 
-```
+```lisp
 ((lambda 􏰏(f) (f 􏰋􏰏'(b c)))  ; <=== lambda body
  '(lambda (x) (cons 'a x)))  ; <=== 1st arg = lambda
 ) 
@@ -82,7 +82,7 @@ programming language.
 ## Example1: Functions:
 Consider functions:
 
-```
+```lisp
 (defun hello (who)
   (format t "hello ~a.~%" who))
 ```
@@ -105,7 +105,7 @@ calling levels of recursion are on the right
 Lambda bodies are just data so I can carry them around a list just like
 any other variable.
 
-```
+```lisp
 (defun for (start stop f)
   (when (< start stop)       ; 
         (funcall f start)
@@ -178,7 +178,7 @@ lis.py> (map fib (range 0 20))
 For yet another example, 
 the `let` form of LISP defines some local variables; e.g.
 
-```
+```lisp
 (let ((x 1)
       (y 2))
    (let ((x 3))
@@ -190,7 +190,7 @@ Internally, we can implement these lets at lambda bodies
 such that the method look up inside the let bodies does the right things.
 For example:
 
-```
+```lisp
 (let ((var1 value1) 
       (var2 value2) 
       ...) 
@@ -207,7 +207,7 @@ programming. We can define objects as lists of lambda bodies
 (in the following, the `case` function of `new-account`
 returns one of the lambda bodies).
 
-```
+```lisp
 (defun new-account (name &optional (balance 0.00)
                     (interest-rate .06))
   "Create a new account that knows the following messages:"
@@ -231,13 +231,13 @@ In the following
 -  `(apply g (x y ...))` ==> g(x, y, ...) in e.g. Python. We use this
    to send the args to the lambda body.
 
-```
+```lisp
 (defun send (object message &rest args)
   (apply (funcall object message) args))
 ````
 
 This lets us defined some convenience functions:
-```
+```lisp
 (defun withdraw (object &rest args)
   (apply (send object 'withdraw) args))
 ```
@@ -248,7 +248,7 @@ lower-level constructs at load time. The following code is my
 protest against the Common Lisp Object System (which is so verbose).
 I prefer
 
-```
+```lisp
 (isa stuff       ;class
      magic       ;superclass
      (a 1 )      ;slots with defaults
@@ -258,7 +258,7 @@ I prefer
 The equivalent in CLOS is the following, which I'm
 not going to even to explain to you cause I hate it so much.
 
-```
+```lisp
 (defclass stuff (magic)
  ((a :initarg :a :initform 1 :accessor stuff-a)
   (b :initarg :b :initform 2 :accessor stuff-b)
@@ -272,7 +272,7 @@ I could make the specification of my classes easier with a
 
 Easily done:
 
-```
+```lisp
 (defmacro uses  (slot x form)
     `(,slot
 	:initarg  ,(intern (symbol-name slot) "KEYWORD")
@@ -287,7 +287,7 @@ Here's the whole thing where  the `uses`
 macro is now a sub-routine inisde
 `isa` (why? cause I don't like polluting the global name space).
 
-```
+```lisp
 (defmacro isa (x parent &rest slots)
   "simpler creator for claseses. see example in thingeg.lisp"
   (labels ((uses  
@@ -321,7 +321,7 @@ macro is now a sub-routine inisde
 For yet another another example, consider the `visitor` design pattern
 which, in OO languages, needs all these new classes. Not so in LISP
 
-```
+```lisp
 (defmethod visit ((x t) f)
   (funcall f x ))
 
@@ -351,7 +351,7 @@ This outputs:
 The above uses two magic functions which I include for
 completeness but need not bother us too much:
 
-```
+```lisp
 (defun funp(x)
    (and (consp x)
          (eql 2 (length x))
