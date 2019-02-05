@@ -419,7 +419,7 @@ The core simplicity of LISP is easier to see it in Norvig's work:
 For learning LISP and having a lot of fun doing it, I strongly endorse the amazing [Land of Lisp](http://landoflisp.com).
 
 - To edit LISP code, I used to tell folks, EMACS!
-- Now I find VIM is just find find (see 
+- Now I find VIM is just find find (see the excellent [slime](https://vimawesome.com/plugin/slime) development environment).
 
 Then, once you get serious, turn to 
 
