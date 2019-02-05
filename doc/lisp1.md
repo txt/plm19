@@ -10,7 +10,7 @@
 [chat](https://plm19.slack.com/)
 
 (For a great tutorial on lots of useful Lisp idoms, see [here](https://learnxinyminutes.com/docs/common-lisp/).
-For notes on why LISP is so amazing, see below.)
+For notes on why LISP is so awesome, see below.)
 
 # LISP: One ring to rule them all.
 
@@ -41,9 +41,9 @@ Let me show you the power of LISP....
 8. Dont run all code: `(cond (p1 e1) (p2 e2) (p3 e3))`
    run the first `e` with a true `p`.
 
-## Lambda Bodies
+## Lambda Bodies (a notation for functions)
 
-(Named after the lambda calculus of Alfonso Church.).
+(Named after the lambda calculus of [Alfonso Church](https://en.wikipedia.org/wiki/Alonzo_Church#Mathematical_work).)
 
 LISP  functions as a list whose:
 
@@ -336,9 +336,10 @@ completeness but need not bother us too much:
 ## Macros
 
 Now we add a macro facility such that high-level constructs unwind into
-lower-level constructs at load time. 
+lower-level constructs at load time (so unlike higher-order functions,
+no runtime overhead). 
 
-### Unitl
+### Until
 
 For example,
 LISP has no `until` statement. But that can easily be fixed: just add a macro that
@@ -414,7 +415,8 @@ So now
 
 automatically expands into the above.
 
-
+(BTW the above recusrive macro definition took me days to write, and I used a lot of help from my friends.)
+ 
 ### Simplifying Objects in LISP
 
 For a more interesting example,
