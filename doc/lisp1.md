@@ -9,10 +9,16 @@
 [submit](http://tiny.cc/plm19give) |
 [chat](https://plm19.slack.com/)
 
-(For a great tutorial on lots of useful Lisp idoms, see [here](https://learnxinyminutes.com/docs/common-lisp/).
-For notes on why LISP is so awesome, see below.)
+# LISP
 
-# LISP: One ring to rule them all.
+- For a great tutorial on lots of useful Lisp idoms, see [here](https://learnxinyminutes.com/docs/common-lisp/);
+- For a good lille manual see the
+  [Simplified Common Lisp reference](http://jtra.cz/stuff/lisp/sclr/index.html);
+- For notes on why LISP is so awesome, see below.
+
+
+
+## One ring to rule them all.
 
 Give me less than dozen  primitives and I can give you a language more
 powerful that Fortran, Cobol,... many modern languages
