@@ -15,6 +15,9 @@ _**Intent**_ :
 
 ## State Machines
 
+
+<img align=right width=450 src="https://www.w3.org/2005/Talks/0621-dsr-mmi/watch-hsc.png">
+
 _**Intent**_  : Seperate logic from the program, expressing that logic
 very simpley.
 
@@ -45,8 +48,6 @@ _**Structure**_ :
 - Nested Machine
      - One special kind of state can be a Machine. Which means
        machines can be nested inside each other.
-
-<img align=right width=450 src="https://www.w3.org/2005/Talks/0621-dsr-mmi/watch-hsc.png">
 
 _**Example**_ :
 
