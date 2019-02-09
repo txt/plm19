@@ -11,9 +11,16 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 # Prolog (ish) in LISP
 
-Prolog-in-LISP is an example of an interesting LISP program that lets us
+[Prolog-in-LISP](../src/lisp/prolog1c.lisp)
+ is a LISP program that lets us
 better understand our prior work on Prolog while learning more about LISP.
 
+The system is in two parts:
+
+1. A knowledge-base;
+2. An inference engine.
+
+## Knowledge-Base
 
 _Facts_ are
 list with  a predicate followed by zero or more arguments; e.g.
