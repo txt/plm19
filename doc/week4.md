@@ -1,5 +1,3 @@
-<p>>>>
-<span style="text-align=right;"><<</span></p>
 <a href="http://tiny.cc/plm19"><img width=1000 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a><br>
 <a href="http://tiny.cc/plm19">home</a> |
 <a href="https://github.com/txt/plm19/blob/master/doc/syllabus.md">syllabus</a> |
