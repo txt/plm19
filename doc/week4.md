@@ -46,7 +46,8 @@ class Struct:
         return 'Struct(%s)' % ', '.join(args)
 ```
 Example:
-```
+
+```python
      >>> options = Struct(answer=42, linelen=80, font='courier')
 
      >>> options.answer
