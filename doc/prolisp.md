@@ -5,15 +5,15 @@
 <a href="https://github.com/txt/plm19/tree/master/src">src</a> |
 <a href="http://tiny.cc/plm19give">submit</a> |
 <a href="https://plm19.slack.com/">chat</a> |
-<a href="https://github.com/txt/plm19/blob/master/license.md">&copy;2019</a> 
+<a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
 
 # Prolog (ish) in LISP
 
-[Prolog-in-LISP](../src/lisp/prolog1c.lisp)
- is a LISP program that lets us
-better understand our prior work on Prolog while learning more about LISP.
+[Prolog-in-LISP](../src/lisp/prolog1c.lisp) is a LISP program that
+lets us better understand our prior work on Prolog while learning
+more about LISP.
 
 The system is in two parts:
 
@@ -27,15 +27,13 @@ list with  a predicate followed by zero or more arguments; e.g.
 
     (parent donald nancy)
 
-_Rules_ tell us what we can infer:
+tells us that _donald_'s parent is _nancy_.  _Rules_ tell us what we can infer:
 
     (<- head body)
 
-where _head_ is the "consequence"
-and "body" is the "antesecendat".
+where _head_ is the "consequence" and "body" is the "antesecendat".
 
-_Variables_
-are symbols beginning with question marks; e.g.
+_Variables_ are symbols beginning with question marks; e.g.
 
     (<- (child ?x ?y) (parent ?y ?x))
 
