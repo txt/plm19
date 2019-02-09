@@ -77,18 +77,18 @@ complex to implement. Enter state machines.
 
 _**Structure**_ :
 
-- Machine
-     - A place to store lists of "States" and "Transitions".
-     - Holds a local variable pointing to the "start" state 
-- Transistions
+- `MACHINE`
+     - A place to store lists of `STATE`s and `TRANSITION`s.
+     - Holds a local variable pointing to the `start` state 
+- `TRANSISTION`s
      - Usually a 3-part or 4-part tupe
-     - FROM: the "from" state
-     - TO: the "to" state
-     - GAURD: a "test" to see if we should use this transition
-     - SIDE-EFFECT: an action to take if the GAURD is satisfied
-       (e.g. if the GAURD == some button is pushed then
-       the SIDE-EFFECT could be write some record to a log).
-- States
+     - `from` the "from" state
+     - `to` the "to" state
+     - `gaurd` a "test" to see if we should use this transition
+     - `side-effect`: an action to take if the GAURD is satisfied
+       (e.g. if the `gaurd` == some button is pushed then
+       the `side-effect` could be write some record to a log).
+- `STATE`s
      - Which can be simple boolean tags (e.g. state1=entry; state2=exit)
      - Which, for more complex modeling, can be instances of a class,
        with specialized sub-classes (e.g. entry can be sub-classes
@@ -96,8 +96,8 @@ _**Structure**_ :
        to have an abstract "exit" class from which you can
        specialize different exit conditions.
      - Holds a list of out-transistion from each state.
-- Nested Machine
-     - One special kind of state can be a Machine. Which means
+- `NESTEDMACHINE`
+     - One special kind of `STATE` can be a `MACHINE`. Which means
        machines can be nested inside each other.
 
 _**Example**_ :
@@ -178,7 +178,7 @@ _**Rules of thumb**_ :
   or unreacahble states.
 - Don't try to specify large systems, just with state machines.
   Better to divide the world up into classes, then use
-  state machines to spec the internal logic of some classes.
+  state machines to spec the internal discrete logic of some classes.
   small areas.
 - Has some advantages over production rules (instead of 
   spending 60% to 80% of the time in "match", then we only
@@ -206,31 +206,36 @@ complex to implement. Enter  machines.
 
 _**Structre**_ :
 
-- PAYLOAD0: 
-     - a STRUCT to hold the state of the model at te last time tick.
-- PAYLOAD1: 
+- `payload0`: 
+     - a `STRUCT` to hold the state of the model at the last time tick.
+- `payload1`: 
      - a STRUCT to hold the state of the model at
-  te next time tick (initialized to be a copy of
-  PAYLOAD0, then updated by the STEP function)
-- STOCKs: 
+  the next time tick (initialized to be a copy of
+  `payload0`, then updated by the `step` function)
+- `STOCK`s: 
      - a variable is measured at one specific time. Holds numeric
-  variables. May be held inside PAYLOADs.
-- FLOWs: 
+  variables. May be held inside `payload`s.
+- `FLOW`s: 
      - roughly analogous to rate or speed 
-- AUXs: 
+- `AUX`s: 
      - auxillary variables. Constants that effect flows.
-  May be held inside PAYLOADs.
-- MODEL: 
-     - a container class holding <STOCKs, FLOWs, AUXs>
-     - an `have` method that creates <STOCKs, FLOWs, AUXs>
-     - an `step` method that generates PAYLOAD1 from PAYLOAD0
+  May be held inside `payload`s.
+- `MODEL`: 
+     - a container class holding <`STOCK`s, `FLOW`s, `AUX`s>
+     - an `have` method that creates <`STOCK`s, `FLOW`s, `AUX`s>
+     - an `step` method that generates `payload1` from `payload0`
 
 _**Rules of Thumb**_ :
 
+- Don't try to specify large systems, just with compartmental models.
+  Better to divide the world up into classes, then use
+  compartmetanl machines to spec the internal numeic logic of some classes.
+  small areas.
+- Compartmental machines are usually used for numeric  variables.
 - Compartmental models can be written by reading a flow diagram and
   the writing down
 
-      PAYLOAD1.x = PAYLOAD1.x + 
+      payload1.x = payload1.x + 
                    dt(in1 + in2 + ... - out1 - out2 - ...)
 
 _**Example**_ :
