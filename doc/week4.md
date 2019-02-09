@@ -11,15 +11,65 @@
 
 ## Environment Pattern
 
-_**Intent**_ : 
+_**Intent**_ : Avoiding globals, share some updatable states
+
+_**Structure*__:
+
+- Some dictionary-like structure based around from place to place
+  (e.g. carried inside a visitor).
+
+_**Examples**_:
+
+For nested structure: if you dont have it, pull it from the outer
+
+```
+class Env(dict):
+    "An environment: a dict of {'var':val} pairs, with an outer Env."
+    def __init__(self, parms=(), args=(), outer=None):
+        self.update(zip(parms,args))
+        self.outer = outer
+    def find(self, var):
+        "Find the innermost Env where var appears."
+        return self if var in self else self.outer.find(var)
+```
+
+For much simpler flat data (no recursion):
+
+```python
+class Struct:
+    "A structure that can have any fields defined."
+    def __init__(self, **entries): 
+        self.__dict__.update(entries)
+
+    def __repr__(self):
+        args = ['%s=%s' % (k, repr(v)) for (k,v) in vars(self).items()]
+        return 'Struct(%s)' % ', '.join(args)
+```
+Example:
+```
+     >>> options = Struct(answer=42, linelen=80, font='courier')
+
+     >>> options.answer
+     42
+
+     >>> options.answer = 'plastics'
+
+     >>> vars(options)
+     {'answer': 'plastics', 'font': 'courier', 'linelen': 80}
+
+     >>> options
+     Struct(answer='plastics', font='courier', linelen=80)
+```
 
 ## State Machines
 
 
 <img align=right width=450 src="https://www.w3.org/2005/Talks/0621-dsr-mmi/watch-hsc.png">
 
+_**Kind of**_ : Interpreter
+
 _**Intent**_  : Seperate logic from the program, expressing that logic
-very simpley.
+very simply.
 
 _**Problem**_ : Some ways to express knowledge are hard to understand,
 complex to implement. Enter state machines.
@@ -114,6 +164,11 @@ That's the way I do state machines for years.
 
 _**Rules of thumb**_ :
 
+- When writing an interpreter for some domain-specic language, favor a target language with
+      - A high-level visual notation
+      - A simple impementation
+      - An underlying mathematical formulation
+      - Two such target languages are state machines and compartmental models.
 - Useful for description of high-level logic for a system
 - State machines are usually used for discrete variables.
   Use compartmental models for contionous variables.
@@ -130,9 +185,98 @@ _**Rules of thumb**_ :
 
 _**See Also**_ :
 
+- Interpter
 - Compartmental models
 - Composite pattern: Machines can contain States or nested Machines.
 - Visitor pattern: Used to walk around the machines, transistions,
   states and nexted machines.
 
 ## Compartmental Models
+
+_**Kind of**_ : Interpreter
+
+_**Intent**_ :
+Seperate logic from the program, expressing that logic
+very simply.
+
+_**Problem**_ : 
+Some ways to express knowledge are hard to understand,
+complex to implement. Enter  machines.
+
+_**Structre**_ :
+
+- PAYLOAD0: 
+     - a STRUCT to hold the state of the model at te last time tick.
+- PAYLOAD1: 
+     - a STRUCT to hold the state of the model at
+  te next time tick (initialized to be a copy of
+  PAYLOAD0, then updated by the STEP function)
+- STOCKs: 
+     - a variable is measured at one specific time. Holds numeric
+  variables. May be held inside PAYLOADs.
+- FLOWs: 
+     - roughly analogous to rate or speed 
+- AUXs: 
+     - auxillary variables. Constants that effect flows.
+  May be held inside PAYLOADs.
+- MODEL: 
+     - a container class holding <STOCKs, FLOWs, AUXs>
+     - an `have` method that creates <STOCKs, FLOWs, AUXs>
+     - an `step` method that generates PAYLOAD1 from PAYLOAD0
+
+_**Rules of Thumb**_ :
+
+- Compartmental models can be written by reading a flow diagram and
+  the writing down
+
+      PAYLOAD1.x = PAYLOAD1.x + 
+                   dt(in1 + in2 + ... - out1 - out2 - ...)
+
+_**Example**_ :
+
+
+```
+ q   +-----+  r  +-----+
+---->|  C  |---->|  D  |--> s
+ ^   +-----+     +-+---+
+ |                 |
+ +-----------------+ 
+```
+
+- `C` = stock of clean diapers
+- `D` = stock of dirty diapers
+- `q` = inflow of clean diapers
+- `r` = flow of clean diapers to dirty diapers
+- `s` = out-flow of dirty diapers
+
+This is modeled as one have methods that initializes:
+
+- `C`,`D` as a Stock with initial levels 100,0;
+- `q`,`r`,`s` as a Flow with initial rates of 0,8,0
+
+and as a step method that takes a payload `u`
+from time before  and computes a new payload  `v` at time `t+dt`.
+
+```python
+class Diapers(Model):
+
+  def have(i):
+    return o(C = S(100), D = S(0),
+             q = F(0),  r = F(8), s = F(0))
+
+  def step(i,dt,t,u,v):
+    def saturday(x): return int(x) % 7 == 6
+    v.C +=  dt*(u.q - u.r)
+    v.D +=  dt*(u.r - u.s)
+    v.q  =  70  if saturday(t) else 0 
+    v.s  =  u.D if saturday(t) else 0
+    if t == 27: # special case (the day i forget)
+      v.s = 0
+```
+
+_**See Also**_ :
+
+Some ways to express knowledge are hard to understand,
+complex to implement. Enter state machines.
+
+
