@@ -9,15 +9,19 @@
 
 # Review, week4
 
+## Environment Pattern
+
+_**Intent**_ : 
+
 ## State Machines
 
-_**Intent**_  Seperate logic from the program, expressing that logic
+_**Intent**_  : Seperate logic from the program, expressing that logic
 very simpley.
 
-_**Problem**_ Some ways to express knowledge are hard to understand,
+_**Problem**_ : Some ways to express knowledge are hard to understand,
 complex to implement. Enter state machines.
 
-_**Structure**_
+_**Structure**_ :
 
 - Machine
      - A place to store lists of "States" and "Transitions".
@@ -44,7 +48,7 @@ _**Structure**_
 
 <img width=500 src="https://www.w3.org/2005/Talks/0621-dsr-mmi/watch-hsc.png">
 
-_**Example**_
+_**Example**_ :
 
 ```c
 /*
@@ -107,20 +111,27 @@ That's the way I do state machines for years.
 */
 ```
 
-_**Rules of thumb**_
+_**Rules of thumb**_ :
 
+- Useful for description of high-level logic for a system
 - State machines are usually used for discrete variables.
   Use compartmental models for contionous variables.
-- If you keep it simple, then the 
-nested
-machine
-does not scale. best to write numerous little machines, seperated into differnt objects
+- Once systems are specified as state machines, formal
+  methods can be applied to check from (e.g.)  infinite loops
+  or unreacahble states.
+- Don't try to specify large systems, just with state machines.
+  Better to divide the world up into classes, then use
+  state machines to spec the internal logic of some classes.
+  small areas.
+- Has some advantages over production rules (instead of 
+  spending 60% to 80% of the time in "match", then we only
+  need to match across the out transitions from the current state).
 
-_**See Also**_
+_**See Also**_ :
 
+- Compartmental models
 - Composite pattern: Machines can contain States or nested Machines.
 - Visitor pattern: Used to walk around the machines, transistions,
   states and nexted machines.
-- Use 
 
 ## Compartmental Models
