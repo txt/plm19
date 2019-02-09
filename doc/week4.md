@@ -46,7 +46,7 @@ _**Structure**_ :
      - One special kind of state can be a Machine. Which means
        machines can be nested inside each other.
 
-<img width=500 src="https://www.w3.org/2005/Talks/0621-dsr-mmi/watch-hsc.png">
+<img align=right width=450 src="https://www.w3.org/2005/Talks/0621-dsr-mmi/watch-hsc.png">
 
 _**Example**_ :
 
