@@ -13,7 +13,7 @@
 
 _**Intent**_ : Avoiding globals, share some updatable states
 
-_**Structure*_:
+_**Structure**_:
 
 - Some dictionary-like structure based around from place to place
   (e.g. carried inside a visitor).
