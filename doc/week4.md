@@ -4,7 +4,7 @@
 <a href="https://github.com/txt/plm19/tree/master/src">src</a> |
 <a href="http://tiny.cc/plm19give">submit</a> |
 <a href="https://plm19.slack.com/">chat</a> |
-<a href="https://github.com/txt/plm19/blob/master/license.md">&copy;</a> 2019, <a href="http://menzies.us">timm</a>
+<a href="https://github.com/txt/plm19/blob/master/license.md">&copy;2019</a>, <a href="http://menzies.us">timm</a>
 
 # Review, week4
 
