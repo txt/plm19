@@ -10,6 +10,12 @@
 
 ## Things to Know
 
+- List and define the 8 primitives of LISP. Use each in an example.
+- Show examples of variables being applied to a lambda body.
+- Show an example of a lambda body1 being passed to a lambda body2, then body1 being
+   called inside body2.
+- Describe the environment of a lambda body is extended and queried
+     - What is the signifance of the way it is queried.
 
 ## Environment Pattern
 

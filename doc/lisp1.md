@@ -124,7 +124,7 @@ any other variable.
 (defun for (start stop f)
   (when (< start stop)       ; 
         (funcall f start)
-        (countdown (+ 1 start) stop f)))
+        (for (+ 1 start) stop f)))
 ```
 (If use `when` since standard `if` assumes 3rd arg is the `else` part
 while `when` just uses all the parts as `then`.)
