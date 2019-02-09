@@ -9,6 +9,5 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
-# Patterns
 
-[Patterns in Ruby](https://github.com/davidgf/design-patterns-in-ruby)
+
