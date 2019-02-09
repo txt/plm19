@@ -29,8 +29,8 @@ Well, let's take a look....
 </td>
 <td align=center valign=top><img  width=85 height=82 src="etc/img/time.png">
 <b>SCHEDULE</b><hr>
-<strike>1a:Jan25</strike><br> 1a+:Jan31<br>
-1b:Feb7<br> 1b+:Feb14<br>
+<strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
+<strike>1b:Feb7</strike><br> 1b+:Feb14<br>
 1c:Feb21<br> 1c+:Feb28<br>
 1d:Mar7<br>1d+:Mar21
 <hr>
@@ -56,6 +56,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/homework.gif">
 <b>HOMEWORKS</b><hr>
+<a href="src/lisp/prolog1c.lisp">1c</a><br>
 <a href="doc/lisp0.md">Lisp0</a><br>
 <a href="doc/oneb.md">1b</a><br>
 <a href="doc/st0.md">Smalltalk0</a><br>
