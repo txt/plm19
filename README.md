@@ -10,7 +10,7 @@
 <a href="https://github.com/txt/plm19/tree/master/src">src</a> |
 <a href="http://tiny.cc/plm19give">submit</a> |
 <a href="https://plm19.slack.com/">chat</a> |
-<a href="https://github.com/txt/plm19/blob/master/license.md">&copy;2019</a> 
+<a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
 </td>
@@ -71,6 +71,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/news.png">
 <b>Help</b><hr>
+<a href="https://learnxinyminutes.com/docs/common-lisp/">Lisp-cheat</a><br>
 <a href="http://www.angelfire.com/tx4/cus/notes/smalltalk.html">St-cheat</a><br>
 <a href="https://people.eecs.berkeley.edu/~fateman/264/papers/smalltalk-tutorial.html">St-tut</a><br>
 <a href="doc/codeanywhere.md">Codeanywhere</a><br>
