@@ -22,6 +22,10 @@ Sadly, it is does not cause some things are broken. Please fix!
 
 First, some initial questions:
 
+11111111111111111111111111111111111111111111111111
+Part 1 is worth 1 mark. 0.5 marks for getting 7/10 
+of the following right. 1 mark for getting 10/10
+
 1. Write a file prolog1c.txt that answers the following questions.
 
 1a. In LISP what is an association list?
@@ -49,7 +53,9 @@ an example.
 use an `(= ?x ?x)` rule but there is no support code anywhere else
 for `=`. So how does `(= ?x ?x)` work?
 
-1h. The following rules illustrates the need for variable renaming.
+1h. What does "(gensym "?")" do?
+
+1i. The following rules illustrates the need for variable renaming.
 Why is such renaming required? What could go wrong (with the 
 ?x and ?y bindings) as our Prolog does inference over these two 
 rules.
@@ -57,12 +63,14 @@ rules.
      (<- (child ?x ?y) (parent ?y ?x))
      (<- (daughter ?y ?x) (and (child ?y ?x) (female ?y)))
 
-1h. Why
-1h. The code for "prove" that handles conjunctions seem wrong.  Why
+1j. (HARD) The code for "prove" that handles conjunctions seem wrong.  Why
 does the "and" clause in "prove" use "reverse"? Write a comment in
 the "ands" function that explains why we needed that reverse.
 
-2. The "(known x bindings)" function is missing. This is a function
+22222222222222222222222222222222222222222222222222222
+Part 2 is worth 1 mark
+
+2a. The "(known x bindings)" function is missing. This is a function
 that accepts a symbol "a" and list of dotted pairs.  While "a" can
 be found in the car of any list then we set "a", to the cdr of that
 list.  Once that stops recursing, we return the binding "a".
@@ -81,7 +89,7 @@ Otherwise, we return nil.  For example:
        (#:?3064 . 1) (#:?3061 . #:?3064)
        (#:?3062 . 1) (?X . #:?3061))) ==> 1
 
-3. Another missing function is "(has-vars lst)" that
+2b. Another missing function is "(has-vars lst)" that
 recursively explores "lst" looking for any symbol that starts
 with "?" (see the "varp" function, below). Please implement:
 
@@ -90,16 +98,19 @@ with "?" (see the "varp" function, below). Please implement:
 (Note that the order of the symbols in the output list does
 not matter. But there can be **no** repeats).
 
-4. The code "(do (show ?c))" crashes. Fix it such that "(do (show
+33333333333333333333333333333333333333333333333333333
+Part 3 is worth 1 mark
+
+3a. The code "(do (show ?c))" crashes. Fix it such that "(do (show
 ?c))" prints the current binding to ?c, followed be a new line.
 Hint: add an extra case into "prove".
 
-5. The prove function is missing anything that handles numeric
+3b. The prove function is missing anything that handles numeric
 comparisons. So tests like (> ?c x) crashes. Please add code to
 handle the maths functions ">=,>,<,<=".
 Hint: this should be easy, once you've done (3).
 
-6. Please fix  definition of sibling such that a person cannot be
+3c. Please fix  definition of sibling such that a person cannot be
 their own siblings. So the following output is wrong:
 
      DEBBIE is the sibling of DEBBIE.
