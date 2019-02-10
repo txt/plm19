@@ -102,6 +102,7 @@ the required bindings.
 ```
 
 where the `known` function looks up bindings within the `binds` association list.
+
 There are six cases within `(unify x y)`:
 
 1. If x and y are eql they unify. Else:
