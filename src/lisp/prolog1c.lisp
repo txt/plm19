@@ -40,16 +40,19 @@ function do?  Gove am example of its use.
 hash table then (2) write something into that hash table then (3)
 read that value back.
 
-1e. In Prolog, what is the role of the bindings variable "binds".
+1e What does the LISP "sublis" function do? Give
+an example.
 
-1f. There seems to be a missing function. The examples shown below
+1f. In Prolog, what is the role of the bindings variable "binds".
+
+1g. There seems to be a missing function. The examples shown below
 use an `(= ?x ?x)` rule but there is no support code anywhere else
 for `=`. So how does `(= ?x ?x)` work?
 
-1g. The functions and,ors, negation, evals, prove1 all return the
+1h. The functions and,ors, negation, evals, prove1 all return the
 same thing. What is that (hint, see last form of "negation".
 
-1h. The code for "prove" that handles conjunctions seem wrong.  Why
+1i. The code for "prove" that handles conjunctions seem wrong.  Why
 does the "and" clause in "prove" use "reverse"? Write a comment in
 the "ands" function that explains why we needed that reverse.
 
@@ -190,7 +193,6 @@ need to fix something inside `data0`.
        (let ,(mapcar (lambda (v)
                          `(,v (known ',v ,binds)))
          (has-vars question))
-   (declare (ignorable ,@(has-vars question)))
    ,@body))))
 
 (defun prove (expr &optional binds)
@@ -233,7 +235,6 @@ need to fix something inside `data0`.
     (list binds)))
 
 (defun prove1 (pred args binds)
-  ;(format t "preds ~a args ~a~&" pred args)
   (mapcan 
     (lambda (r)
         (multiple-value-bind (b2 yes) 
