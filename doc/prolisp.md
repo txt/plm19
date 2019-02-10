@@ -102,34 +102,9 @@ the required bindings.
 ```
 
 where the `known` function looks up bindings within the `binds` association list.
-For example
-
-
-     > (unify '(p  a  b c  a) 
-              '(p ?x ?y c ?x)) 
-     ==> ((?Y . B) (?X . A))
-     T
-     
-     > (match '(p ?x b ?y a) 
-              '(p ?y b  c a))
-     ((?Y . C) (?X . ?Y))
-     T
-     
-     > (match '(a b c) 
-              '(a a a)) 
-     NIL
-
-Since not all successful matches generate any bindings, `match`, like `gethash`, 
-returns a second value to show that the match succeeded:
-
-
-     > (match ' (p ?x) »(p ?x)) 
-     NIL
-     T
-
 There are six cases within `(unify x y)`:
 
-1. If x and y are eql they match. Else:
+1. If x and y are eql they unify. Else:
 2. If x has a binding, then try unifying that binding to y. Else:
 3. If y has a binding, then try unifying that binding to x. Else:
 4. If x is a variable (without a binding), then it can unify to anything at all,
@@ -137,6 +112,31 @@ There are six cases within `(unify x y)`:
 5. If y is a variable (without a binding), then it can unify to anything at all,
    so we just create a new binding to x. Else:
 6. Else, if x and y are list then if their car unifies, try unifying the cdrs.
+
+Here are some examples of _unify_ in action:
+
+
+     > (unify '(p  a  b c  a) 
+              '(p ?x ?y c ?x)) 
+     ==> ((?Y . B) (?X . A))
+     T
+     
+     > (unify '(p ?x b ?y a) 
+              '(p ?y b  c a))
+     ((?Y . C) (?X . ?Y))
+     T
+     
+     > (unify '(a b c) 
+              '(a a a)) 
+     NIL
+
+Since not all successful matches generate any bindings, `unify`, like `gethash`, 
+returns a second value to show that the match succeeded:
+
+
+     > (unify ' (p ?x) »(p ?x)) 
+     NIL
+     T
 
 Now we can make our little Prolog work.  For example, if we have
 just the fact
