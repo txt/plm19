@@ -49,10 +49,16 @@ an example.
 use an `(= ?x ?x)` rule but there is no support code anywhere else
 for `=`. So how does `(= ?x ?x)` work?
 
-1h. The functions and,ors, negation, evals, prove1 all return the
-same thing. What is that (hint, see last form of "negation".
+1h. The following rules illustrates the need for variable renaming.
+Why is such renaming required? What could go wrong (with the 
+?x and ?y bindings) as our Prolog does inference over these two 
+rules.
 
-1i. The code for "prove" that handles conjunctions seem wrong.  Why
+     (<- (child ?x ?y) (parent ?y ?x))
+     (<- (daughter ?y ?x) (and (child ?y ?x) (female ?y)))
+
+1h. Why
+1h. The code for "prove" that handles conjunctions seem wrong.  Why
 does the "and" clause in "prove" use "reverse"? Write a comment in
 the "ands" function that explains why we needed that reverse.
 
