@@ -24,23 +24,40 @@ First, some initial questions:
 
 1. Write a file prolog1c.txt that answers the following questions.
 
-1a. What does the LISP "mapcan" function do?
+1a. In LISP what is an association list?
 
-1b. In Prolog, what is the role of the bindings variable "binds".
+1b. What does the function `assoc` do:
 
-1c. The functions and,ors, negation, evals, prove1 all return
-the same thing. What is that (hint, see last form of "negation".
+      (assoc 'r '((a . b) (c . d) 
+                  (r . x) (s . y) 
+                  (r . z))) 
 
-1d. The code for "prove" that handles conjunctions seem wrong.
-Why does the "and" clause in "prove" use "reverse"? Write a comment
-in the "ands" function that explains why we needed that reverse.
+1c. What does the LISP 
+[mapcan](http://jtra.cz/stuff/lisp/sclr/mapcan.html)
+function do?  Gove am example of its use.
 
-2. The "(known x bindings)" function is missing. This is a
-function that accepts a symbol "a" and list of dotted pairs.
-While "a" can be found in the car of any list then we set
-"a", to the cdr of that list.  Once that stops recursing, we
-return the binding "a". Otherwise, we return nil.  For
-example:
+1d. Give a small example of using LISP hash tables to (1) crete a
+hash table then (2) write something into that hash table then (3)
+read that value back.
+
+1e. In Prolog, what is the role of the bindings variable "binds".
+
+1f. There seems to be a missing function. The examples shown below
+use an `(= ?x ?x)` rule but there is no support code anywhere else
+for `=`. So how does `(= ?x ?x)` work?
+
+1g. The functions and,ors, negation, evals, prove1 all return the
+same thing. What is that (hint, see last form of "negation".
+
+1h. The code for "prove" that handles conjunctions seem wrong.  Why
+does the "and" clause in "prove" use "reverse"? Write a comment in
+the "ands" function that explains why we needed that reverse.
+
+2. The "(known x bindings)" function is missing. This is a function
+that accepts a symbol "a" and list of dotted pairs.  While "a" can
+be found in the car of any list then we set "a", to the cdr of that
+list.  Once that stops recursing, we return the binding "a".
+Otherwise, we return nil.  For example:
 
   (KNOWN '?X
     '((#:?3044 . DEBBIE) (#:?3045 . DONALD) 
@@ -87,8 +104,9 @@ need to fix something inside `data0`.
 (defvar *rules* (make-hash-table))
 
 (defmacro <- (con &optional ant)
-  `(push (cons (cdr ',con) ',ant)
-         (gethash (car ',con) *rules*)))
+  `(length
+     (push (cons (cdr ',con) ',ant)
+           (gethash (car ',con) *rules*))))
 
 (defun data0 ()
   (clrhash *rules*)

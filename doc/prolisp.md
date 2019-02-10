@@ -35,7 +35,15 @@ tells us that _donald_'s parent is _nancy_.  _Rules_ tell us what we can infer:
 
 where _head_ is the "consequence" and "body" is the "antesecendat".
 
-_Variables_ are symbols beginning with question marks; e.g.
+_Variables_ are symbols beginning with question marks; e.g. `?x`:
+
+```lisp
+(defun var? (x)
+  (and (symbolp x) 
+       (eql (char (symbol-name x) 0) #\?)))
+```
+
+For example, 
 
     (<- (child ?x ?y) (parent ?y ?x))
 
@@ -55,79 +63,155 @@ Bodies can mention facts or rules (recursively); e.g.
     (<- (daughter ?x ?y) (and (child ?x ?y) (female ?x)))
 
 Proving something means chaining back through rules until we terminte at facts.
-Each step of that requires _unification_ of two lists
-(which migh have variables).
+Each step of that requires the _unification_ of two lists
+(which might have variables).
+This means search for _bindings_ to variables that makes the two lists equal.
+For example, to _unify_ two lists:
 
-_pattern-matching: a function that can compare two lists, possibly containing variables, to see if there is some way of assigning values to the variables which makes the two equal. For example, if ?x and ?y are variables, then the two lists
-(p ?x ?y c ?x) (p a b c a)
-match when ?x = a and ?y = b, and the lists
-(p ?x b ?y a) (p?yb ca)
-match when ?x = ?y = c.
-Figure 15.1 contains a function called match. It takes two trees, and if
-they can be made to match, it returns an assoc-list showing how:
+    (p ?x ?y c ?x) 
+    (p a b c a)
 
- 15.2 MATCHING 249
-(defun match (x y feoptional binds) (cond
-((eql x y) (values binds t))
-((assoc x binds) (match (binding x binds) y binds)) ((assoc y binds) (match x (binding y binds) binds)) ((var? x) (values (cons (cons x y) binds) t)) ((var? y) (values (cons (cons y x) binds) t))
-(t
-(when (and (consp x) (consp y)) (multiple-value-bind (b2 yes)
-(match (car x) (car y) binds) (and yes (match (cdr x) (cdr y) b2)))))))
-(defun var? (x) (and (symbolp x)
-(eql (char (symbol-name x) 0) #\?)))
-(defun binding (x binds) (let ((b (assoc x binds)))
-(if b
-(or (binding (cdr b) binds)
-(cdr b)))))
-Figure 15.1: Matching function.
-> (match >(p a b c a) '(p ?x ?y c ?x)) ((?Y . B) (?X . A))
-T
-> (match '(p ?x b ?y a) '(p ?y b c a))
-((?Y . C) (?X . ?Y))
-T
-> (match '(a b c) '(a a a)) NIL
-As match compares its arguments element by element, it builds up assign- ments of values to variables, called bindings, in the parameter b i n d s . If the match is successful, match returns the bindings generated; otherwise, it returns n i l . Since not all successful matches generate any bindings, match, like gethash, returns a second value to show that the match succeeded:
+then use `?x = a` and `?y = b`, and the lists
 
- 250 EXAMPLE: INFERENCE
-> (match ' (p ?x) »(p ?x)) NIL
-T
-When match returns n i l and t as above, it indicates a successful match that yielded no bindings. In English, the match algorithm works as follows:
-1. If x and y are eql they match; otherwise,
-2. Ifxisavariablethathasabinding,theymatchifitmatchesy;otherwise,
-3. Ifyisavariablethathasabinding,theymatchifitmatchesx;otherwise,
-4. If x is a variable (without a binding), they match and thereby establish a binding for it; otherwise,
-5. If y is a variable (without a binding), they match and thereby establish a binding for it; otherwise,
-6. They match if they are both conses, and the cars match, and the cdrs match with the bindings generated thereby.
-Here is an example illustrating, in order, each of the six cases:
->(match'(p?v b?x d(?z?z)) '(p a?w c?y(e e))
->((?v . a) (?w . b)))
-((?Z . E) (?Y . D) (?X . C) (?V . A) (?W . B))
-T
-To find the value (if there is one) associated with a variable in a list of bindings, match calls binding. This function has to be recursive, because matching can build up binding lists in which a variable is only indirectly associated with its value: ?x might be bound to a in virtue of the list containing both (?x . ?y) and (?y . a).
-;
-> (match (?x a) '(?y ?y))
-((?Y . A) (?X . ?Y))
-T
-By matching ?x with ?y and then ?y with a, we establish indirectly that ?x must be a.
+    (p ?x b ?y a) 
+    (p ?y b c a)
 
- 15.3 ANSWERING QUERIES 251
+unify  when `?x = ?y = c`. 
+
+## Interpreting the Knowledge
+
+### Unify
+
+The function `unify` takes two tries
+and returns nil (if unification is imposible) or an association list containing
+the required bindings.
+
+```lisp
+(defun unify (x y &optional binds)
+  (cond 
+    ((eql x y)        (values binds t))
+    ((assoc x binds)  (unify (known x binds) y binds))
+    ((assoc y binds)  (unify x (known y binds) binds))
+    ((var? x)         (values (cons (cons x y) binds) t))
+    ((var? y)         (values (cons (cons y x) binds) t))
+    (t
+      (when (and (consp x) (consp y))
+        (multiple-value-bind (b2 yes) 
+          (unify (car x) (car y) binds)
+          (and yes (unify (cdr x) (cdr y) b2)))))))
+```
+
+where the `known` function looks up bindings within the `binds` association list.
+For example
+
+
+     > (unify '(p  a  b c  a) 
+              '(p ?x ?y c ?x)) 
+     ==> ((?Y . B) (?X . A))
+     T
+     
+     > (match '(p ?x b ?y a) 
+              '(p ?y b  c a))
+     ((?Y . C) (?X . ?Y))
+     T
+     
+     > (match '(a b c) 
+              '(a a a)) 
+     NIL
+
+Since not all successful matches generate any bindings, `match`, like `gethash`, 
+returns a second value to show that the match succeeded:
+
+
+     > (match ' (p ?x) »(p ?x)) 
+     NIL
+     T
+
+There are six cases within `(unify x y)`:
+
+1. If x and y are eql they match. Else:
+2. If x has a binding, then try unifying that binding to y. Else:
+3. If y has a binding, then try unifying that binding to x. Else:
+4. If x is a variable (without a binding), then it can unify to anything at all,
+   so we just create a new binding to y. Else:
+5. If y is a variable (without a binding), then it can unify to anything at all,
+   so we just create a new binding to x. Else:
+6. Else, if x and y are list then if their car unifies, try unifying the cdrs.
+
+Now we can make our little Prolog work.  For example, if we have
+just the fact
+
+     (parent donald nancy)
+
+and we ask the program to prove "(parent ?x ?y)" it should return
+something like
+
+    (((?x . donald) (?y . nancy)))
+
+which says that there is exactly one way for the expression to be
+true: if ?x is donald and ?y is nancy.
+
+## Defining Knowledge
+
+The following macro defines a macro for writing rules and storing them
+into the `*rules*` hash table (indexed by the predicated in the head... so
+predicates can't be variables):
+
+```lisp
 (defvar *rules* (make-hash-table))
-(defmacro <- (con ^optional ant)
-f (length (push (cons (cdr ',con) ',ant)
-(gethash (car ',con) *rules*))))
-Figure 15.2: Defining rules.
-15.3 Answering Queries
-Now that the concept of bindings has been introduced, we can say more precisely what our program will do: it will take an expression, possibly containing variables, and return all the bindings that make it true given the facts and rules that we have. For example, if we have just the fact
-(parent donald nancy)
-and we ask the program to prove (parent ?x ?y)
-it should return something like
-(((?x . donald) (?y . nancy)))
-which says that there is exactly one way for the expression to be true: if ?x is donald and ?y is nancy.
-Now that we have a matching function we are already a good part of the way to our destination. Figure 15.2 contains the code for defining rules. The rules are going to be contained in a hash table called *rules*, hashed according to the predicate in the head. This imposes the restriction that we can't use variables in the predicate position. We could eliminate this restriction by keeping all such rules in a separate list, but then to prove something we would have to match it against every one.
-We will use the same macro, <-, to define both facts and rules. A fact will be represented as a rule with a head but no body. This is consistent with our definition of rules. A rule says that you can prove the head by proving the body, so a rule with no body means that you don't have to prove anything to prove the head. Here are two familiar examples:
-> (<- (parent donald nancy))
-1
-> (<- (child ?x ?y) (parent ?y ?x)) 1
+
+(defmacro <- (con &optional ant)
+  `(length
+     (push (cons (cdr ',con) ',ant)
+           (gethash (car ',con) *rules*))))
+```
+
+This macro defines both facts and rules:
+
++  Facts are  rules with a head but no body. I.e.
+   to prove this head, there is nothing else to do (so nothing is needed for
+   the body).
+
+For example
+
+     > (<- (parent donald nancy)) ; this is a fact
+     1
+      
+     > (<- (child ?x ?y) (parent ?y ?x)) ; this is a rule
+     1
+
+Note that "<-" returns a number (using "length") just to stop a high-level
+form returning a tediously long list.
+
+## Answering Queries
+
+```lisp
+(defun prove (expr &optional binds)
+  (case (car expr)
+    (and  (ands        (reverse (cdr expr))   binds))
+    (or   (ors         (cdr  expr)            binds))
+    (not  (negation    (cadr expr)            binds))
+    (do   (evals       (cadr expr)            binds))
+    (t    (prove1      (car  expr) (cdr expr) binds))))
+
+(defun prove1 (pred args binds)
+  (mapcan 
+    (lambda (r)
+        (multiple-value-bind (b2 yes) 
+          (unify args (car r) 
+                 binds)
+          (when yes
+            (if (cdr r)  
+              (prove (cdr r) b2) 
+              (list b2)))))
+    (mapcar #'renames
+            (gethash pred *rules*))))
+
+(defun renames (r)
+  (sublis (mapcar (lambda (v) (cons v (gensym "?")))
+                  (has-vars r))
+          r))
+```
 
  252 EXAMPLE: INFERENCE
 (defun prove (expr feoptional binds) (case (car expr)
