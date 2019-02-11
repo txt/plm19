@@ -21,7 +21,8 @@ by <a href="http://menzies.us">Tim Menzies</a>
    called inside body2.
 - Describe the environment of a lambda body is extended and queried
      - What is the signifance of the way it is queried.
-- Know your cons cell diagrams. E.g.
+
+Know your cons cell diagrams. E.g.
 
      '(1 2 3)
 
