@@ -42,7 +42,7 @@ Know your cons cell diagrams. E.g.
 
      (let ((x '(1 2))<P>
            (y '(9 10)))<P>
-        (list (+ (first x) (first y)) (+ (second x) (second y))))</pre><P>
+        (list (+ (first x) (first y)) (+ (second x) (second y))))
      
      ==> (10 12)
 
