@@ -21,6 +21,32 @@ by <a href="http://menzies.us">Tim Menzies</a>
    called inside body2.
 - Describe the environment of a lambda body is extended and queried
      - What is the signifance of the way it is queried.
+- Know your cons cell diagrams. E.g.
+
+     '(1 2 3)
+
+ ![](../etc/img/lisp.fig.gif)
+
+
+    '((1) (2))
+ 
+
+![](../etc/img/lisp.fig2.gif)
+
+    (list (cons 1 nil) '(2 3))
+     
+    ==> ((1) (2 3))
+
+![](../etc/img/lisp.fig3.gif)
+
+     (let ((x '(1 2))<P>
+           (y '(9 10)))<P>
+        (list (+ (first x) (first y)) (+ (second x) (second y))))</pre><P>
+     
+     ==> (10 12)
+
+
+ ![](../etc/img/lisp.fig4.gif)
 
 ## Environment Pattern
 
