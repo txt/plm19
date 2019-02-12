@@ -23,13 +23,14 @@ class BrooksLaw(Model):
 
   def step(self,dt,t,i,j):
     def _co(x):
+      "Communication overhead"
       myTeam = i.ts - 1   # talk to everyone in my team
       others = x/i.ts - 1 # talk to every other team
-      return 0.06*(myTeam**2 + others**2)
-    j.aR  = i.np/20
-    j.ps  = 2.5*t
+      return 0.06*(myTeam**2 + others**2) # pomposity
+    j.aR  = i.np/20 # 20 = Learning curve
+    j.ps  = 2.5*t # Optimism
     j.co  = _co(i.ep + i.np)
-    j.paR = 6 if  (i.d - i.ps) < 75 and t < 60 else 0
+    j.paR = 6 if  (i.d - i.ps) < 75 and t < 60 else 0 # Don't touch 6 and zero.
     j.sdR = i.nprod*(1-i.co/100)*(0.74*i.np+1.28*(i.ep - i.ept))
     j.ept = i.np*i.to /100
     j.ep += i.aR*dt
