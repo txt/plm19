@@ -241,8 +241,9 @@ Running results:
     1000000
     200
     
-## Lisp Macros for Object Orientation
 
+
+## LISP Macros: the Details
 
 ### LISP TICK vs BACK TICKS
 
@@ -251,33 +252,39 @@ unless they are proceeded by a comma.
 
 This allows for the simple definition of nested list structures.
 
-    (let ((a 1)
-          (b 2)
-          (c '(10 20 30 40)))
-       (print '(a a b b))          ; ==> (A A B B)
-       (print `(a ,a b ,b))        ; ==> (A 1 B 2)
-       (print `(a ,a b ,b c ,c))   ; ==> (a 1 b 2 c (10 20 30 40))
-       (print `(a ,a b ,b c ,@c))) ; ==> (a 1 b 2 c 10 20 30 40)
+````lisp
+(let ((a 1)
+      (b 2)
+      (c '(10 20 30 40)))
+   (print '(a a b b))          ; ==> (A A B B)
+   (print `(a ,a b ,b))        ; ==> (A 1 B 2)
+   (print `(a ,a b ,b c ,c))   ; ==> (a 1 b 2 c (10 20 30 40))
+   (print `(a ,a b ,b c ,@c))) ; ==> (a 1 b 2 c 10 20 30 40)
+````
 
 (Note: so back tick is a DSL for specifying nested lists).
 
 For example, the following tells LISP to convert all calls to
 
-    (time-it 10 (run-this-long-function))
+````lisp
+(time-it 10 (run-this-long-function))
+````
 
 with code that runs some slow function ten times, then returns the
 mean time times across those ten calls.
 
-    (defmacro time-it (n &body body)
-      "Run 'body' 'n' times."
-      (let ((n1 (gensym))
-            (i  (gensym))
-            (t1 (gensym)))
-        `(let ((,n1 ,n)
-               (,t1 (get-internal-run-time)))
-           (dotimes (,i ,n1) ,@body)
-           (float (/ (- (get-internal-run-time) ,t1)
-                     (* ,n1 internal-time-units-per-second))))))
+````lisp
+(defmacro time-it (n &body body)
+  "Run 'body' 'n' times."
+  (let ((n1 (gensym))
+        (i  (gensym))
+        (t1 (gensym)))
+    `(let ((,n1 ,n)
+           (,t1 (get-internal-run-time)))
+       (dotimes (,i ,n1) ,@body)
+       (float (/ (- (get-internal-run-time) ,t1)
+                 (* ,n1 internal-time-units-per-second))))))
+````
 
 Pretty neat, heh? Less typing for you, more auto-generated code.
 
@@ -305,9 +312,11 @@ code gets executed at run-time.
 Macros take unevaluated Lisp code and return a Lisp form. This form
 should be code that calculates the proper value. Example:
 
-    (defmacro Square-1 (X)
-        `(* ,X ,X))
-    
+```lisp
+(defmacro Square-1 (X)
+    `(* ,X ,X))
+````
+
 That is, wherever LISP reads    `(Square-1 XXX)`, 
 it replaces it with `(* XXX XXX)`.
 
@@ -323,8 +332,10 @@ The resultant code is what the compiler sees.
 
 Macros are expanded at compiler pre-processor time. So this is an error:
 
-    (defmacro Square-2 (X)
-        (* X X))
+````lisp
+(defmacro Square-2 (X)
+    (* X X))
+````
 
 This would indeed work for `(Square-2 4)`, but would crash for
 `(Square-2 X)`, since `X` is probably a variable whose value is not known
@@ -332,13 +343,17 @@ until run-time.
 
 ### Evaluating arguments too many times
 
-    (defmacro Square-1 (X) `(* ,X ,X))
+````lisp
+(defmacro Square-1 (X) `(* ,X ,X))
+````
 
 This looks OK on first blush. However, try macroexpand-1'ing a form,
 and you notice that it evaluates its arguments twice:
 
-    (macroexpand-1 '(Square-1 (Foo 2)))
-    ==> (* (Foo 2) (Foo 2))
+````lisp
+(macroexpand-1 '(Square-1 (Foo 2)))
+==> (* (Foo 2) (Foo 2))
+````
 
 `Foo` gets called _twice_, but it should only be called once.
 Inefficient.
@@ -346,21 +361,27 @@ Inefficient.
 Also, returns the wrong value if Foo does not always return the same
 value.
 
-    (Square-1 (incf X))
-    (Square-1 (random 10))
+````lisp
+(Square-1 (incf X))
+(Square-1 (random 10))
+````
 
 So, to fix this, we eval the argument once, cache the result, and
 use it many times.
 
-    (defmacro Square-3 (X)
-        `(let ((Temp ,X))
-         (* Temp Temp)))
+````lisp
+(defmacro Square-3 (X)
+    `(let ((Temp ,X))
+     (* Temp Temp)))
+````
 
 How does that look?
 
-    (macroexpand-1 '(Square-3 (Foo 2)))
-    ==> (let ((Temp (Foo 2)))
-                 (* Temp Temp))
+````lisp
+(macroexpand-1 '(Square-3 (Foo 2)))
+==> (let ((Temp (Foo 2)))
+             (* Temp Temp))
+````
 
 Which is nearly what we want.... except for variable name clashes.
 
@@ -369,58 +390,70 @@ Which is nearly what we want.... except for variable name clashes.
 Square-3 is perfectly safe, but consider instead the following macro,
 which takes two numbers and squares the sum of them:
 
-    (defmacro Square-Sum-1 (X Y)
-        `(let* ((First ,X)
-                (Second ,Y)
-            (Sum (+ First Second)))
-          (* Sum Sum)) )
+````lisp
+(defmacro Square-Sum-1 (X Y)
+    `(let* ((First ,X)
+            (Second ,Y)
+        (Sum (+ First Second)))
+      (* Sum Sum)) )
+````
 
 This looks pretty good, even after macroexpansion:
 
-    (macroexpand-1 '(Square-Sum-1 3 4))
-    
-    ==> (LET* ((FIRST 3)
-               (SECOND 4)
-               (SUM (+ FIRST SECOND)))
-          (* SUM SUM))
+````lisp
+(macroexpand-1 '(Square-Sum-1 3 4))
+
+==> (LET* ((FIRST 3)
+           (SECOND 4)
+           (SUM (+ FIRST SECOND)))
+      (* SUM SUM))
+````
 
 which seems ok. BUT the local variables we chose would conflict with
 existing local variable names if a variable named First already
 existed.  E.g.
 
-    (macroexpand-1 '(Square-Sum-1 1 First))
-    ==> (LET* ((FIRST 1)
-               (SECOND FIRST)
-               (SUM (+ FIRST SECOND)))
-          (* SUM SUM))
+````lisp
+(macroexpand-1 '(Square-Sum-1 1 First))
+==> (LET* ((FIRST 1)
+           (SECOND FIRST)
+           (SUM (+ FIRST SECOND)))
+      (* SUM SUM))
+````
 
- The problem here is that `(SECOND FIRST)` gets the value of the new
+The problem here is that `(SECOND FIRST)` gets the value of the new
 local variable `FIRST`, not the one you passed in. Thus
 
-     (let ((First 9)) (Square-Sum-1 1 First))
+````lisp
+(let ((First 9)) (Square-Sum-1 1 First))
+````
 
- returns 4, not 100!
+returns 4, not 100!
 
 Solution: need to create a variable name inside the macro that
 cannot exist anywhere else in the code. Now the macro is "hygienic".
 
-    (defmacro Square-Sum (X Y)
-        (let ((First (gensym "FIRST-"))
-              (Second (gensym "SECOND-"))
-              (Sum (gensym "SUM-")))
-          '(let* ((,First ,X)
-                  (,Second ,Y)
-                  (,Sum (+ ,First ,Second)))
-               (* ,Sum ,Sum))
-        ))
+````lisp
+(defmacro Square-Sum (X Y)
+    (let ((First (gensym "FIRST-"))
+          (Second (gensym "SECOND-"))
+          (Sum (gensym "SUM-")))
+      '(let* ((,First ,X)
+              (,Second ,Y)
+              (,Sum (+ ,First ,Second)))
+           (* ,Sum ,Sum))
+    ))
+````
 
 Now
 
-    (macroexpand-1 '(Square-Sum 1 First))
-    ==> (LET* ((#:FIRST-590 1)
-               (#:SECOND-591 FIRST)
-               (#:SUM-592 (+ #:FIRST-590 #:SECOND-591)))
-           (* #:SUM-592 #:SUM-592))
+````lisp
+(macroexpand-1 '(Square-Sum 1 First))
+==> (LET* ((#:FIRST-590 1)
+           (#:SECOND-591 FIRST)
+           (#:SUM-592 (+ #:FIRST-590 #:SECOND-591)))
+       (* #:SUM-592 #:SUM-592))
+````
 
 This expansion has no dependence on any local variable names in the
 macro definition itself, and since the generated ones are guaranteed to
@@ -429,42 +462,53 @@ be unique, is safe from name collisions.
 Just to complete the picture, there is the "real" definition of
 square:
 
-    (defmacro square (x)
-        (let ((temp (gensym)))
-        `(let ((,temp ,x))
-    
+````lisp
+(defmacro square (x)
+    (let ((temp (gensym)))
+    `(let ((,temp ,x))
+````
+
 ## Other Examples
 
 ### While
 
-    (defmacro while (test &body body)
-      "implements 'while' (which is not standard in LISP)"
-      `(do ()
-           ((not ,test))
-         ,@body))
+````lisp
+(defmacro while (test &body body)
+  "implements 'while' (which is not standard in LISP)"
+  `(do ()
+       ((not ,test))
+     ,@body))
+````
 
 Expansion:
 
-    (macroexpand-1 '(while (> (decf n) 0) 
-                      (print n)))
-    
-    (DO NIL 
-        ((NOT (> (DECF N) 0))) 
-           (PRINT N))
+````lisp
+(macroexpand-1 '(while (> (decf n) 0) 
+                  (print n)))
+
+(DO NIL 
+    ((NOT (> (DECF N) 0))) 
+       (PRINT N))
+````
 
 ### Until (defined using While)
 
-    (defmacro until (test &body body)
-      "implements 'until' (which is not standard in LISP)"
-      `(while (not ,test)
-         ,@body))
-    
+````lisp
+(defmacro until (test &body body)
+  "implements 'until' (which is not standard in LISP)"
+  `(while (not ,test)
+     ,@body))
+````
+
 Expansion:
-    (macroexpand-1 '(until (> (decf n) 0) 
-                      (print n)))
-    
-    (WHILE (NOT (> (DECF N) 0)) 
-           (PRINT N)) 
+
+````lisp
+(macroexpand-1 '(until (> (decf n) 0) 
+                  (print n)))
+
+(WHILE (NOT (> (DECF N) 0)) 
+       (PRINT N)) 
+````
 
 
 ### Nested Slot Access
@@ -474,41 +518,47 @@ Example of a recurisve macros. Very slick.
 Fixes a problem in LISP, not chains of "`.`" to handle nested
 object attributes:
 
-    (defmacro ? (obj first-slot &rest more-slots)
-      "From https://goo.gl/dqnmvH:"
-      (if (null more-slots)
-          `(slot-value ,obj ',first-slot)
-          `(? (slot-value ,obj ',first-slot) ,@more-slots)))
-    
+````lisp
+(defmacro ? (obj first-slot &rest more-slots)
+  "From https://goo.gl/dqnmvH:"
+  (if (null more-slots)
+      `(slot-value ,obj ',first-slot)
+      `(? (slot-value ,obj ',first-slot) ,@more-slots)))
+````
+
 Expansion
 
-    (macroexpand '(? obj a b c d))
-    
+````lisp
+(macroexpand '(? obj a b c d))
+
+(SLOT-VALUE 
+  (SLOT-VALUE 
     (SLOT-VALUE 
-      (SLOT-VALUE 
-        (SLOT-VALUE 
-          (SLOT-VALUE OBJ 'A) 
-          'B) 
-        'C) 
-      'D)
+      (SLOT-VALUE OBJ 'A) 
+      'B) 
+    'C) 
+  'D)
+````
 
 ### Looping
 
 Loop 0..9, return n:
 
-    (macroexpand '(dotimes (i 10 n) (Incf n i)))
-    
-    (BLOCK NIL
-      (LET ((I 0))
-        (DECLARE (TYPE UNSIGNED-BYTE I))
-        (TAGBODY
-          (GO #:G620)
-         #:G619
-          (TAGBODY (INCF N I))
-          (PSETQ I (1+ I))
-         #:G620
-          (UNLESS (>= I 10) (GO #:G619))
-          (RETURN-FROM NIL (PROGN N)))))
+````lisp
+(macroexpand '(dotimes (i 10 n) (Incf n i)))
+
+(BLOCK NIL
+  (LET ((I 0))
+    (DECLARE (TYPE UNSIGNED-BYTE I))
+    (TAGBODY
+      (GO #:G620)
+     #:G619
+      (TAGBODY (INCF N I))
+      (PSETQ I (1+ I))
+     #:G620
+      (UNLESS (>= I 10) (GO #:G619))
+      (RETURN-FROM NIL (PROGN N)))))
+````
 
 Aren't you glad that you've never seen this before and you'll never
 have to see it again?
@@ -518,9 +568,11 @@ have to see it again?
 
 This one is really famous. Can you guess what it does?
 
-    (defmacro aif (test then &optional else)
-      `(let ((it ,test))
-         (if it ,then ,else)))
+````lisp
+(defmacro aif (test then &optional else)
+  `(let ((it ,test))
+     (if it ,then ,else)))
+````
 
 From Graham's _On LISP_ book:
 
@@ -541,9 +593,11 @@ macros intentionally to capture these symbols.
 
 Example use:
 
-    (aif (big-long-calculation)
-         (foo it))
-    
+````lisp
+(aif (big-long-calculation)
+     (foo it))
+````
+
 When you use an aif, the symbol _it_ is bound to the result returned
 by the test clause. This can be reused without repeating some long
 expensive test.
@@ -552,17 +606,19 @@ expensive test.
 
 Now we can explain the _time-it_ code that started this lecture.
 
-    (defmacro time-it (n &body body)
-      "Run 'body' 'n' times."
-      (let ((n1 (gensym)) ; hygiene
-            (i  (gensym)) ; hygiene
-            (t1 (gensym))) ; hygiene
-        `(let ((,n1 ,n)
-               (,t1 (get-internal-run-time)))
-           (dotimes (,i ,n1) ,@body)
-           (float (/ (- (get-internal-run-time) ,t1)
-                     (* ,n1 internal-time-units-per-second))))))
-    
+````lisp
+(defmacro time-it (n &body body)
+  "Run 'body' 'n' times."
+  (let ((n1 (gensym)) ; hygiene
+        (i  (gensym)) ; hygiene
+        (t1 (gensym))) ; hygiene
+    `(let ((,n1 ,n)
+           (,t1 (get-internal-run-time)))
+       (dotimes (,i ,n1) ,@body)
+       (float (/ (- (get-internal-run-time) ,t1)
+                 (* ,n1 internal-time-units-per-second))))))
+````
+
 Compile-time evaluation is avoided by returning a  list that defines
 a let environment inside of which we can run or code.
 
@@ -570,6 +626,3 @@ Extra evaluations are avoided by computing _n_ once and caching that
 result in _n1_.
 
 And the gensyms avoid variable name clashes.
-
-
-
