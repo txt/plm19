@@ -7,9 +7,7 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
-<center>
-<img width=500 src="http://noonscreek.org/wp-content/uploads/2017/06/under-construction.png">
-</center>
+<img width=900 src="http://www.ecorestrading.com/underconstruction.png">
 
 # Review, week5
 
