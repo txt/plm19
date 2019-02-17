@@ -9,6 +9,7 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 <center>
 <img width=500 src="http://noonscreek.org/wp-content/uploads/2017/06/under-construction.png">
+</center>
 
 # Review, week5
 
