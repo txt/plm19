@@ -7,7 +7,7 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
-![](https://www.lahc.edu/pageunderconstruction.png)
+![](http://noonscreek.org/wp-content/uploads/2017/06/under-construction.png)
 
 # Review, week5
 
