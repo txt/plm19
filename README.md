@@ -47,6 +47,7 @@ Exam:May2
 <b>LECTURES</b><hr>
 <a href="doc/haskell.md">Haskell</a><br>
 <a href="doc/ocaml.md">Ocaml</a><br>
+<a href="doc/lisp2.md">Lisp&nbsp;Macros</a><br>
 <a href="doc/ruby.md">Ruby</a><br>
 <a href="doc/lisp1.md">Lisp1</a><br>
 <a href="doc/st1.md">Smalltalk1</a><br>
