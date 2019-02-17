@@ -39,7 +39,8 @@ qsort (x:xs) =
 ```
 
 Lazy evaluation
-     - Infinite lists are cool!
+
+- Infinite lists are cool!
 
 Fully functional
 
@@ -55,8 +56,9 @@ False
 ```
 
 Vibrant community 
-     - 13,000+ packages available at [hackage](http://hackage.haskell.org/packages/browse). 
-     - Many, many  [recent Haskell books](https://www.amazon.com/s?k=Haskell&rh=n%253A3952&ref=nb_sb_noss) at Amazon
-     - Look at all  [the industrial applications](https://wiki.haskell.org/Haskell_in_industry) 
+
+- 13,000+ packages available at [hackage](http://hackage.haskell.org/packages/browse). 
+- Many, many  [recent Haskell books](https://www.amazon.com/s?k=Haskell&rh=n%253A3952&ref=nb_sb_noss) at Amazon
+- Look at all  [the industrial applications](https://wiki.haskell.org/Haskell_in_industry) 
 
 
