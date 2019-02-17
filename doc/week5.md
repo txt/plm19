@@ -15,8 +15,116 @@ by <a href="http://menzies.us">Tim Menzies</a>
 ### Proxy
 ### Layers
 
-e,g, Data-Model-Dialog
+_**Intention**_ Decompose requiremetns into highly cohesive, loosely coupled services
+at different levels of abstract.
 
+_**Structure**_
+
+- Some encapuslation mechanism (e.g. classes with lots of nested structure)
+- (Maybe) some global blackboard (see below)
+
+_**Examples**_
+
+- Data-Model-Dialog: classic 3-tiered archiecture for relational data base applications
+   
+- Model-View-Controller: A pattern
+- LAMP= linux, appache, mysql, (php|perl|python). Officially, can swtich out layers for another
+  structure but I've  never actually seen that done.
+- MEAN= layers of Javascript for web-apps. Since its all in one language, more "leakage" of information
+  across the layers (makes e.g. debugging or optimizing easier). Mean comprises
+      - M = MongoDB, a popular NoSQL database
+      - E = ExpressJS : make resuts to db and return response
+      - A = AngularJS: request/display results for end user
+      - N = NodeJSL massive set of javascript tools
+- Blackboards: used in AI. See below.
+- OSI 7-layer Model:
+     - Application  Layer 7  Provides misc protocols for common activities (ftp, telnet, http, etc)
+     - Presentation  Layer 6  Structures information and attaches semantics
+     - Session  Layer 5  Provides dialog control and synchronization facilities
+     - Transport  Layer 4  Breaks messages into packets and guarantee delivery
+     - Network  Layer 3  Select a route from sender to receiver
+     - Data Link  Layer 2  Detects and corrects errors in bit sequences
+     - Physical  Layer 1  Transmits bits: velocity, bit-code, connection, etc
+
+_**Rules of Thumb**_
+
+- Sometimes, 2 layers are enough: see the Observer pattern that just does Subject-Observer
+- Ideally, each level should be highly cohesive but loosely copuled to to the others.
+- Ideally, each layer i should only know about layers i+1, i-1 (but see optimziation, below).
+- The more layers, the lower the effeciency
+ - When optimizing, ignore the layers. Jumpa  long way around the code.
+- If you can write all the layes in the same language, that has maintenance and system advantages
+     - e.g. MEAN, writen in Javascript
+- Cost model for traditional 3-tied Data-Model-Dialog applications:
+     - Cost model: each class in the "model" layer needs 1 data, 1 dialog, + 0.5 helper classes
+     - Classes = 20 methods. Methods = 5 lines (median)
+     - So each business concept class requires 350 lines of code (ish)
+- Useful for each layer to be hidden with  a `Facade`
+     - The pubic interface to all.
+     - Typically, does no work itself but redirects messages to different parts of its internal
+       structure.
+- If the same information needed in different layers, the create `Proxy`s that can be created
+  in a central location, and pased out to where they are needed
+     - e.g. in Data-Model-Dialog, the range for `age` might be needed in Dialog (to help uses
+       enter correct values) and in Data (to define the relational database fields)
+     - So let the Model birth a proxy that is passed up to Dialog and down to Data.
+     - Note in functional languages, the `Proxy`s can be lambda bodies paried to specific
+       events in other classes. So all the other layer need to know is that on a certain event
+       (e.g. button pressed) that the lambda is evalauted.
+
+## Blackboard
+
+_**Intent**_ Build a (very) loosely coupled system, perhaps using different programming languages,
+where agents react to observations by making conclusions that define higher-level observations.
+Good when
+
+- A complete seaerch is not feasible
+- Need to experiment with different algorithms in the same subtask
+- Using disjoint algorithms perhaps exploiting  parallelism
+
+_**Structure**_ 
+
+- A multi-layerd global space (the blackboard)
+- Some networking architecture where the global space can be shared across multiple executables, machines,
+  cities, countries.
+- Agents that read from layer i and write to layer i+1
+- Events, divided into event types
+- A dispatch mechanism whereby agents can register that they only care about events of a certain
+  type seen at a certain layer.
+
+_**Rules of thumb**_
+
+- Useful in poorly-structured, or simply new and immature domains
+- When the application domain matures, perhaps abandon the Blackboard architecture and develop architectures that support closed solution approaches
+- Use production ssytems as subroutines
+     -.e.g. at each level, match-selects on layer i then acts on layer i+1
+- Use match-select-act as the main controller (so only one agent can update the blackboard at a time)
+     - Match= ask what agents think they have something to contribute
+     - Select= find which agent has most definite conclusions
+     - Act= let that agent update the blackboard
+- Great for maintaiance of a large community contributing to a knowledge-based system.
+- Drawbacks:
+     - Difficul to testing
+     - No good solution is guaranteed
+     - Good Control is hard to build
+     - Low efficiency (cause of layers, cause of society of agents all bickering what to do next).
+    
+_**Examples**_
+
+- Used [a lot in AI](https://aaai.org/ojs/index.php/aimagazine/article/view/537)
+   to co-ordinate many resaerchers working on the same problem.
+     - Think large Dod grants, many instituions, many grad students.
+- e.g. speech recognition. layes are:
+     - Phrases
+     - Words
+     - Segments
+     - Waveform (lowest level)
+- e.g. find a koala:
+     - edge detection agents that input edges and output shapes
+     - limb detectiona gents that input shapes and output limbs
+     - species detectiona gent that input limbs and output different animal types
+     - decision agents that input different animal types, reflect on their differences, and
+    
 ### Model View controller
 
 ### Subject Observor
@@ -29,7 +137,10 @@ Layers + Subject-Observor
 
 A wide range of tasks typically assinged to complex theorem proving algorithms can be implemented 
 by a single _unification_ algorithm.
-     - Enter Logic Programming.
+
+- Enter Logic Programming.
+
+Some history
 
 - 1950s: lets build parse trees!
 - 1960, LISP, computation= rewrite parse trees from bottom to top
@@ -66,3 +177,94 @@ by a single _unification_ algorithm.
 ```
 
 - 1970s: Prolog: comptuation = find bindings that let you match trees
+
+Unification mwenas 
+
+- compare 2 trees
+- find substitiomns in one that make it equal to the other.
+
+Given trees expressed as  lists containing
+
+- nest lists, recursively
+- atoms; i.e. strings, symbols, numbers, or
+  variables (perhaps denotes with a leading question mark `?x`)
+
+Then, to unify two lists
+
+- Case1: Seek bindings that let you unify the head
+- Case2: Using those binding, try to unify the tail
+
+Also, to unify two atoms
+
+- Case3: if they are equal, then they unify.
+      - Detail: in this case, things will unify without extending the bindings
+- Case4: else if one has a `known` binding, the see if the binding unifies to the other
+- Case5: else if the other has a `known` binding, the see if the other binding unifies to it
+- Case6: else if one is a variable, then extend the bindings by binding it to the other
+- Case7: else if the other  is a variable, then extend the bindings by binding the other to it
+
+Question: what do these cases fall in the following code:
+
+```lisp
+(defun unify (x y &optional binds)
+  (cond 
+    ((eql x y)        (values binds t))
+    ((assoc x binds)  (unify (known x binds) y binds))
+    ((assoc y binds)  (unify x (known y binds) binds))
+    ((var? x)         (values (cons (cons x y) binds) t))
+    ((var? y)         (values (cons (cons y x) binds) t))
+    (t
+      (when (and (consp x) (consp y))
+        (multiple-value-bind (b2 yes) 
+          (unify (car x) (car y) binds)
+          (and yes (unify (cdr x) (cdr y) b2)))))))
+```
+
+Note that, because of the detail above, unification can return t without extending the
+bindings.
+
+- Which means if the intiial bindings are nil then the new binding will be nil
+- So unify has to return two values
+    - One being the extenstion to the bindings
+    - The other being a flag true/nil saying if unification was successful
+
+We say that the first symbol in a list is its predicate. A logic program
+is a set of nested lists, each of which has an outer most predicate.
+If deep withint one list, we find a predicate symbol, then we  jump over to
+another list to handle some sub-unifications.
+
+The following examples use the syntax of the class Prolog-in-Lisp example:
+
+````lisp
+(<- (parent donald nancy)) 
+(<- (parent donald sally)) 
+(<- (child ?x ?y) (parent ?y ?x))
+```
+
+Question: what are the predictes?
+
+Question: what bindings and "success flag" is returned by the following examples:
+
+```lisp
+;1
+(unify '(p  a  b c  a) 
+       '(p ?x ?y c ?x)) 
+
+;2
+(unify '(p  a  b c  20) 
+       '(p ?x ?y c ?x)) 
+
+;3 
+(unify '(p ?x b ?y a) 
+       '(p ?y b  c a))
+
+;4 
+(unify '(p ?x b ?y a) 
+       '(p ?y b  c a))
+
+;5
+(unify '(a b c) 
+       '(a a a)) 
+```
+
+
