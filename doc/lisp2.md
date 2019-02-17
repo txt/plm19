@@ -182,65 +182,77 @@ Julia does not let you define types with default variables.
 
 So here's a macro that genertes a `type` and `function $(name)`.
 
-    # example in Julia
-    # define types and a constructor that drops in the
-    # right default values
-    # e.g. @def emp age=0 salary=10000
-    macro has(typename, pairs...)
-        name = esc(symbol(string(typename,0))) # hygiene
-        x    = esc(symbol("x"))                # hygiene 
-        ones = [  x.args[1]  for x in pairs ]
-        twos = [  x.args[2]  for x in pairs ]
-        sets = [ :($x.$y=$y) for y in ones  ]
-        :(type $(typename)
-             $(ones...)
-          end;
-          function $(name)(; $(pairs...) )
-            $x = $(typename)($(twos...))
-            $(sets...)
-            $x
-          end)
-    end
+
+````julia
+# example in Julia
+# define types and a constructor that drops in the
+# right default values
+# e.g. @def emp age=0 salary=10000
+macro has(typename, pairs...)
+    name = esc(symbol(string(typename,0))) # hygiene
+    x    = esc(symbol("x"))                # hygiene 
+    ones = [  x.args[1]  for x in pairs ]
+    twos = [  x.args[2]  for x in pairs ]
+    sets = [ :($x.$y=$y) for y in ones  ]
+    :(type $(typename)
+         $(ones...)
+      end;
+      function $(name)(; $(pairs...) )
+        $x = $(typename)($(twos...))
+        $(sets...)
+        $x
+      end)
+end
+````
 
 Example
 
-    @has aa bb=1 cc=10+1
+````julia
+@has aa bb=1 cc=10+1
+````
 
 First, we get the results of the macro
 
-     begin
-        type aa # /Users/timm/gits/timm/15/jl/one.jl, line 18:
-            bb
-            cc
-        end
-        function aa0() # /Users/timm/gits/timm/15/jl/one.jl, line 21:
-            aa(1,10 + 1)
-        end
-     end
+````julia
+begin
+    type aa # /Users/timm/gits/timm/15/jl/one.jl, line 18:
+        bb
+        cc
+    end
+    function aa0() # /Users/timm/gits/timm/15/jl/one.jl, line 21:
+        aa(1,10 + 1)
+    end
+end
+````
 
 Julia programs are organized
 around multiple dispatch, which allows built-in and user-defined
 functions to be overloaded for different combinations of argument
 types.
 
-    someFun(x::Any) = println(1000000)
-    someFun(x::aa)  = println(x.bb)
+````julia
+someFun(x::Any) = println(1000000)
+someFun(x::aa)  = println(x.bb)
+````
 
 So if this code rules, we can use `aa0`  to build a type that
 auto-assigns some fields to something of type `aa`, and
 initialize its fields to `1` and `10+1`.
 
-    x    = aa0()
-    x.bb = 200
+````julia
+x    = aa0()
+x.bb = 200
 
-    someFun(22)
-    someFun(x)
+someFun(22)
+someFun(x)
+````
 
 Running results:
 
-    1000000
-    200
-    
+````julia
+1000000
+200
+````
 
 
 ## LISP Macros: the Details
