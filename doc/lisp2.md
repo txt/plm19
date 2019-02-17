@@ -20,12 +20,14 @@ is a program called at runtime to write other programs.
 
 They are used to expand shorthand into longhand.
 
-    ;; example in Clojure
-    (defmacro on-error [default-value code]
-      `(try ~code (catch Exception ~'e ~default-value)))
-    
-    (on-error 0 (+ nil nil))               ;; would normally throw NullPointerException
-    => 0                                   ;l; but we get the default value
+````clojure
+;; example in Clojure
+(defmacro on-error [default-value code]
+  `(try ~code (catch Exception ~'e ~default-value)))
+
+(on-error 0 (+ nil nil))               ;; would normally throw NullPointerException
+=> 0                                   ;l; but we get the default value
+````
     
 There are simple lexical
 text-substitution macro
@@ -34,21 +36,23 @@ Note that these simple macro systems
 have no access to the semantics
 of the underlying language.
 
-      # example in M4
-      define(`ALPHA', `abcdefghijklmnopqrstuvwxyz')
-      define(`ALPHA_UPR', `ABCDEFGHIJKLMNOPQRSTUVWXYZ')
-      define(`ROT13', `nopqrstuvwxyzabcdefghijklm')
-    
-      translit(`abc ebg13', ALPHA, ALPHA_UPR)
-      # -> ABC EBG13
-      # -> ABC EBG13
-      
-      translit(`abc ebg13', ALPHA, ROT13)
-      # -> nop rot13
-      define(`eng',`engineering')
-      substr(`engineer',0,3)           # -> eng -> engineering
-      translit(`rat', ALPHA, ROT13)    # -> eng -> engineering
-    
+````m4
+# example in M4
+define(`ALPHA', `abcdefghijklmnopqrstuvwxyz')
+define(`ALPHA_UPR', `ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+define(`ROT13', `nopqrstuvwxyzabcdefghijklm')
+
+translit(`abc ebg13', ALPHA, ALPHA_UPR)
+# -> ABC EBG13
+# -> ABC EBG13
+
+translit(`abc ebg13', ALPHA, ROT13)
+# -> nop rot13
+define(`eng',`engineering')
+substr(`engineer',0,3)           # -> eng -> engineering
+translit(`rat', ALPHA, ROT13)    # -> eng -> engineering
+````
+
 Then there are somewhat clean macro
 languages that offer a declarative view of
 the semantics, like the Moustache library
@@ -124,27 +128,34 @@ macros.
 For example, here is an example in the GNU C pre-processor that
 goes terrible wrong due to "variable capture"
 
-    #define LOG(msg) ({ \
-        int state = get_log_state(); \
-        if (state > 0) { \
-            printf("log(%d): %s\n", state, msg); \
-        } \
-    })
+````c
+#define LOG(msg) ({ \
+    int state = get_log_state(); \
+    if (state > 0) { \
+        printf("log(%d): %s\n", state, msg); \
+    } \
+})
+````
     
 Here’s a simple use case that goes terribly wrong:
 
-    const char *state = "reticulating splines";
-    LOG(state)
+````c
+const char *state = "reticulating splines";
+LOG(state)
+````
+
     
 This expands to
 
-    const char *state = "reticulating splines";
-    {
-        int state = get_log_state();
-        if (state > 0) {
-            printf("log(%d): %s\n", state, state);
-        }
+````c
+const char *state = "reticulating splines";
+{
+    int state = get_log_state();
+    if (state > 0) {
+        printf("log(%d): %s\n", state, state);
     }
+}
+````
     
 Note the double call the `state` in the last line. To avoid variable
 capture, we need "hygenic macros" (see below) that are 
