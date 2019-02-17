@@ -55,11 +55,11 @@ translit(`rat', ALPHA, ROT13)    # -> eng -> engineering
 
 Then there are somewhat clean macro
 languages that offer a declarative view of
-the semantics, like the Moustache library
+the semantics, like the Mustache library
 available in Python, Ruby, Java, JavaScript,
 Lua, etc etc
     
-    # example is moustache
+    # example is mustache
     {
       "beatles": [
         { "firstName": "John", "lastName": "Lennon" },
@@ -103,10 +103,10 @@ the compiler then compiles as "real lisp".
 
 This is particularly nice since
 
-- LISP manipluates lists (LISP= list processing)
+- LISP manipulates lists (LISP= list processing)
 - LISP
   programs are lists (in fact, in ye olde times, a LISP
-  function was jsut a list starting with `lambda`.
+  function was just a list starting with `lambda`.
 - LISP macros rewrite lists to add in the required
   details.
 
@@ -158,13 +158,13 @@ const char *state = "reticulating splines";
 ````
     
 Note the double call the `state` in the last line. To avoid variable
-capture, we need "hygenic macros" (see below) that are 
+capture, we need "hygienic macros" (see below) that are 
 guaranteed not to cause the accidental capture of identifiers.
 
 But experienced programmers
 use them, a lot. 
 For the absolute best book on macros in LISP, see the amazing Let
-Over Lambda (http://letoverlambda.com/) book by Doug Hoyte.  Absolutely
+Over Lambda (http://letoverlambda.com/) book by Doug Hotter.  Absolutely
 not for beginners.
 
 Note that there is much more to writing macros than shown below. For
@@ -183,7 +183,7 @@ From [Julua](https://julialang.org/):
   compiler, distributed parallel execution, numerical accuracy, and
   an extensive mathematical function library. Julia’s Base library,
   largely written in Julia itself, also integrates mature, best-of-breed
-  open source C and Fortran libraries for linear algebra, random
+  open source C and FORTRAN libraries for linear algebra, random
   number generation, signal processing, and string processing.
 
 But right now, our focus is on one part of Julia- its
@@ -191,7 +191,7 @@ type system.
 Julia has a nice type system, with some limits. E.g. default
 Julia does not let you define types with default variables.
 
-So here's a macro that genertes a `type` and `function $(name)`.
+So here's a macro that generates a `type` and `function $(name)`.
 
 
 ````julia
@@ -536,7 +536,7 @@ Expansion:
 
 ### Nested Slot Access
 
-Example of a recurisve macros. Very slick.
+Example of a recursive macros. Very slick.
 
 Fixes a problem in LISP, not chains of "`.`" to handle nested
 object attributes:
@@ -601,16 +601,16 @@ From Graham's _On LISP_ book:
 
 In natural language, an anaphor is an expression which refers back
 in the conversation. The most common anaphor in English is probably
-"it," as in "Get the wrench and put it on the table." Anaphora are a
+"it," as in "Get the wrench and put it on the table." Anaphor are a
 great convenience in everyday language-imagine trying to get along
 without them-but they don't appear much in programming languages. For
 the most part, this is good. Anaphoric expressions are often genuinely
 ambiguous, and present-day programming languages are not designed to
 handle ambiguity.
 
-However, it is possible to introduce a very limited form of anaphora
+However, it is possible to introduce a very limited form of anaphor
 into Lisp programs without causing ambiguity. An anaphor, it turns out,
-is a lot like a captured symbol. We can use anaphora in programs by
+is a lot like a captured symbol. We can use anaphor in programs by
 designating certain symbols to serve as pronouns, and then writing
 macros intentionally to capture these symbols.
 

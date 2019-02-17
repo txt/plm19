@@ -7,35 +7,42 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
+![](https://www.lahc.edu/pageunderconstruction.png)
 
 # Review, week5
+
+NOT DONE YET. Needs
+
+- [Proxy](https://sourcemaking.com/design_patterns/proxy)
+- [Subject-observor](https://sourcemaking.com/design_patterns/observer)
+- Model-View-controller (a variant on subject-observer)
 
 ## Patterns
 
 ### Proxy
 ### Layers
 
-_**Intention**_ Decompose requiremetns into highly cohesive, loosely coupled services
+_**Intention**_ Decompose requirements into highly cohesive, loosely coupled services
 at different levels of abstract.
 
 _**Structure**_
 
-- Some encapuslation mechanism (e.g. classes with lots of nested structure)
+- Some encapsulation mechanism (e.g. classes with lots of nested structure)
 - (Maybe) some global blackboard (see below)
 
 _**Examples**_
 
-- Data-Model-Dialog: classic 3-tiered archiecture for relational data base applications
+- Data-Model-Dialog: classic 3-tiered architecture for relational data base applications
    
 - Model-View-Controller: A pattern
-- LAMP= linux, appache, mysql, (php|perl|python). Officially, can swtich out layers for another
+- LAMP= Linux, Apache, mysql, (php|perl|python). Officially, can switch out layers for another
   structure but I've  never actually seen that done.
 - MEAN= layers of Javascript for web-apps. Since its all in one language, more "leakage" of information
   across the layers (makes e.g. debugging or optimizing easier). Mean comprises
       - M = MongoDB, a popular NoSQL database
-      - E = ExpressJS : make resuts to db and return response
+      - E = ExpressJS : make results to db and return response
       - A = AngularJS: request/display results for end user
-      - N = NodeJSL massive set of javascript tools
+      - N = NodeJSL massive set of JavaScript tools
 - Blackboards: used in AI. See below.
 - OSI 7-layer Model:
      - Application  Layer 7  Provides misc protocols for common activities (ftp, telnet, http, etc)
@@ -49,12 +56,12 @@ _**Examples**_
 _**Rules of Thumb**_
 
 - Sometimes, 2 layers are enough: see the Observer pattern that just does Subject-Observer
-- Ideally, each level should be highly cohesive but loosely copuled to to the others.
-- Ideally, each layer i should only know about layers i+1, i-1 (but see optimziation, below).
-- The more layers, the lower the effeciency
- - When optimizing, ignore the layers. Jumpa  long way around the code.
-- If you can write all the layes in the same language, that has maintenance and system advantages
-     - e.g. MEAN, writen in Javascript
+- Ideally, each level should be highly cohesive but loosely coupled to to the others.
+- Ideally, each layer i should only know about layers i+1, i-1 (but see optimization, below).
+- The more layers, the lower the efficiency
+ - When optimizing, ignore the layers. Jump   long way around the code.
+- If you can write all the layers in the same language, that has maintenance and system advantages
+     - e.g. MEAN, written in Javascript
 - Cost model for traditional 3-tied Data-Model-Dialog applications:
      - Cost model: each class in the "model" layer needs 1 data, 1 dialog, + 0.5 helper classes
      - Classes = 20 methods. Methods = 5 lines (median)
@@ -64,13 +71,13 @@ _**Rules of Thumb**_
      - Typically, does no work itself but redirects messages to different parts of its internal
        structure.
 - If the same information needed in different layers, the create `Proxy`s that can be created
-  in a central location, and pased out to where they are needed
+  in a central location, and passed out to where they are needed
      - e.g. in Data-Model-Dialog, the range for `age` might be needed in Dialog (to help uses
        enter correct values) and in Data (to define the relational database fields)
      - So let the Model birth a proxy that is passed up to Dialog and down to Data.
-     - Note in functional languages, the `Proxy`s can be lambda bodies paried to specific
+     - Note in functional languages, the `Proxy`s can be lambda bodies paired to specific
        events in other classes. So all the other layer need to know is that on a certain event
-       (e.g. button pressed) that the lambda is evalauted.
+       (e.g. button pressed) that the lambda is evaluated.
 
 ## Blackboard
 
@@ -78,13 +85,13 @@ _**Intent**_ Build a (very) loosely coupled system, perhaps using different prog
 where agents react to observations by making conclusions that define higher-level observations.
 Good when
 
-- A complete seaerch is not feasible
-- Need to experiment with different algorithms in the same subtask
+- A complete search is not feasible
+- Need to experiment with different algorithms in the same sub-task
 - Using disjoint algorithms perhaps exploiting  parallelism
 
 _**Structure**_ 
 
-- A multi-layerd global space (the blackboard)
+- A multi-layered global space (the blackboard)
 - Some networking architecture where the global space can be shared across multiple executables, machines,
   cities, countries.
 - Agents that read from layer i and write to layer i+1
@@ -96,15 +103,15 @@ _**Rules of thumb**_
 
 - Useful in poorly-structured, or simply new and immature domains
 - When the application domain matures, perhaps abandon the Blackboard architecture and develop architectures that support closed solution approaches
-- Use production ssytems as subroutines
+- Use production systems as subroutines
      -.e.g. at each level, match-selects on layer i then acts on layer i+1
 - Use match-select-act as the main controller (so only one agent can update the blackboard at a time)
      - Match= ask what agents think they have something to contribute
      - Select= find which agent has most definite conclusions
      - Act= let that agent update the blackboard
-- Great for maintaiance of a large community contributing to a knowledge-based system.
+- Great for maintenance of a large community contributing to a knowledge-based system.
 - Drawbacks:
-     - Difficul to testing
+     - Difficult to testing
      - No good solution is guaranteed
      - Good Control is hard to build
      - Low efficiency (cause of layers, cause of society of agents all bickering what to do next).
@@ -112,30 +119,30 @@ _**Rules of thumb**_
 _**Examples**_
 
 - Used [a lot in AI](https://aaai.org/ojs/index.php/aimagazine/article/view/537)
-   to co-ordinate many resaerchers working on the same problem.
-     - Think large Dod grants, many instituions, many grad students.
-- e.g. speech recognition. layes are:
+   to co-ordinate many researchers working on the same problem.
+     - Think large DOD grants, many institutions, many grad students.
+- e.g. speech recognition. layers are:
      - Phrases
      - Words
      - Segments
      - Waveform (lowest level)
 - e.g. find a koala:
      - edge detection agents that input edges and output shapes
-     - limb detectiona gents that input shapes and output limbs
-     - species detectiona gent that input limbs and output different animal types
+     - limb detection gents that input shapes and output limbs
+     - species detection gent that input limbs and output different animal types
      - decision agents that input different animal types, reflect on their differences, and
     
 ### Model View controller
 
-### Subject Observor
+### Subject Observer
 
 ### Blackboard
 
-Layers + Subject-Observor
+Layers + Subject-Observer
 
 ## Unification
 
-A wide range of tasks typically assinged to complex theorem proving algorithms can be implemented 
+A wide range of tasks typically assigned to complex theorem proving algorithms can be implemented 
 by a single _unification_ algorithm.
 
 - Enter Logic Programming.
@@ -176,12 +183,12 @@ Some history
 12.6
 ```
 
-- 1970s: Prolog: comptuation = find bindings that let you match trees
+- 1970s: Prolog: computation = find bindings that let you match trees
 
-Unification mwenas 
+Unification means 
 
 - compare 2 trees
-- find substitiomns in one that make it equal to the other.
+- find substitutions in one that make it equal to the other.
 
 Given trees expressed as  lists containing
 
@@ -223,15 +230,15 @@ Question: what do these cases fall in the following code:
 Note that, because of the detail above, unification can return t without extending the
 bindings.
 
-- Which means if the intiial bindings are nil then the new binding will be nil
+- Which means if the initial bindings are nil then the new binding will be nil
 - So unify has to return two values
-    - One being the extenstion to the bindings
+    - One being the extension to the bindings
     - The other being a flag true/nil saying if unification was successful
 
 We say that the first symbol in a list is its predicate. A logic program
 is a set of nested lists, each of which has an outer most predicate.
-If deep withint one list, we find a predicate symbol, then we  jump over to
-another list to handle some sub-unifications.
+If deep within one list, we find a predicate symbol, then we  jump over to
+another list to handle some recursive unification.
 
 The following examples use the syntax of the class Prolog-in-Lisp example:
 
@@ -241,7 +248,10 @@ The following examples use the syntax of the class Prolog-in-Lisp example:
 (<- (child ?x ?y) (parent ?y ?x))
 ```
 
-Question: what are the predictes?
+Question: what are the predicates?
+
+Question: During recrusive unification (e.g. `parent` in `child` over to the real
+parent lists) we give the symbols in the recursive list new values. Why?
 
 Question: what bindings and "success flag" is returned by the following examples:
 
