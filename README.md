@@ -45,6 +45,8 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><hr>
+<a href="doc/haskell.md">Haskell</a><br>
+<a href="doc/ocaml.md">Ocaml</a><br>
 <a href="doc/ruby.md">Ruby</a><br>
 <a href="doc/lisp1.md">Lisp1</a><br>
 <a href="doc/st1.md">Smalltalk1</a><br>
@@ -65,6 +67,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 width=240 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
+<a href="doc/week5.md">Week5</a><br>
 <a href="doc/week4.md">Week4</a><br>
 <a href="doc/week3.md">Week3</a><br>
 <a href="doc/week2.md">Week2</a><br>
