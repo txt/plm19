@@ -75,7 +75,21 @@ public
        self compile: getter;
             compile: setter.  ] !
 !
-
+! Object methods !
+asDictionary
+  ^self
+!!
+! String methods !
+asDictionary
+  ^self
+!!
+! Collection methods !
+asDictionary
+  |out|
+  out := Dictionary new.
+  self keys do: [:x| out at: x put: (self at:x) asDictionary].
+  ^out
+!!
 "-------------------------------------------------------"
 ! Class methods !
 sub: kid  
@@ -110,6 +124,16 @@ new
 
 ! Magic methods !
 init !!
+
+! Magic methods !
+asDictionary
+  |words d|
+  d := Dictionary new.
+  words := self class instanceVariableString asWords.
+  1 to: words size do: [:i|
+    d at: (words at: i) put: (self instVarAt: i) asDictionary ]
+  ^d
+!!
 
 ! Magic methods !
 visit: aBlock
