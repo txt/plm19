@@ -30,7 +30,7 @@ Well, let's take a look....
 <td align=center valign=top><img  width=85 height=82 src="etc/img/time.png">
 <b>SCHEDULE</b><hr>
 <strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
-<strike>1b:Feb7</strike><br> 1b+:Feb14<br>
+<strike>1b:Feb7</strike><br> <strike>1b+:Feb14</strike><br>
 1c:Feb21<br> 1c+:Feb28<br>
 1d:Mar7<br>1d+:Mar21
 <hr>
@@ -45,6 +45,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><hr>
+<a href="doc/ruby.md">Ruby</a><br>
 <a href="doc/lisp1.md">Lisp1</a><br>
 <a href="doc/st1.md">Smalltalk1</a><br>
 <a href="doc/llvm.md">D.I.Y.</a><br>
@@ -71,7 +72,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/news.png">
 <b>Help</b><hr>
-<a href="docs/prolisp.md">Prolisp</a><br>
+<a href="doc/prolisp.md">Prolisp</a><br>
 <a href="https://learnxinyminutes.com/docs/common-lisp/">Lisp-cheat</a><br>
 <a href="http://www.angelfire.com/tx4/cus/notes/smalltalk.html">St-cheat</a><br>
 <a href="https://people.eecs.berkeley.edu/~fateman/264/papers/smalltalk-tutorial.html">St-tut</a><br>
