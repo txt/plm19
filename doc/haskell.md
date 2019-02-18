@@ -37,9 +37,19 @@ qsort (x:xs) =
      ++ qsort(filter (>x) xs)
 ```
 
-Lazy evaluation
+Lazy evaluation: Lazy" evaluation is performing operations when and as they are needed. It is useful when it is a feature of a programming language or library because it is generally harder to implement lazy evaluation on your own than simply to precalculate everything up front.
+For example, the following sorts the list and then takes the
+first element of the list. However, because of lazy evaluation,
+only the head gets computed. For example, if we take the minimum
+of the list [2, 1, 3,] `qsort` will first filter out all the
+elements that are smaller than two. Then it does `qsort` on that
+(returning the singleton list [1]) which is already enough. Because
+of lazy evaluation, the rest is never sorted, saving a lot of
+computational time.
 
-- Infinite lists are cool!
+```haskell
+minimum xs = head (qsort xs)
+```
 
 Fully functional: functions can return functions. Note the following is called _currying_
 
@@ -141,7 +151,7 @@ ghci> total' [3,5,2,1]
 ```haskell
 most = foldl1 (\x acc -> if x > acc then x else acc)  
 
-last' = foldl1 (\_ x -> x)  
+last' = foldl1 (\_ x -> x) -- wow. the function is anonymous,
 ```
 
 ## About Functional Languages
