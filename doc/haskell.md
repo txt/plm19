@@ -23,6 +23,12 @@ To remind you:
 
 ## About Haskell
 
+Vibrant community 
+
+- 13,000+ packages available at [hackage](http://hackage.haskell.org/packages/browse). 
+- Many, many  [recent Haskell books](https://www.amazon.com/s?k=Haskell&rh=n%253A3952&ref=nb_sb_noss) at Amazon
+- Look at all  [the industrial applications](https://wiki.haskell.org/Haskell_in_industry) 
+
 Oh so succict. Here's quicksort:
 
 -  Like Prolog, [] = empty list. 
@@ -73,12 +79,6 @@ nesting of N argumnets. Which is why the above works so easily.
 Currying provides the ability to partially apply one or more arguments to create more specific function, thus can be more effective in reuse code.
  This type of abstracting the common part as a high level function(with currying) can reduce your effect to write code, make test much easy , and reuse more code, which yields more elengant code.)
 
-Vibrant community 
-
-- 13,000+ packages available at [hackage](http://hackage.haskell.org/packages/browse). 
-- Many, many  [recent Haskell books](https://www.amazon.com/s?k=Haskell&rh=n%253A3952&ref=nb_sb_noss) at Amazon
-- Look at all  [the industrial applications](https://wiki.haskell.org/Haskell_in_industry) 
-
 ### Fun with Haskell
 
 Lots of conventions for typing less
@@ -112,7 +112,7 @@ ghci> filter even [1..10]
 [2,4,6,8,10]  
 ```
 
-Lambdas in Haskell are denoted with a "\"
+Lambdas in Haskell are denoted with a "\\"
 
 ```Haskell
 -- equivalent
