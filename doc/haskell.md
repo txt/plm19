@@ -43,7 +43,7 @@ Lazy evaluation
 
 Fully functional: functions can return functions. Note the following is called _currying_
 
-```
+```haskell
 Prelude> f x y = x < y
 Prelude> f 2 3
 True
@@ -73,7 +73,7 @@ Vibrant community
 
 Lots of conventions for typing less
 
-```
+```haskell
 fn x = ceiling (negate (tan (cos (max 50 x))))  
 ```
 can also be defined as follows (thanks to currying):
@@ -87,13 +87,15 @@ ghci> fn 60
 `Filter` returns the items in a list that match some predicate p
 
 ```haskell
+-- "_" is the annoymous variable (somethign to ignore).
+-- "|" means a case statement
 
 filter _ [] = []  
 filter p (x:xs)   
     | p x       = x : filter p xs  
     | otherwise = filter p xs  
 
-ghci> filter (>3) [1,5,3,2,1,6,4,3,2,1]  
+ghci> filter (>3) [1,5,3,2,1,6,4,3,2,1]  -- note the currying of "> 3 x" 
 [5,6,4]
 
 ghci> filter even [1..10]  
@@ -104,7 +106,7 @@ Lambdas in Haskell are denoted with a "\"
 
 ```Haskell
 -- equivalent
-map (+3) [1,6,3,2] 
+map (+3) [1,6,3,2]  -- note the currying of "+ 3 x".
 map (\x -> x + 3) [1,6,3,2]
 ```
 
@@ -141,6 +143,7 @@ most = foldl1 (\x acc -> if x > acc then x else acc)
 
 last' = foldl1 (\_ x -> x)  
 ```
+
 ## About Functional Languages
 
 ### What is a Functional Language?
