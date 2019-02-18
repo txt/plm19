@@ -60,13 +60,13 @@ minimum xs = head (qsort xs)
 Fully functional: functions can return functions. Note the following is called _currying_
 
 ```haskell
-Prelude> f x y = x < y
-Prelude> f 2 3
+ghci> f x y = x < y
+ghci> f 2 3
 True
-Prelude> g = f 2
-Prelude> g 10
+ghci> g = f 2
+ghci> g 10
 True
-Prelude> g 1
+ghci> g 1
 False
 ```
 
