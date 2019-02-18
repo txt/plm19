@@ -13,6 +13,8 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 NOT DONE YET. Needs
 
+inheritance, polymorphism: distributed control harder to debug
+
 - [Proxy](https://sourcemaking.com/design_patterns/proxy)
 - [Subject-observor](https://sourcemaking.com/design_patterns/observer)
 - Model-View-controller (a variant on subject-observer)
