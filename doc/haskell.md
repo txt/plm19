@@ -41,7 +41,7 @@ Lazy evaluation
 
 - Infinite lists are cool!
 
-Fully functional
+Fully functional: functions can return functions. Note the following is called _currying_
 
 ```
 Prelude> f x y = x < y
@@ -54,13 +54,93 @@ Prelude> g 1
 False
 ```
 
+- (Technical aside: Currying is when you break down a function that
+takes multiple arguments into a series of functions that take part
+of the arguments. FYI- all Haskell functions are "curried" down to
+one; i.e.  every function in Haskell officially only takes one
+parameter and if you need N arguments, Haskell builds a recursive
+nesting of N argumnets. Which is why the above works so easily.
+Currying provides the ability to partially apply one or more arguments to create more specific function, thus can be more effective in reuse code.
+ This type of abstracting the common part as a high level function(with currying) can reduce your effect to write code, make test much easy , and reuse more code, which yields more elengant code.)
+
 Vibrant community 
 
 - 13,000+ packages available at [hackage](http://hackage.haskell.org/packages/browse). 
 - Many, many  [recent Haskell books](https://www.amazon.com/s?k=Haskell&rh=n%253A3952&ref=nb_sb_noss) at Amazon
 - Look at all  [the industrial applications](https://wiki.haskell.org/Haskell_in_industry) 
 
+### Fun with Haskell
 
+Lots of conventions for typing less
+
+```
+fn x = ceiling (negate (tan (cos (max 50 x))))  
+```
+can also be defined as follows (thanks to currying):
+
+```haskell
+ghci> fn = ceiling . negate . tan . cos . max 50  
+ghci> fn 60
+2
+```
+
+`Filter` returns the items in a list that match some predicate p
+
+```haskell
+
+filter _ [] = []  
+filter p (x:xs)   
+    | p x       = x : filter p xs  
+    | otherwise = filter p xs  
+
+ghci> filter (>3) [1,5,3,2,1,6,4,3,2,1]  
+[5,6,4]
+
+ghci> filter even [1..10]  
+[2,4,6,8,10]  
+```
+
+Lambdas in Haskell are denoted with a "\"
+
+```Haskell
+-- equivalent
+map (+3) [1,6,3,2] 
+map (\x -> x + 3) [1,6,3,2]
+```
+
+Lambdas can use pattern matching:
+
+```Haskell
+ghci> map (\(a,b) -> a + b) [(1,2),(3,5),(6,3),(2,6),(2,5)]  
+[3,8,9,8,7]  
+```
+
+`foldl` (left fold)  is applied between the starting value and the head of the list. That produces a new accumulator value and the binary function is called with that value and the next element, etc.
+
+```haskell
+total xs = foldl (\acc x -> acc + x) 0 xs  
+
+ghci> total [3,5,2,1]  
+11
+```
+
+Btw, the same can be done as follows (why?)
+
+```haskell
+total' = foldl (+) 0  
+
+ghci> total' [3,5,2,1]  
+11  
+
+``` 
+
+`foldl1` assumes that the first item in the list is the start value and the rest is list to be folded.
+
+```haskell
+most = foldl1 (\x acc -> if x > acc then x else acc)  
+
+last' = foldl1 (\_ x -> x)  
+```
 ## About Functional Languages
 
 ### What is a Functional Language?
