@@ -7,7 +7,6 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
-<img width=900 src="http://www.ecorestrading.com/underconstruction.png">
 
 # Review, week5
 
@@ -19,13 +18,13 @@ inheritance, polymorphism: distributed control harder to debug
 
 ###  Proxy
 
-_**Intent**__
+_**Intent**_
 
 - Provide a surrogate or placeholder for another object to control access to it.
 - Use an extra level of indirection to support distributed, controlled, or intelligent access.
 - Add a wrapper and delegation to protect the real component from undue complexity.
 
--**Problem**_
+_**Problem**_
 
 You need to support resource-hungry objects, and you do not want to instantiate such objects unless and until they are actually requested by the client.
 
