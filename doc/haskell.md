@@ -29,34 +29,6 @@ Vibrant community
 - Many, many  [recent Haskell books](https://www.amazon.com/s?k=Haskell&rh=n%253A3952&ref=nb_sb_noss) at Amazon
 - Look at all  [the industrial applications](https://wiki.haskell.org/Haskell_in_industry) 
 
-Oh so succict. Here's quicksort:
-
--  Like Prolog, [] = empty list. 
-- Also x:xs is a list whos's car is x and cdr is xs.
-- Finally "++" concatenates lists
-
-```haskell
-qsort [] = []
-qsort (x:xs) = 
-     qsort(filter (<=x) xs) 
-     ++ [x] 
-     ++ qsort(filter (>x) xs)
-```
-
-Lazy evaluation: Lazy" evaluation is performing operations when and as they are needed. It is useful when it is a feature of a programming language or library because it is generally harder to implement lazy evaluation on your own than simply to precalculate everything up front.
-For example, the following sorts the list and then takes the
-first element of the list. However, because of lazy evaluation,
-only the head gets computed. For example, if we take the minimum
-of the list [2, 1, 3,] `qsort` will first filter out all the
-elements that are smaller than two. Then it does `qsort` on that
-(returning the singleton list [1]) which is already enough. Because
-of lazy evaluation, the rest is never sorted, saving a lot of
-computational time.
-
-```haskell
-minimum xs = head (qsort xs)
-```
-
 Fully functional: functions can return functions. Note the following is called _currying_
 
 ```haskell
@@ -78,6 +50,34 @@ parameter and if you need N arguments, Haskell builds a recursive
 nesting of N argumnets. Which is why the above works so easily.
 Currying provides the ability to partially apply one or more arguments to create more specific function, thus can be more effective in reuse code.
  This type of abstracting the common part as a high level function(with currying) can reduce your effect to write code, make test much easy , and reuse more code, which yields more elengant code.)
+
+Oh so succict. Here's quicksort:
+
+-  Like Prolog, [] = empty list. 
+- Also x:xs is a list whos's car is x and cdr is xs.
+- Finally "++" concatenates lists
+
+```haskell
+qsort [] = []
+qsort (x:xs) = 
+     qsort(filter (<=x) xs)  -- currying "<= x y"
+     ++ [x] 
+     ++ qsort(filter (>x) xs) -- currying "> x y"
+```
+
+Lazy evaluation: Lazy" evaluation is performing operations when and as they are needed. It is useful when it is a feature of a programming language or library because it is generally harder to implement lazy evaluation on your own than simply to precalculate everything up front.
+For example, the following sorts the list and then takes the
+first element of the list. However, because of lazy evaluation,
+only the head gets computed. For example, if we take the minimum
+of the list [2, 1, 3,] `qsort` will first filter out all the
+elements that are smaller than two. Then it does `qsort` on that
+(returning the singleton list [1]) which is already enough. Because
+of lazy evaluation, the rest is never sorted, saving a lot of
+computational time.
+
+```haskell
+minimum xs = head (qsort xs)
+```
 
 ### Fun with Haskell
 
