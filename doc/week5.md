@@ -293,7 +293,7 @@ Question: what bindings and "success flag" is returned by the following examples
        '(p ?y b  c a))
 
 ;4 
-(unify '(p ?x b ?y a) 
+(unify '(p ?x b ?x a) 
        '(p ?y b  c a))
 
 ;5
