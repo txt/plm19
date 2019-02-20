@@ -44,9 +44,43 @@ on. It’s easy to take this for granted, but it’s actually quite remarkable t
 different things can share a uniform interface, so they can easily be plugged together.ii
 
 By convention, many (but not all) Unix programs treat this sequence of bytes as
-ASCII text.
+ASCII text. Input file is treated as a list of records separated by the \n (newline, ASCII 0x0A) character.
+The choice of `\n` is arbitrary.
 
+The parsing of each record (i.e., a line of input) is more vague. Unix tools commonly
+split a line into fields by whitespace or tab characters, but CSV (comma-separated),
+pipe-separated, and other encodings are also used. Even a fairly simple tool like
+xargs has half a dozen command-line options for specifying how its input should be
+parsed.
 
+Although it’s not perfect, even decades later, the uniform interface of Unix is still
+something remarkable. Not many pieces of software interoperate and compose as
+well as Unix tools do: you can’t easily pipe the contents of your email account and
+your online shopping history through a custom analysis tool into a spreadsheet and
+post the results to a social network or a wiki. Today it’s an exception, not the norm,
+to have programs that work together as smoothly as Unix tools do.
+
+# 1.2 Separation of logic and wiring
+
+Another characteristic feature of Unix tools is their use of standard input (`stdin`) and
+standard output (`stdout`). If you run a program and don’t specify anything else,
+stdin comes from the keyboard and stdout goes to the screen. However, you can
+also take input from a file and/or redirect output to a file. Pipes let you attach the
+stdout of one process to the stdin of another process (with a small in-memory
+buffer, and without writing the entire intermediate data stream to disk).
+
+A program can still read and write files directly if it needs to, but the Unix approach
+works best if a program doesn’t worry about particular file paths and simply uses
+`stdin` and `stdout`. This allows a shell user to wire up the input and output in whatever
+way they want; the program doesn’t know or care where the input is coming
+from and where the output is going to. Separating the input/output wiring
+from the program logic makes it easier to compose small tools into bigger systems.
+
+# 2. What's this project about?
+
+The goal of this project is to write your own programs and combine them with the tools provided
+by the operating system. Your program just needs to read input from stdin and write
+output to stdout, and it can participate in data processing pipelines.
 
 # References
 
