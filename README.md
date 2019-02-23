@@ -60,6 +60,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/homework.gif">
 <b>HOMEWORKS</b><hr>
+<a href="src/lisp/oo1d.lisp">1d</a><br>
 <a href="src/lisp/prolog1c.lisp">1c</a><br>
 <a href="doc/lisp0.md">Lisp0</a><br>
 <a href="doc/oneb.md">1b</a><br>
@@ -76,6 +77,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/news.png">
 <b>Help</b><hr>
+<a href="https://learnxinyminutes.com/docs/lua/">Lua=cheat</a>br>
 <a href="doc/prolisp.md">Prolisp</a><br>
 <a href="https://learnxinyminutes.com/docs/common-lisp/">Lisp-cheat</a><br>
 <a href="http://www.angelfire.com/tx4/cus/notes/smalltalk.html">St-cheat</a><br>
