@@ -17,7 +17,8 @@ align=right width-400>
 
 BSD 2-Clause License
 
-Copyright (c) 2019, Programming languages notes.
+Copyright (c) 2019, Programming languages notes by 
+[Tim Menzies](http://menzies.us)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
