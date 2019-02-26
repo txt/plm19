@@ -77,12 +77,12 @@ Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides
 
 If you read this book, and you are not excited, then check your pulse. You're dead.
 
-<img width=400 src="../img/gofbook.png">
+<img width=400 src="https://raw.githubusercontent.com/txt/seng18/master/img/gofbook.png">
 
 
 Patterns are a religion
 
-<img width=400 src="../img/onering.png">
+<img width=400 src="https://raw.githubusercontent.com/txt/seng18/master/img/onering.png">
  
 # "Patterns" in function programming
  
