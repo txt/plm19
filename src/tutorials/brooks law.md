@@ -138,18 +138,24 @@ experienced_personnel_busy_training = new_personnel * training_overhead_in_%/100
 ```
 
 
-6. **`Experience Personnel`**
+7. **`Experience Personnel`**
 As an when new personnel are assimilated, more experience personnel will becomed available. Say we have time step of `dt`. Then, total available experience personnel today will increase with the newly assimilated personnel. The newly assimilated personnel will depend on the `assimilation_rate`
 
 In code, 
 ```python
-experienced_personnel = experienced_personnel + assimilatio_rate * dt 
+experienced_personnel = experienced_personnel + assimilation_rate * dt 
 ```
 
-7. **`New Personnel`**
-This will depend on the rate at which personnel are allocated (this uses `personnel_allocation_rate`, see )
+8. **`New Personnel`**
+This will depend on the rate at which personnel are allocated (this uses `personnel_allocation_rate`, see item 4 above) and the rate at which personnel are assimilated (`assimilation_rate`)
 
-8. **`Software Developemnt Rate`**
+In code, 
+```python
+new_personnel = new_personnel + (personnel_allocation_rate - assimilation_rate) * dt
+```
+
+
+9. **`Software Developemnt Rate`**
 The software development rate represents the productivity adjusted for communication overhead, weighting factors for varying mix of personnel, and the effective number of experienced personnel.
 
 It depends on factors such as:
@@ -166,3 +172,66 @@ In code,
 available_experienced_personnel = experience_personnel - experienced_personnel_busy_training
 software_dev_rate = nominal_productivity * (1 - comm_overhead/100) * (productivity_new * new_personnel + productivity_experienced * available_experienced_personnel)
 ``` 
+
+10. **`Developed Software`**
+Amount of software functionality that has been implemented. This will increase proportional to the software development rate (`software_dev_rate`).
+
+In code, 
+```python
+developed_software = developed_software + software_dev_rate * dt
+```
+
+
+11. **`Requirements`**
+As more and more software functionality get implemented, thre requirements will decrease. Thus, this will reduce proportional to the software development rate (`software_dev_rate`).
+
+In code, 
+```python
+requirements = requirements - software_dev_rate * dt
+```
+
+## 3. Putting this all together
+
+With the above premise, we may now construct a compartmental model that defines a software process as follows
+
+```python
+class BrooksLaw(Model):
+    def __init__(self, params):
+        super(BrooksLaw, self).__init__(params)
+        self.params = params
+
+    def have(i): return Things(
+        aR    = Flow( "assimilationRate"),
+        co    = Percent(  "communicationOverhead"),
+        d     = Stock("developedSoftware",i.params.d),
+        ep    = Stock("experiencedPeople",int(i.params.ep)),
+        ept   = Aux(  "experiencedPeopleNeeded2Train"),
+        nprod = Aux(  "nominalProductity",i.params.nprod),
+        np    = Stock("newPersonnel",int(i.params.np)),
+        paR   = Flow( "personnelAllocationRate"),
+        ps    = Aux(  "plannedSoftware"),
+        sdR   = Flow( "softwareDevelopmentRate"),
+        ts    = Aux("teamSize",i.params.ts),
+        to    = Percent( "trainingOverhead",i.params.to), # one-quarter of an experienced
+                                              # person's time is needed to
+                                              # train a new person until
+                                              # he/she is fully assimilated.
+        r     = Stock("requirements",i.params.r))
+
+    def step(self,dt,t,i,j):
+        def _co(x):
+          "Communication overhead"
+          myTeam = i.ts - 1   # talk to everyone in my team
+          others = x/i.ts - 1 # talk to every other team
+          return self.params.pomposity*(myTeam**2 + others**2) # pomposity
+        j.aR  = i.np/self.params.learning_curve # 20 = Learning curve
+        j.ps  = self.params.optimism*t # Optimism
+        j.co  = _co(i.ep + i.np)
+        j.paR = 6 if  (i.ps - i.d) < self.params.atleast and t < int(self.params.done_percent*t/100) else 0 # Don't touch 6 and zero.
+        j.sdR = i.nprod*(1-i.co/100)*(self.params.sDR_param1*i.np+self.params.sDR_param2*(i.ep - i.ept))
+        j.ept = i.np*i.to /100
+        j.ep += i.aR*dt # Is this correct?
+        j.np += (i.paR - i.aR)*dt
+        j.d  += i.sdR*dt
+        j.r  -= i.sdR*dt
+ ```
