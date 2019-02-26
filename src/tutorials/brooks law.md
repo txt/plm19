@@ -126,3 +126,20 @@ if planned_software - developed_software < X and t < T * t_max:
 else:
     personnel_allocation_rate = 0
 ```
+
+5. **`Software Developemnt Rate`**
+The software development rate represents the productivity adjusted for communication overhead, weighting factors for varying mix of personnel, and the effective number of experienced personnel.
+
+It depends on factors such as:
+  - Nominal productivity: `nominal_productivity`
+  - Communication overhead: `comm_overhead`
+  - Number of new personnel: `new_personnel`
+  - Productivity of new personnel: `productivity_new`
+  - Number of experience personnel that are able to develop (i.e., not busy with training other personnel):
+      `available_experienced_personnel = experience_personnel - experienced_personnel_busy_training`
+  - Productivity of experienced personnel: `productivity_experienced`
+In code, 
+```python
+available_experienced_personnel = experience_personnel - experienced_personnel_busy_training
+software_dev_rate = nominal_productivity * (1 - comm_overhead/100) * (productivity_new * new_personnel + productivity_experienced * available_experienced_personnel)
+```
