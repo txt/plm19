@@ -112,6 +112,25 @@ eg6:  ok; @$(hi); $(Auto10) | dom | bestrest | super | rank
 eg7:  ok; @$(hi); $(Auto1M) | dom | bestrest | super | rank
 ```
 
+Now if you type
+
+      make 
+      
+it will run the first rule
+
+       all: eg1
+
+which in turn will run
+
+        eg1:  ok; @$(hi); cat $(Test)/data/weather.csv | dom
+        
+        
+(Hint: so to change the behaviour of the default `nake` change, change the first rule.)
+ 
+Note that all the `eg*` rules are `pipes` where stuff from one source is filtered to become the source for the next item in the pipe.
+
+Your task: replace two, maybe three, of  filters with something coded in another language.
+
 # References
 
 [1] Martin Kleppmann: “Kafka, Samza, and the Unix Philosophy of Distributed Data,” martin.kleppmann.com, August 5, 2015.
