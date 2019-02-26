@@ -1,3 +1,7 @@
+[monte_carlo](monte_carlo.md) | [brooks2](brooks2.md) | [dom](dom.md) | [bestrest](bestrest.md) | [super](super.md) | [rank](rank.md)
+
+----
+
 # 1. The Unix Philosophy
 
 <img src="https://alvinalexander.com/images/fp-book/unix-pipelines/1-unix-pipes-solution.png" align=right>
