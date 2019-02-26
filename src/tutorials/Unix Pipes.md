@@ -1,5 +1,6 @@
 # 1. The Unix Philosophy
 
+<img src="https://alvinalexander.com/images/fp-book/unix-pipelines/1-unix-pipes-solution.png" align=right>
 Using a chain of commands like we do in the project in fact one of the key design ideas of
 Unix, and it remains astonishingly relevant today. 
 
