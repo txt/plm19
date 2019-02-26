@@ -164,7 +164,7 @@ e.g. Prototype
 - Create objects by copying prototypical instance of them.
 -  Use when: classes to instantiate are available only in runtime.
 
-e.g. Singleton
+e.g. [Singleton](https://github.com/davidgf/design-patterns-in-ruby/blob/master/singleton.md)
 
 - Ensures that a class has only one instance and gives global access to it.
 - Use when: there must by only one instance of a class.
@@ -183,12 +183,12 @@ e.g. Bridge
 - Decouple an abstraction from its implementation so that the two can vary independently. I described that pattern in my previous post.
 - Use when: you want to avoid binding between abstraction and its implementation if for example each of them must be selected in runtime.
 
-e.g. Composite
+e.g. [Composite](https://github.com/davidgf/design-patterns-in-ruby/blob/master/composite.md)
 
 - Compose objects into a tree structure to represent their hierarchies and allow client to treat them uniformly.
 - Use when: you want to represent hierarchies of objects.
 
-e.g. Decorator
+e.g. [Decorator](https://github.com/davidgf/design-patterns-in-ruby/blob/master/decorator.md)
 
 - Allow add additional responsibilities to an object dynamically.
 - Use when: you want to add extensions to an object in runtime without affecting other objects.
@@ -220,17 +220,19 @@ e.g. Chain of Responsibility
 - Decouple sender of a request from its receiver by giving more than one object a chance to handle that request.
 - Use when: more than one object can handle a request and that information is known in runtime.
 
-e.g. Command
+e.g. [Command](https://github.com/davidgf/design-patterns-in-ruby/blob/master/command.md)
 
 - Encapsulate a request as an object.
 - Use when: you have a queue of requests to handle or you want to log them. Also when you want to have “undo” action.
 
-e.g. Interpreter
+e.g. [Interpreter](https://github.com/davidgf/design-patterns-in-ruby/blob/master/interpreter.md)
 
 - Interprets a sentence in a given language by using representation of a grammar in that language.
 - Use when: you want to interpret given language and you can represent statements as an abstract syntax trees.
+- e.g. parsing = generation of a composite of commands
 
-e.g. Iterator
+
+e.g. [Iterator](https://github.com/davidgf/design-patterns-in-ruby/blob/master/iterator.md)
 
 - Provide a way to access elements of an aggregated objects sequentially without exposing how they are internally stored.
 - Use when: you want to access object’s content without knowing how it is internally represented.
@@ -245,7 +247,7 @@ e.g. Memento
 - Capture external state of an object if there will be a need to restore it without violating encapsulation.
 - Use when: you need to take a snapshot of an object.
 
-e.g. Observer
+e.g. [Observer](https://github.com/davidgf/design-patterns-in-ruby/blob/master/observer.md)
 
 - When one object changes state, all its dependents are notified about that fact.
 - Use when: a change to one object requires changing others.
@@ -255,12 +257,12 @@ e.g. State
 - Object is allow to change its behaviour when its internal state changes. It looks like the object is changing its class.
 - Use when: the object’s behaviour depends on its state and its behaviour changes in run-time depends on that state.
 
-e.g. Strategy
+e.g. [Strategy](https://github.com/davidgf/design-patterns-in-ruby/blob/master/strategy.md)
 
 - It lets to algorithm to be independent from clients that use it.
 - Use when: you have many classes that differ in their behaviour. Strategies allow to configure a class with one of many behaviours.
 
-e.g. Template Method
+e.g. [Template Method](https://github.com/davidgf/design-patterns-in-ruby/blob/master/template_method.md)
 
 - Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.
 - Use when: you have to define steps of the algorithm once and let subclasses to implement its behaviour.
@@ -271,13 +273,14 @@ e.g. Visitor
 - Use when: an object structure includes many classes and you want to perform an operations on the elements of that structure that depend on their classes.
 
 
+<a href="../etc/img/patterns.png"><img src="../etc/img/patterns.ong" width =700></a>
 
 ## Documenting a Pattern
 
-- Intent
-- Stucture
+- Intent (or "Problem")
+- Stucture (or "Solution")
 - Examples
-- Rules of Thumb
+- Rules of Thumb (optional)
 - See also
 
 ## Examples of Patterns
