@@ -134,8 +134,6 @@ e.g. visitor pattern in functional (5 lines)
 ; (9 8 7 6 5 4 3 2 1)
 ```
 
-
-
 ##  Creational Patterns
 
 What:
@@ -144,13 +142,13 @@ What:
 - Encapsulate knowledge which concrete classes are used 
 - Hide how instances of these classes are instantiated and put together.
 
-e.g. Abstract Factory
+e.g. [Abstract Factory](https://en.wikipedia.org/wiki/Abstract_factory_pattern#Python_example)
 
-- Rather than building a concrete object, it’s building a family of related or dependent objects without specifying concrete class.
+- Rather than building a concrete object, it’s building a family of related or dependent 
+objects without specifying concrete class.
 - Use when: system should be independent of how what it is producing is structured or represented.
-- e.g. [Ruby](https://github.com/davidgf/design-patterns-in-ruby/blob/master/adapter.md)
 
-e.g. Builder
+e.g. [Builder](https://en.wikipedia.org/wiki/Builder_pattern)
 
 - Separate how object is created from its representation, so the same process of creation can generate different representations.
 - Use when: algorithm of creation is independent of the parts of the object.
