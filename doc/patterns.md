@@ -13,3 +13,4 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 - [Patterns in Ruby](https://github.com/davidgf/design-patterns-in-ruby)
 - [Patterns in Haskell](http://blog.ezyang.com/2010/05/design-patterns-in-haskel/)
+
