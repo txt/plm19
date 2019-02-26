@@ -83,14 +83,46 @@ We use the `n^2` law to determine this.
 
 In code, this will look as follows:
 ```python
-  def _co(x):
+  def _co(total_personnel):
     "Communication overhead"
     myTeam = i.ts - 1   # talk to everyone in my team
-    others = x/i.ts - 1 # talk to every other team
+    others = total_personnel/i.ts - 1 # talk to every other team
     return pomposity*(myTeam**2 + others**2) # pomposity
 ```
 
+With that definition, at every time step, this will change as follows:
+```
+comm_overhead = _co(new_personnel + experienced_personnel)
+```
+
 2. **`Assimilation Rate`**
+How long it takes to assimilate new personal. If it takes `N` days for a new personnel to learn a new tool (let's call this learning rate), then the assimilation rate will be `(no. of. new personnel) / (learning rate)` per day.
 
+In code,
+```python
+assimilation_rate  = new_personnel/learning_rate
+```
 
+3. **`Planned Software`**
+Assuming a productivity of `P` function points a day, the planned software that will be completed in `t` days is `P*t`
 
+```python
+planned_software = productivity * time
+```
+
+4. **`Personnel Allocation Rate`**
+This defines the rate at which new personnel are allocated to an on-going project. Let's assume that the management utilizes feedback from the actual work accomplished to determine the number of personnel allocated as follows:
+  * 6 personnel are allocated if 
+    - The amount of developed software is less than X% of the planned software, and 
+    - If T% of the estimated time to complete project is remaining.
+  * 0 personnel otherwise.
+
+For example, a policy may state that 6 personnel are allocated if less 75% of the project is completed and if the current time is less than 80% of the total time alloted for a project. If *more* than 75% is done, or if *more* than 80% of the time to complete the project is done, then *no* new personnel will be added.
+
+In, code
+```python
+if planned_software - developed_software < X and t < T * t_max:
+    personnel_allocation_rate = 6
+else:
+    personnel_allocation_rate = 0
+```
