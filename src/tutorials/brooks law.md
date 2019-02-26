@@ -127,7 +127,29 @@ else:
     personnel_allocation_rate = 0
 ```
 
-5. **`Software Developemnt Rate`**
+6. **`Experience Personnel Needed For Training`**
+
+There needs to be some effort expended by experienced personnel in training new personnel and bringing them up to speed.
+For this, we need to define a variable called `training_overhead`. This will be percentage of experienced personnel time needed to train a new personnel. With that, the effective number of experienced personnel required will be `new_personnel` times `training_overhead_in_%/100`.
+
+In code, 
+```python
+experienced_personnel_busy_training = new_personnel * training_overhead_in_%/100
+```
+
+
+6. **`Experience Personnel`**
+As an when new personnel are assimilated, more experience personnel will becomed available. Say we have time step of `dt`. Then, total available experience personnel today will increase with the newly assimilated personnel. The newly assimilated personnel will depend on the `assimilation_rate`
+
+In code, 
+```python
+experienced_personnel = experienced_personnel + assimilatio_rate * dt 
+```
+
+7. **`New Personnel`**
+This will depend on the rate at which personnel are allocated (this uses `personnel_allocation_rate`, see )
+
+8. **`Software Developemnt Rate`**
 The software development rate represents the productivity adjusted for communication overhead, weighting factors for varying mix of personnel, and the effective number of experienced personnel.
 
 It depends on factors such as:
@@ -136,10 +158,11 @@ It depends on factors such as:
   - Number of new personnel: `new_personnel`
   - Productivity of new personnel: `productivity_new`
   - Number of experience personnel that are able to develop (i.e., not busy with training other personnel):
-      `available_experienced_personnel = experience_personnel - experienced_personnel_busy_training`
+      `available_experienced_personnel = experienced_personnel - experienced_personnel_busy_training`
   - Productivity of experienced personnel: `productivity_experienced`
+
 In code, 
 ```python
 available_experienced_personnel = experience_personnel - experienced_personnel_busy_training
 software_dev_rate = nominal_productivity * (1 - comm_overhead/100) * (productivity_new * new_personnel + productivity_experienced * available_experienced_personnel)
-```
+``` 
