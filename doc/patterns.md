@@ -273,7 +273,7 @@ e.g. Visitor
 - Use when: an object structure includes many classes and you want to perform an operations on the elements of that structure that depend on their classes.
 
 
-<a href="../etc/img/patterns.png"><img src="../etc/img/patterns.ong" width =700></a>
+<a href="../etc/img/patterns.png"><img src="../etc/img/patterns.png" width =700></a>
 
 ## Documenting a Pattern
 
