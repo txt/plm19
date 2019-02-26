@@ -1,4 +1,11 @@
+[monte_carlo](monte_carlo.md) | [brooks2](brooks.md) | [dom](dom.md) | [bestrest](bestrest.md) | [super](super.md) | [rank](rank.md)
+
+----
+
 # Brook's Law
+
+In which we elarn that adding programmers
+to a late project might actually make that project later.
 
 ## 1. Introduction
 
