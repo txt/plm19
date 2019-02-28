@@ -78,6 +78,7 @@ Exam:May2
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/news.png">
 <b>Help</b><hr>
+<a href="https://www.youtube.com/watch?v=eis11j_iGMs">About-lambda</a><br>
 <a href="https://www.youtube.com/watch?v=iSmkqocn0oQ">Haskell-is-useless</a><br>
 <a href="https://learnxinyminutes.com/docs/lua/">Lua-cheat</a><br>
 <a href="doc/prolisp.md">Prolisp</a><br>
