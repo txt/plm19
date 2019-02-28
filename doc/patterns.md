@@ -275,13 +275,19 @@ e.g. Visitor
 
 ## Documenting a Pattern
 
+For the official version, see [here](https://hillside.net/index.php/gang-of-four-template):
+
+For my version, see here:
+
 - Intent (or "Problem")
 - Stucture (or "Solution")
 - Examples
 - Rules of Thumb (optional)
 - See also
 
-## Examples of Patterns
-- [Patterns in Ruby](https://github.com/davidgf/design-patterns-in-ruby)
+For examples, see our weekly summaries.
+
+## Other
+
 - [Patterns in Haskell](http://blog.ezyang.com/2010/05/design-patterns-in-haskel/)
 
