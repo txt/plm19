@@ -11,9 +11,14 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 # Patterns
 
-Experts are experts since they've learned patterns of useful behavior (fyi: expert = 5 patterns per day * 10 years)
+Patterns + macros = new language.
 
-If we look at N concrete things,  and then abstract our thinking a little,
+Patterns are things we have added into pgoramming languages, yet.
+
+But what are "patterns"?
+
+- Experts are experts since they've learned patterns of useful behavior (fyi: expert = 5 patterns per day * 10 years)
+- If we look at N concrete things,  and then abstract our thinking a little,
 then we can find some repeated features that might even apply to future things.
 
 For example...

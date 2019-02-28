@@ -45,7 +45,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><hr>
-<a href="doc/patterns.md">patterns</a><br>
+<a href="doc/patterns.md">Patterns</a><br>
 <a href="doc/haskell.md">Haskell</a><br>
 <a href="doc/ocaml.md">Ocaml</a><br>
 <a href="doc/lisp2.md">Lisp&nbsp;Macros</a><br>
