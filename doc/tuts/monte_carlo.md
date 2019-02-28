@@ -42,7 +42,7 @@ Then we use a uniform distribution to generate random samples.
 
 It will look as follows:
 
-```
+```python
 from random import seed, uniform
 
 class MonteCarlo:
@@ -119,7 +119,7 @@ Once we have defined this class, we to take input parameters that can read (a) `
 
 We can use argparse for this
 
-```
+```python
 import argparse
 
 def monte_carlo_main(iters, seed_val):
