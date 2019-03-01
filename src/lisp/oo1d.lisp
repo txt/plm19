@@ -196,8 +196,6 @@ TODO 1e. Show the result of expanding you account.
 '(xpand (account))
 
 #|
-1f. Fix "withdraw" in "account" such that if you withdraw more than
-what is there, it  returns the symbol 'insufficient-funds
  
 TODO 1f.. Show the output from the following function
 
