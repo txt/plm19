@@ -45,6 +45,13 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><hr>
+Make:<a
+href="https://medium.freecodecamp.org/want-to-know-the-easiest-way-to-save-time-use-make-eec453adf7fe">0</a>,<a
+href="https://medium.com/@jolson88/its-time-for-makefiles-to-make-a-comeback-36cbc358bb0a">1</a>,<a
+href="http://datamade.github.io/data-making-guidelines/">2</a>,<a 
+href="https://github.com/datamade/data-making-guidelines/blob/master/make.md">3</a>,<a
+href="https://peter.bourgon.org/blog/2009/10/10/gnu-make-and-deleting-intermediate-files.html">4</a>,<a
+href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 <a href="doc/patterns.md">Patterns</a><br>
 <a href="doc/haskell.md">Haskell</a><br>
 <a href="doc/ocaml.md">Ocaml</a><br>
