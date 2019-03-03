@@ -31,7 +31,7 @@ Well, let's take a look....
 <b>SCHEDULE</b><hr>
 <strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
 <strike>1b:Feb7</strike><br> <strike>1b+:Feb14</strike><br>
-<strike>1c:Feb21</strike><br> 1c+:Feb28<br>
+<strike>1c:Feb21</strike><br><strike>1c+:Feb28</strike><br>
 1d:Mar7<br>1d+:Mar21
 <hr>
 Mid-term:Mar19
