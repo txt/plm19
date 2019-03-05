@@ -11,8 +11,7 @@
 ~/workspace$ sudo apt-get install -y lua5.3 luajit
 ~/workspace$ sudo apt-get install - y python3 python3-pip python3-setuptools
 ```
-
-Next, open your `~/.bashrc` and add the following two lines to it:
+Let's create some aliases. Open your `~/.bashrc` and (optionally, at around line 94) add the following two lines to it:
 
 ```sh
 alias lua='/usr/bin/lua5.3'
