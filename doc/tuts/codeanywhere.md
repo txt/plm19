@@ -8,8 +8,8 @@
 
 #### 2. Install Lua, Python, and Create aliases
 ```sh
-~/workspace$ sudo apt-get install lua5.3 luajit
-~/workspace$ sudo apt-get install python3 python3-pip python3-setuptools
+~/workspace$ sudo apt-get install -y lua5.3 luajit
+~/workspace$ sudo apt-get install - y python3 python3-pip python3-setuptools
 ```
 
 Next, open your `~/.bashrc` and add the following two lines to it:
