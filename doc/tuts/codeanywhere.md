@@ -35,7 +35,7 @@ We'll install this from source. Make a temporary empty director in `~/workspace`
 ~/workspace$ git clone git://github.com/pycco-docs/pycco.git
 ~/workspace$ cd pycco
 ~/workspace$ sudo python3 setup.py install
-~/workspace$ cd ~
+~/workspace$ cd ~/workspace
 ```
 #### 4. Obtain the project source
 
