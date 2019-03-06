@@ -12,10 +12,10 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 Haskell
 
-- what is the differente betweena  function, a predicate and a function?
+- what is the difference between  a procedure, a predicate and a function?
 - using examples, explain the role of functional  in:
      - optimization
-     - formal reasoning abiut a prorgram (to prove, e.g., safety properties)
+     - formal reasoning about a program (to prove, e.g., safety properties)
 - what is `x:xs`
 - can you write down `below` that accepts 2 args and returns true if the first is less than the second?
 - can you curry that function?
