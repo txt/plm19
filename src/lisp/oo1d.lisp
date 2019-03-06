@@ -311,6 +311,28 @@ object
 |#
 
 ; implement defklass here
+(defmacro defklass (klass &key has does)
+  (let* ((message (gensym "MESSAGE")))
+    `(defun ,klass (&key ,@has) 
+       (lambda (,message)
+         (case ,message
+           ,@(methods-as-case does)
+           ,@(datas-as-case (mapcar #'car has))))))
+  
+    
+    (let* ((b4          (and isa (gethash isa *meta*)))
+         (has-before  (and b4 (about-has b4)))
+         (does-before (and b4 (about-does b4))))
+    
+     (setf (gethash klass *meta*)
+         (make-about :has has :does does))
+    
+    
+    )
+
+
+
+
 
 (let ((_counter 0))
   (defun counter () (incf _counter)))
