@@ -3,7 +3,7 @@
 #### 1. Upgrade a your linux distribution
 ```sh
 ~/workspace$ sudo apt-get update
-~/workspace$ sudo apt-get upgrade
+~/workspace$ sudo apt-get upgrade -y 
 ```
 
 #### 2. Install Lua, Python, and Create aliases
