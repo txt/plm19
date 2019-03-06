@@ -68,7 +68,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 
 <td align=center valign=top><img  height=80 src="etc/img/homework.gif">
 <b>HOMEWORKS</b><hr>
-<a href="doc/tuts/README.md">2</a>(<a href="https://github.com/txt/plm19/blob/master/doc/tuts/codeanywhere.md">install</a>)<br>
+<a href="doc/tuts/README.md">2</a>(<a href="https://github.com/txt/plm19/blob/master/doc/tuts/codeanywhere.md">install</a>,<a href="https://github.com/d-u-o/101">src</a>)<br>
 <a href="src/lisp/oo1d.lisp">1d</a><br>
 <a href="src/lisp/prolog1c.lisp">1c</a><br>
 <a href="doc/lisp0.md">Lisp0</a><br>
@@ -78,6 +78,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 </td>
 <td align=center valign=top><img  height=80 width=240 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
+<a href="doc/week6.md">Week6</a><br>
 <a href="doc/week5.md">Week5</a><br>
 <a href="doc/week4.md">Week4</a><br>
 <a href="doc/week3.md">Week3</a><br>
