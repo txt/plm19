@@ -33,9 +33,9 @@ abstractions and languages (so a few lines of code over in one corner will **not
 \* monte\_carlo  |  
 \*\*\* brooks2 |  
 \*    dom  
-\*\* bestrest
-\*\*\* super
-\*\* rank
+\*\* bestrest  
+\*\*\* super  
+\*\* rank  
 
 ## Language Bonus Marks
 
