@@ -40,7 +40,7 @@ abstractions and languages (so a few lines of code over in one corner will **not
 ## Language Bonus Marks
 
 
-### One star languages (zero bomus marks)
+### One star languages (zero bonus marks)
 
 \* D  
 \* Dart  
@@ -97,14 +97,14 @@ I'll score it when I see it).
 Making extensive use of any one following will earn you **zero**
 extra mark:
 
-### One star abstractions (two bonus marks)
+### One star abstractions (zero bonus marks)
 
 - \* Inheritance
 - \* Polymorphism
 - \* Delegation
 - \* Gof Design patterns (all of them, unless referenced below)
 
-### Two star abstractions (two bonus marks)
+### Two star abstractions (one bonus mark)
 
 - \*\*  Layers (need at least 3 to qualify)
 - \*\*  Pattern matching (replacing large hunks of procedural code
