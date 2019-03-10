@@ -20,12 +20,25 @@ For each part replaced, the score will be:
 - plus, at max up to 2 marks bonus for coding the "hard" filter
 - plus, at max up to 2 marks bonus for coding in "hard" languages
 - plus, at max up to 2 marks bonus for coding in "hard" abstractions
+- For a max of 16
 
+Note that for the language and abstractions, your code
+will have to show that you have made **extensive** 
+and **elaborate** use of those 
+abstractions and languages (so a few lines of code over in one corner will **not** earn  you the marks)
+
+## Filter  Bonus Marks
+
+
+\* monte\_carlo  |  
+\*\*\* brooks2 |  
+\*    dom  
+\*\* bestrest
+\*\*\* super
+\*\* rank
 
 ## Language Bonus Marks
 
-Using any one of the following to replace any one of
-the elements in my pipe will earn you extra marks.
 
 ### One star languages (zero bomus marks)
 
@@ -71,71 +84,61 @@ the elements in my pipe will earn you extra marks.
 
 ## Abstraction bonus marks
 
-Using any one of the following to replace any one of
-the elements in my pipe will earn you extra marks.
+Note that some of these abstractions we will/have cover(ed) in class.
+For the rest, get reading:
 
+- Gof: https://springframework.guru/gang-of-four-design-patterns/
+- Lopes: https://github.com/crista/exercises-in-programming-style
+- Fowler: https://catalog.lib.ncsu.edu/catalog/NCSU2708437
+
+(For the Fowler book, show me the pattern you want to try and
+I'll score it when I see it).
 
 Making extensive use of any one following will earn you **zero**
 extra mark:
 
-**Zero** bonus marks:
+### One star abstractions (two bonus marks)
 
-- Inheritance
-- Polymorphism
+- \* Inheritance
+- \* Polymorphism
+- \* Delegation
+- \* Gof Design patterns (all of them, unless referenced below)
 
-**One** bonus mark:
+### Two star abstractions (two bonus marks)
 
-- Layers (need at least 3 to qualify)
-- Pattern matching (replacing large hunks of procedural code
+- \*\*  Layers (need at least 3 to qualify)
+- \*\*  Pattern matching (replacing large hunks of procedural code
   with declarative pattern matching)
-- Pipe and Filter (not my code but some elaborate filter 
-  system of your own creation)
-- State machines
-- Compartmental models
-- 
+- \*\*  Pipe and Filter (not my code but some elaborate filter 
+  \*\*  system of your own creation)
+- \*\*  State machines
+- \*\*  Compartmental models
+- \*\*  LetterBox (Lopes, [chp11](https://github.com/crista/exercises-in-programming-style/tree/master/11-letterbox))
+-
 
-**Two** bonus marks:
+### Three star abstractions (two bonus marks)
 
-- Macros (in Lisp or Julia or Elixr or some other language
+- \*\*\*  Macros (in Lisp or Julia or Elixr or some other language
   that I must pre-approve) to write your won domain specific
-  language.
-- Interpreter (i.e. right your own specialized domain specific
+  language. And much of the functionality of the system
+  must be written in macros.
+- \*\*\*  Interpreter (i.e. right your own specialized domain specific
   language for that task)
-- Lambda calculus (so not just using LISP but going nuts
+- \*\*\*  Lambda calculus (so not just using LISP but going nuts
   on set operatiors implemeted as lambdas mapped over lists)
-- Rule-based programming (lots of match-select-act)
-- Blackboards (agents watching a shared space, trigger on
+- \*\*\*  Rule-based programming (lots of match-select-act)
+- \*\*\*  Blackboards (agents watching a shared space, trigger on
   conclusions of lower-level agents, writing results to
   higher levels)
-
-
-- 2a : Given a data mining pipeline (from the lecturer), replace any one parts of the pipe using
-	  a different programming language. 
-     - FIRST, write a reporting ranking ten abstractions you are thinking
-	  of trying for that code (where  list includes a short description of each AND a tiny example where that 
-	  abstraction might be useful).  For a list of abstractions, see below.
-     - SECOND, write working code that replicates the i/o of that part of pipe.
-	  That code should include your attempt to use your top three ranked abstractions (and it is expected
-	  that you some of your planned abstractions will prove useless). 
-     - THIRD add to the report an epilogue
-	  describing your experience with the abstractions AND your recommendations to other people about
-	  when to use/to avoid those abstractions. 
-     - FOURTH add an end section describing what maximum grades you expect for this section (see below _bonus marks_).
-     - FIFTH in some public Github repo (not from NCSU) write
-	  a sub-directory called "_2a_". Add to that directory your report in pdf format  (I expect 5 pages (no less or more),
-	  [2 column conference format](https://www.overleaf.com/gallery/tagged/acm-official#.WOuOk2e1taQ) AND
-	  your working code AND a file canned "run" (that graders will run) AND a text file "run.out" showing the input and output when you run the code.
-- 2b : as per 2a but use a different language, and a different part of the pipe and store the outputs to
-         a directory "_2b".
-- 2c : Grading someone else's group 2 code (not the written report, just checking it works as advertised).
-- 2d : bonus marks. as per 2c. Only if allowed by professor. And
-   this bonus mark is due same time as 2ab.
-
-List of abstractions
-
-1. See class
-2. See the design patters list
-3. From the Lopez book
-4. From the Fowler book.
+- \*\*\*  GoForth (Lopes, [chp2](https://github.com/crista/exercises-in-programming-style/tree/master/02-go-forth))
+- \*\*\*  Hollywood (Lopes, [chp14](https://github.com/crista/exercises-in-programming-style/tree/master/14-hollywood))
+- \*\*\*  Apsects (Lopes, [chp18](https://github.com/crista/exercises-in-programming-style/tree/master/18-aspects))
+- \*\*\*  Tantrum (Lopes, [cp21](https://github.com/crista/exercises-in-programming-style/tree/master/21-tantrum))
+- \*\*\*  Quarantime (Lopes, [cp24](https://github.com/crista/exercises-in-programming-style/tree/master/24-quarantine))
+- \*\*\* Spreadsheet (Lopes, [cp26](https://github.com/crista/exercises-in-programming-style/tree/master/26-spreadsheet)) aka
+  matrix of lambda bodies
+- \*\*\*  Lazy Rivers (Lopes, [cp27](https://github.com/crista/exercises-in-programming-style/tree/master/27-lazy-rivers))
+- \*\*\*  Map reduce (Lopes, [cp30](https://github.com/crista/exercises-in-programming-style/tree/master/30-map-reduce))
+- \*\*\*  Restful (Lopes, [cp33](https://github.com/crista/exercises-in-programming-style/tree/master/33-restful))
 
 
