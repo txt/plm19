@@ -114,7 +114,6 @@ extra mark:
 - \*\*  State machines
 - \*\*  Compartmental models
 - \*\*  LetterBox (Lopes, [chp11](https://github.com/crista/exercises-in-programming-style/tree/master/11-letterbox))
--
 
 ### Three star abstractions (two bonus marks)
 
