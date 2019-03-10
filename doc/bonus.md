@@ -30,57 +30,57 @@ abstractions and languages (so a few lines of code over in one corner will **not
 ## Filter  Bonus Marks
 
 
-\* monte\_carlo  |  
-\*\*\* brooks2 |  
-\*    dom  
-\*\* bestrest  
-\*\*\* super  
-\*\* rank  
+- \* monte\_carlo  |  
+- \*\*\* brooks2 |  
+- \*    dom  
+- \*\* bestrest  
+- \*\*\* super  
+- \*\* rank  
 
 ## Language Bonus Marks
 
 
 ### One star languages (zero bonus marks)
 
-\* D  
-\* Dart  
-\* Go  
-\* Groovy  
-\* Java  
-\* JavaScript  
-\* Lua  
-\* Objective-C  
-\* PHP  
-\* Perl  
-\* Python  
+- \* D  
+- \* Dart  
+- \* Go  
+- \* Groovy  
+- \* Java  
+- \* JavaScript  
+- \* Lua  
+- \* Objective-C  
+- \* PHP  
+- \* Perl  
+- \* Python  
 
 ### Two star languages (one bonus mark)
 
-\*\* Awk/gawk  
-\*\* Bash  
-\*\* Fortran  
-\*\* Smalltalk (gnu smalltalk, accept no other)
-\*\* Kotlin  
-\*\* Ruby  
-\*\* Rust  
-\*\* Swift  
+- \*\* Awk/gawk  
+- \*\* Bash  
+- \*\* Fortran  
+- \*\* Smalltalk (gnu smalltalk, accept no other)
+- \*\* Kotlin  
+- \*\* Ruby  
+- \*\* Rust  
+- \*\* Swift  
 
 ### Three star languages (two bonus marks)
 
-\*\*\* Clojure  
-\*\*\* CoffeeScript  
-\*\*\* Elixir  
-\*\*\* Elm   
-\*\*\* Erlang  
-\*\*\* Forth  
-\*\*\* Haskell  
-\*\*\* Julia  
-\*\*\* Lisp  
-\*\*\* ML  
-\*\*\* Prolog  
-\*\*\* Scala  
-\*\*\* Scheme  
-\*\*\* TypeScript  
+- \*\*\* Clojure  
+- \*\*\* CoffeeScript  
+- \*\*\* Elixir  
+- \*\*\* Elm   
+- \*\*\* Erlang  
+- \*\*\* Forth  
+- \*\*\* Haskell  
+- \*\*\* Julia  
+- \*\*\* Lisp  
+- \*\*\* ML  
+- \*\*\* Prolog  
+- \*\*\* Scala  
+- \*\*\* Scheme  
+- \*\*\* TypeScript  
 
 ## Abstraction bonus marks
 
