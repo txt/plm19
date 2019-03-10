@@ -70,7 +70,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 <a href="doc/st0.md">Smalltalk0</a><br>
 <a href="src/pl/onea">1a</a><br>
 </td>
-<td align=center valign=top><img  height=80 width=240 src="etc/img/review.gif">
+<td align=center valign=top><img  height=80 xwidth=240 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
 <a href="doc/week6.md">Week6</a><br>
 <a href="doc/week5.md">Week5</a><br>
