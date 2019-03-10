@@ -16,12 +16,9 @@ by <a href="http://menzies.us">Tim Menzies</a>
 <p>
 
 Why study programming languages?
-<p>
-In your future professional life you will work with dozens of different programming languages.
-<p>
+Well, In your future professional life you will work with dozens of different programming languages.
 So what can you learn from 100s of past languages to help you work with those future languages?
-<p>
-Well, let's take a look....
+Let's take a look....
 </tr>
 <tr>
 <td align=center valign=top><img  width=85 height=82 src="etc/img/time.png">
