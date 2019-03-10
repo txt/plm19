@@ -12,18 +12,16 @@
 <a href="https://plm19.slack.com/">chat</a> |
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
-</td></tr>
-<tr><td colspan=3>
-<img align=right src="https://ouseful.files.wordpress.com/2012/07/proglanginfluence.png" width=450>
-</td>
-<td colspan=2 align=center>
-<p>
 
+<img align=left src="https://ouseful.files.wordpress.com/2012/07/proglanginfluence.png" width=450>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
 In your future professional life, you will work with dozens of different programming languages.
 So what can you learn from 100s of past languages to help you work with those future languages?
 Let's take a look....
-</td>
-</tr>
+</td></tr>
 <tr>
 <td align=center valign=top><img  width=85 height=82 src="etc/img/time.png">
 <b>SCHEDULE</b><hr>
