@@ -17,7 +17,8 @@ by <a href="http://menzies.us">Tim Menzies</a>
 </tr>
 <tr>
 <td xwidth="350" valign=middle>
-<img width=150 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png">
+<!--img width=150 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png"-->
+<h3>WHY?</h3>
 <p>
 Why study this subject?
 <p>
@@ -32,7 +33,7 @@ Well, let's take a look....
 <strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
 <strike>1b:Feb7</strike><br> <strike>1b+:Feb14</strike><br>
 <strike>1c:Feb21</strike><br><strike>1c+:Feb28</strike><br>
-1d:Mar7<br>1d+:Mar21
+<strike>1d:Mar7</strike><br>1d+:Mar21
 <hr>
 Mid-term:Mar19
 <hr>
