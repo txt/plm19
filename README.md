@@ -2,7 +2,7 @@
 
 <table width="100%" border=0 align=center>
 <tr>
-<td colspan=6>
+<td colspan=5>
 
 <a href="http://tiny.cc/plm19"><img width=1000 src="https://raw.githubusercontent.com/txt/plm19/master/etc/img/banner.png"></a><br>
 &nbsp;<a href="http://tiny.cc/plm19">home</a> |
@@ -13,21 +13,17 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
-</td>
-</tr>
-<tr>
-<td xwidth="350" valign=middle>
-<!--img width=150 src="https://www.asalesguy.com/wp-content/uploads/2017/09/why.png"-->
-<h3>WHY?</h3>
 <p>
-Why study this subject?
+
+Why study programming languages?
 <p>
 In your future professional life you will work with dozens of different programming languages.
 <p>
 So what can you learn from 100s of past languages to help you work with those future languages?
 <p>
 Well, let's take a look....
-</td>
+</tr>
+<tr>
 <td align=center valign=top><img  width=85 height=82 src="etc/img/time.png">
 <b>SCHEDULE</b><hr>
 <strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
