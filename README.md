@@ -13,7 +13,7 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
-<img align=left src="https://ouseful.files.wordpress.com/2012/07/proglanginfluence.png" width=450>
+<a href="https://blog.ouseful.info/2012/07/03/mapping-how-programming-languages-influenced-each-other-according-to-wikipedia/"><img align=left src="https://ouseful.files.wordpress.com/2012/07/proglanginfluence.png" width=450></a>
 <br>&nbsp;
 <br>&nbsp;
 <br>&nbsp;
