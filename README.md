@@ -79,7 +79,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 <a href="doc/week2.md">Week2</a><br>
 <a href="doc/week1.md">Week1</a><br>
 </td>
-<td align=center valign=top><img  height=80 src="etc/img/news.png">
+<td align=center valign=top><img  height=85 src="etc/img/news.png">
 <br>
 <b>HELP</b><hr>
 <a href="https://learnxinyminutes.com/docs/make/">Make</a><br>
