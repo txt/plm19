@@ -8,7 +8,7 @@
 by <a href="http://menzies.us">Tim Menzies</a>
 '
 
-# Notes on Project 2
+# Bonus marks for  Project 2
 
 Your mission is to replace N part of my data mining
 pipeline with machines of your own making.
