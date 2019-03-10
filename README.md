@@ -13,9 +13,12 @@
 <a href="https://github.com/txt/plm19/blob/master/LICENSE.md">&copy;2019</a> 
 by <a href="http://menzies.us">Tim Menzies</a>
 
+<center>
+<img src="https://ouseful.files.wordpress.com/2012/07/proglanginfluence.png" width=500>
+</center>
 <p>
 
-In your future professional life you will work with dozens of different programming languages.
+In your future professional life, you will work with dozens of different programming languages.
 So what can you learn from 100s of past languages to help you work with those future languages?
 Let's take a look....
 </tr>
