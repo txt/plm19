@@ -81,7 +81,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 </td>
 <td align=center valign=top><img  height=80 src="etc/img/news.png">
 <br>
-<b>Help</b><hr>
+<b>HELP</b><hr>
 <a href="https://learnxinyminutes.com/docs/make/">Make</a><br>
 <a href="https://www.youtube.com/watch?v=eis11j_iGMs">About-lambda</a><br>
 <a href="https://www.youtube.com/watch?v=iSmkqocn0oQ">Haskell-is-useless</a><br>
