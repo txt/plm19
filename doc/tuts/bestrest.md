@@ -5,7 +5,7 @@
 # BestRest
 
 In which we realize that it doesn't matter
-if you win or lose its, it's all about the journey. 
+if you win or lose, it's all about the journey. 
 
 We jest of course, it __*only*__ matters if you win.
 
