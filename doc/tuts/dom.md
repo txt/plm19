@@ -17,7 +17,7 @@ Here, we'll learn how to summarize our problems into one large problem. We'll se
 
 Which house do you want:
 
-![](../img/build.png)
+![](https://txt.github.io/fss18/img/build.png)
 
 ## Domination measures:
 
