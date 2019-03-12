@@ -30,8 +30,7 @@ We break them apart as follows:
     3.1 If yes, go to step 1.
     3.2 If no, then go to step 4.
 
-Note: We initialize this with
-    $$enough=√N$$ (So, in our case, this will be `enough=√16=4`)
+Note: We initialize this with `enough=√N` (So, in our case, this will be `enough=√16=4`)
 
 4. Does the current split minimize the expected value of the $standard$ $deviation$ of both `left` and `right`. 
     4.1 If yes, save the current  split point
