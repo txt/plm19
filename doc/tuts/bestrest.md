@@ -27,7 +27,9 @@ We break them apart as follows:
 1. Find a split index, `i=1,..., N-2`
 2. Split the data into `left=arr[:i]` and `right=arr[i:]`
 3. Is there less than `enough` number of elements on each split (`left` and `right`)? 
+
     3.1 If yes, go to step 1.
+    
     3.2 If no, then go to step 4.
 
 Note: We initialize this with `enough=√N` (So, in our case, this will be `enough=√16=4`)
