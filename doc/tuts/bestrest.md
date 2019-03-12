@@ -13,7 +13,7 @@ We jest of course, it __*only*__ matters if you win.
 
 ## How to find a split
 
-Let's use an example to illustrate how to we'd go about doing this:
+Let's use an example to illustrate how we'd go about doing this:
 
 ```
 arr = [1,1,1,1,3,4,4,3,3,5,3,2,4,3,2,6]
