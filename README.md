@@ -84,6 +84,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 <td align=center valign=top><img  height=85 src="etc/img/news.png">
 <br>
 <b>HELP</b><hr>
+<a href="https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5">Kotlin</a>
 <a href="https://learnxinyminutes.com/docs/make/">Make</a><br>
 <a href="https://www.youtube.com/watch?v=eis11j_iGMs">About-lambda</a><br>
 <a href="https://www.youtube.com/watch?v=iSmkqocn0oQ">Haskell-is-useless</a><br>
