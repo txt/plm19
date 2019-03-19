@@ -30,7 +30,7 @@ Let's take a look....
 <strike>1c:Feb21</strike><br><strike>1c+:Feb28</strike><br>
 <strike>1d:Mar7</strike><br>1d+:Mar21
 <hr>
-Mid-term:Mar19
+<strike>Mid-term:Mar19</strike>
 <hr>
 2a:Apr4<br>2a+:Apr11<br>
 2b:Apr18<br>2b+:Apr25 <br> 
