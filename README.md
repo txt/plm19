@@ -28,7 +28,7 @@ Let's take a look....
 <strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
 <strike>1b:Feb7</strike><br> <strike>1b+:Feb14</strike><br>
 <strike>1c:Feb21</strike><br><strike>1c+:Feb28</strike><br>
-<strike>1d:Mar7</strike><br>1d+:Mar21
+<strike>1d:Mar7</strike><br>1d+:Mar28
 <hr>
 <strike>Mid-term:Mar19</strike>
 <hr>
