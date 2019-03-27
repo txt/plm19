@@ -43,7 +43,7 @@ We'll install this from source. Make a temporary empty director in `~/workspace`
 ~/workspace$ git clone https://github.com/d-u-o/101 ./duo
 ~/workspace$ cd duo
 ~/workspace$ cd etc
-~/workspace$ .ide
+~/workspace$ ./ide
 ~/workspace$ ../src
 ~/workspace$ make eg1
 ```
