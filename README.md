@@ -28,7 +28,7 @@ Let's take a look....
 <strike>1a:Jan25</strike><br><strike> 1a+:Jan31</strike><br>
 <strike>1b:Feb7</strike><br> <strike>1b+:Feb14</strike><br>
 <strike>1c:Feb21</strike><br><strike>1c+:Feb28</strike><br>
-<strike>1d:Mar7</strike><br>1d+:Mar28
+<strike>1d:Mar7</strike><br><strike>1d+:Mar28</strike>
 <hr>
 <strike>Mid-term:Mar19</strike>
 <hr>
@@ -74,6 +74,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 </td>
 <td align=center valign=top><img  height=80 xwidth=240 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
+<a href="doc/week9.md">Week9</a><br>
 <a href="doc/week6.md">Week6</a><br>
 <a href="doc/week5.md">Week5</a><br>
 <a href="doc/week4.md">Week4</a><br>
