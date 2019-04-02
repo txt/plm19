@@ -70,14 +70,14 @@ end
 - Q:"Expert are experts sicne they see patterns that novices do not". Explain.
 - Q: "Patterns + macros = new language". Discuss
 - Q: Discuss the merits of designning using the Composite pattern for a class hierarchy browser (single-parent) and disk file browser .
-       - In your answer, make sure you define what is a composite pattern
-       - What else could a composite be used for?
+	-  In your answer, make sure you define what is a composite pattern
+	- What else could a composite be used for?
 - Q:For Abstract Factory : [learn more](https://refactoring.guru/design-patterns/abstract-factory)
-       - Is it creational, strutural or behavioural? Justify your answer.
+	- Is it creational, strutural or behavioural? Justify your answer.
 - Q: Consider the Signelton Pattern: [learn more](https://github.com/davidgf/design-patterns-in-ruby/blob/master/singleton.md)
-       - What invariant does Singleton maintain?
-       - Singletons have recenly inspred much strong hatred. What do some people as the problem with Singletons?
-       - How does the following Ruby code maintain the Singleton invariant?
+	- What invariant does Singleton maintain?
+	- Singletons have recenly inspred much strong hatred. What do some people as the problem with Singletons?
+	- How does the following Ruby code maintain the Singleton invariant?
 
 Code:
 ```ruby
