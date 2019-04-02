@@ -168,7 +168,7 @@ In the following:
 - Q:When this runs, what does it output to the next step in the pipe?
 - Q:What is its input (from _the pipe_).
 
-```
+```python
  def step(self, dt, t, i, j):
         def _co(x):
             "Communication overhead"
@@ -272,27 +272,27 @@ Note that the output has no numerics in the goal column.
 About Discretization:
 
 - Q:What is discretization?
-      - Why not discretize with (e.g.) `(max-min)/10`?
+	- Why not discretize with (e.g.) `(max-min)/10`?
 - Q:If we have 900 numbers and we declare that `enough` best examples is square root of the number of rows, who many bests and rests exampels are there?
-      - If that number is too small, there are two ways to increase it. Name them.
+	- If that number is too small, there are two ways to increase it. Name them.
 
 Aside: time for some theory. To split a list of numbers into a set of bins:
 
 - Before doing anything else,  determine:
-      - _width_ = Minimum bin size. My code assumes sqrt(examples)
-      - _height_ = Minimum acceptable difference between bin start and bin end. My code sets hieght to 0.3*standardDeviation of examples
-      - what a measure of diversity? My code uses standard deviation.
-      - what is a trivial difference in diversity? My code says les than 1%.
+	- _width_ = Minimum bin size. My code assumes sqrt(examples)
+	- _height_ = Minimum acceptable difference between bin start and bin end. My code sets hieght to 0.3\*standardDeviation of examples
+	- what a measure of diversity? My code uses standard deviation.
+	- what is a trivial difference in diversity? My code says les than 1%.
 - Then, first
-      - Sort the numbers
-      - set width, height
+	- Sort the numbers
+	- set width, height
 - Second,
-      - We say a _cut_ is a split of those _n_ numbers into  bins of size _n1,n2_ with diversity _d1,d2_
-        and expected value of the diversity after the cut of `n1/n*d1 + n2/n*d2`.
-      - We say a  _good cut_ is a split where _n1 > width_ and _n2 > width_ and the (max-min) value of each cut is over _height_..
-      - Find the _good cut_ that minimizies the expected diverity (and we say that two expected diversities are the same if they
-        are only trivially different).
-      - If it exists, take each half and recurse (start this second step again)
+	- We say a _cut_ is a split of those _n_ numbers into  bins of size _n1,n2_ with diversity _d1,d2_
+	  and expected value of the diversity after the cut of `n1/n*d1 + n2/n*d2`.
+	- We say a  _good cut_ is a split where _n1 > width_ and _n2 > width_ and the (max-min) value of each cut is over _height_..
+	- Find the _good cut_ that minimizies the expected diverity (and we say that two expected diversities are the same if they
+          are only trivially different).
+	- If it exists, take each half and recurse (start this second step again)
 
 The resulting devisions are then labelled:
 
@@ -308,10 +308,10 @@ A: Replace all numbers in the goal column with two synbols: best or rest
 
 - Q: What is the purpose of the _super_  part of the pipeline?
 - Q: What are its inputs and outputs:
-     - A: Input, a table with independent numerics
-     - A: Output, same table, independent numerics discretize such that each bin minimizes the diversity of that attribute (providing that split
-       also reduces the diversity of the goal column).
-     - This is called _supervised_ discretization sicne it takes the goal column into account.
+	- A: Input, a table with independent numerics
+	- A: Output, same table, independent numerics discretize such that each bin minimizes the diversity of that attribute (providing that split
+          also reduces the diversity of the goal column).
+	- This is called _supervised_ discretization sicne it takes the goal column into account.
 
 Note that there are no numbers in the indpendent or depedent columns... just lots of bins.
 
