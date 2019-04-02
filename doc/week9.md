@@ -73,7 +73,7 @@ end
        - In your answer, make sure you define what is a composite pattern
        - What else could a composite be used for?
 - Q:For Abstract Factory : [learn more](https://refactoring.guru/design-patterns/abstract-factory)
-	- Is it creational, strutural or behavioural? Justify your answer.
+       - Is it creational, strutural or behavioural? Justify your answer.
 - Q: Consider the Signelton Pattern: [learn more](https://github.com/davidgf/design-patterns-in-ruby/blob/master/singleton.md)
        - What invariant does Singleton maintain?
        - Singletons have recenly inspred much strong hatred. What do some people as the problem with Singletons?
