@@ -279,17 +279,17 @@ About Discretization:
 Aside: time for some theory. To split a list of numbers into a set of bins:
 
 - Before doing anything else,  determine:
-	- _width_ = Minimum bin size. My code assumes sqrt(examples)
-	- _height_ = Minimum acceptable difference between bin start and bin end. My code sets hieght to 0.3\*standardDeviation of examples
+	- _run_ = Minimum bin size. My code assumes sqrt(examples)
+	- _rise_ = Minimum acceptable difference between bin start and bin end. My code sets hieght to 0.3\*standardDeviation of examples
 	- what a measure of diversity? My code uses standard deviation.
 	- what is a trivial difference in diversity? My code says les than 1%.
 - Then, first
 	- Sort the numbers
-	- set width, height
+	- set _run, rise_
 - Second,
 	- We say a _cut_ is a split of those _n_ numbers into  bins of size _n1,n2_ with diversity _d1,d2_
-	  and expected value of the diversity after the cut of `n1/n*d1 + n2/n*d2`.
-	- We say a  _good cut_ is a split where _n1 > width_ and _n2 > width_ and the (max-min) value of each cut is over _height_..
+	  and expected value of the diversity after the cut of _n1/n*d1 + n2/n*d2_.
+	- We say a  _good cut_ is a split where _n1 > run_ and _n2 > run_ and the (max-min) value of each cut is over _rise_..
 	- Find the _good cut_ that minimizies the expected diverity (and we say that two expected diversities are the same if they
           are only trivially different).
 	- If it exists, take each half and recurse (start this second step again)
