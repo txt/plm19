@@ -14,13 +14,13 @@ by <a href="http://menzies.us">Tim Menzies</a>
 
 Write the following in Smalltalk, then LISP:
 
-```
+```ruby
 (1..5).each do |counter|
   puts "iteration #{counter}"
 end
 ```
 
-```
+```ruby
 array = [1,2,3,4,5]
 doubled = array.map do |element|
   element * 2
@@ -79,6 +79,7 @@ end
        - Singletons have recenly inspred much strong hatred. What do some people as the problem with Singletons?
        - How does the following Ruby code maintain the Singleton invariant?
 
+Code:
 ```ruby
 class SimpleLogger
 
