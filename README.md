@@ -41,6 +41,7 @@ Exam:May2
 
 <td align=center valign=top><img  height=80 src="etc/img/lectures.gif">
 <b>LECTURES</b><hr>
+<a href="doc/memory.md">Memory</a><br>
 Make:<a
 href="https://medium.freecodecamp.org/want-to-know-the-easiest-way-to-save-time-use-make-eec453adf7fe">0</a>,<a
 href="https://medium.com/@jolson88/its-time-for-makefiles-to-make-a-comeback-36cbc358bb0a">1</a>,<a
