@@ -25,7 +25,7 @@ Algol-like languages: local variables are easy.
 - call a function:
 - push items for its local variables to I+1, I+2, etc
 - work the function
-- exicit the functipn, return a  value
+- execute the function, return a  value
 - pop stack back to "I"
 - place the return v alue at "I+1"
 
@@ -51,8 +51,8 @@ And that way, madness lies
 
 ## Words to know
 
-- constructor : e.g. `mallo()`
-- descrutor; e.g. `free()`
+- constructor : e.g. `malloc()`
+- destructor; e.g. `free()`
 - heap
 - stack
 
@@ -76,11 +76,11 @@ My notes below come from:
 
 C programmers think memory management is too important to be left to the computer.
 
-- Becuase with C, programmers manager mor with `malloc()` and `free()`
+- Because with C, programmers manager more with `malloc()` and `free()`
 
 Lisp programmers think memory management is too important to be left to the user.
 
-- Because with Lisp (and nearly every "modern" language), mamory management is built in
+- Because with Lisp (and nearly every "modern" language), memory management is built in
 - But it took _decades_ to get it right
 
 
@@ -96,7 +96,7 @@ Garbage = allocated space that is no longer usable by the program. For example, 
 - Then the variable y is bound to a list that drops the first element of x and adds a different first element and the function returns this new list. 
 - Since x is never used again that first list is inaccessible, or garbage.
 
-C language (I.e what can go wrong with manaual memory managment):
+C language (I.e what can go wrong with manual memory management):
 
 - Using stack-allocated structures beyond their lifetimes (i.e. use after free);
      - Under manual memory management, this usually occurs when one part of a program decides it has finished using a memory block, and is unaware that another part of the program is still using it. This is rare under automatic memory management.
@@ -129,7 +129,7 @@ Is garbage collection slow?
 - Not necessarily.  A variety of algorithms allow garbage collection to proceed concurrently, incrementally, and (for some definitions of the term) in "real time". There are incremental garbage collectors that work with C and C++, for instance.
 - Also,
 memory has become so cheap that garbage collectors have been applied to very-large heaps. For very many applications modern garbage collectors provide pause times that are completely compatible with human interaction (pause times less than a fraction of second).
-- Also, also, if memory leaks cause crash then _not_ doing garbaage collection seems infinitely slower.
+- Also, also, if memory leaks cause crash then _not_ doing garbage collection seems infinitely slower.
 
 Can I use garbage collection with C or C++?
 
@@ -182,19 +182,19 @@ Memory heap = directed graph in which the nodes are blocks of memory and the edg
 
 Garbage collection = reclaim unused memory
 
-- i.e. blocks not reacahable from root (some _main_ function)
+- i.e. blocks not reachable from root (some _main_ function)
 
 When to trigger?
 
 - Not when low on memory 
-	- Usually means memory is full of garbge
+	- Usually means memory is full of garbage
 	- Much to fix up
 	- Leads to long pauses
-- Better to trigger after some magic number of allocationss (that is proportional to amount of non-garbage found after last collection)
+- Better to trigger after some magic number of allocations (that is proportional to amount of non-garbage found after last collection)
 
 
 
-## Precise vs Conservatiive
+## Precise vs Conservative
 
 
 Reachability means "find the pointers"
@@ -234,7 +234,7 @@ it.
 	- most pointers look like large integers. 
 	- relatively few cases in which the collector is not sure whether a block of memory is garbage.
 
-## Rerference Counting
+## Reference Counting
 
 
 - Each block of memory knows how many pointers there are incoming to that block. 
@@ -264,13 +264,13 @@ Since simple reference counting is not so good, we need mark and sweep.
 	- But, if garbage collection is being performed because the system is low on memory, there may not be enough added space to do the marking traversal itself
 
 
-Mark and sweel can an take a ling time, during which time, whole program/computer freezes. 
-iWe need generational Garbage Collection
+Mark and sweep can an take a ling time, during which time, whole program/computer freezes. 
+We need generational Garbage Collection
 
-## Generational Garabge Colelction
+## Generational Garbage Collection
 
-- Huerisitc: trash dies early
-- Place new objects in eden where fast garbgage collectors run, very often.
+- Heuristic: trash dies early
+- Place new objects in eden where fast garbage collectors run, very often.
 	- See compacting garbage collection , below
 - Objects that survive N collections get promoted to next generation
 	- That has better, but slower, collectors that are  run less often.
@@ -290,7 +290,7 @@ iWe need generational Garbage Collection
 
 ## Why Not Compact and Garbage Collect at the Same time.
 
-A copying collectorL
+A copying collector
 
 - starts from a set of roots 
 - traverse all of the reachable memory-allocated objects, copying them from one half of memory into the other half.  
@@ -317,7 +317,7 @@ Suppose further only objects 2 and 4 are reachable from the stack.  After copyin
 
 	, , , , ,                                        |    Obj2  ,  Obj4, , , ,             
 
-Now computational rstarts again, this time allocating to the right hand side and, in the figure, collectiong to the left.
+Now computational restarts again, this time allocating to the right hand side and, in the figure, collection to the left.
 
 And so on.
 
@@ -326,7 +326,7 @@ Pros:
 	- Running time is proportional to the amount of live memory, not the size of the heap. 
 
 Cons:
-	 Since a copying collector inherently moves objects, need precise proints since impossible to update ambiguous pointer. 
+	 Since a copying collector inherently moves objects, need precise points since impossible to update ambiguous pointer. 
 
 
 
