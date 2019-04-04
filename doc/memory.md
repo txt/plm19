@@ -322,10 +322,12 @@ Now computational restarts again, this time allocating to the right hand side an
 And so on.
 
 Pros:
+
 	- Compacts memory, and hence avoids any fragmentation. 
 	- Running time is proportional to the amount of live memory, not the size of the heap. 
 
 Cons:
+
 	 Since a copying collector inherently moves objects, need precise points since impossible to update ambiguous pointer. 
 
 
