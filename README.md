@@ -32,7 +32,7 @@ Let's take a look....
 <hr>
 <strike>Mid-term:Mar19</strike>
 <hr>
-2a:Apr4<br>2a+:Apr19<br>
+<strike>2a:Apr4</strike><br>2a+:Apr19<br>
 2b:Apr18<br>2b+:Apr25 <br> 
 2c:Apr18
 <hr>
