@@ -75,6 +75,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 </td>
 <td align=center valign=top><img  height=80 xwidth=240 src="etc/img/review.gif">
 <b>REVIEW</b><hr>
+<a href="doc/week10.md">Week10</a><br>
 <a href="doc/week9.md">Week9</a><br>
 <a href="doc/week6.md">Week6</a><br>
 <a href="doc/week5.md">Week5</a><br>
@@ -86,6 +87,7 @@ href="http://swcarpentry.github.io/make-novice/08-self-doc/index.html">5</a><br>
 <td align=center valign=top><img  height=85 src="etc/img/news.png">
 <br>
 <b>HELP</b><hr>
+<a href="https://learnxinyminutes.com/docs/python3/">Python3</a><br>
 <a href="http://unbox.org/doc/Seven%20More%20Languages%20in%20Seven%20Weeks.pdf">Elm</a><br>
 <a href="https://medium.com/@magnus.chatt/why-you-should-totally-switch-to-kotlin-c7bbde9e10d5">Kotlin</a><br>
 <a href="https://learnxinyminutes.com/docs/make/">Make</a><br>
